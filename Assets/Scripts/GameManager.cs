@@ -4,13 +4,17 @@ using UnityEngine.UI;
 using System.Collections;
 using System.IO;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, ISaveable
 {
     public static GameManager Instance {get; private set;}
     [HideInInspector] public static GameState currentState = GameState.Init;
     public static GameState currentGameState => currentState;
     public static string targetScene;
     public static GameState targetState;
+
+    public static int Days = 0;
+    public static int MaxDays;
+    public static GameMode currentGameMode;
 
 
     private void Awake() 
@@ -37,7 +41,7 @@ public class GameManager : MonoBehaviour
     {
         if(currentState == GameState.Init)
         {
-            SceneLoader("00_Start", GameState.Menu);
+            SceneLoader("01_Menu", GameState.Menu);
         }
     }
 
@@ -50,8 +54,14 @@ public class GameManager : MonoBehaviour
     }
 //-------------------FOR UI BUTTONS------------------------------------
 
-    public void Button_StartGame()
+    public void StartNewGame()
     {
+        SceneLoader("01_Main", GameState.Playing);
+    }
+
+    public void ContinueGame()
+    {
+        SaveManager.Instance.LoadGame();
         SceneLoader("01_Main", GameState.Playing);
     }
 
@@ -59,5 +69,25 @@ public class GameManager : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+//---------------------------------------------------------------------
+
+    public void SetGameMode(string mode)
+    {
+        currentGameMode = (GameMode)System.Enum.Parse(typeof(GameMode), mode);
+        Debug.Log("Game mode set to: " + currentGameMode);
+    }
+
+    public void OnSave(SaveData data)
+    {
+        data.days = Days;
+        data.gameMode = currentGameMode;
+    }
+
+    public void OnLoad(SaveData data)
+    {
+        Days = data.days;
+        currentGameMode = data.gameMode;
     }
 }

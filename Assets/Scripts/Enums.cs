@@ -1,3 +1,9 @@
+public enum GameMode
+{
+    Normal,
+    Endless
+}
+
 public enum GameState
 {
     Init,
