@@ -39,6 +39,7 @@ public class FpsController : MonoBehaviour
     {
         Look();
         Move();
+        PlayerInteract();
     }
 
     private void Look()
@@ -91,5 +92,18 @@ public class FpsController : MonoBehaviour
     {
         Cursor.lockState = locked ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !locked;
+    }
+
+    public void PlayerInteract()
+    {
+        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit, 5f) && Input.GetKeyDown(KeyCode.E))
+        {
+            Interactable interactable = hit.collider.GetComponent<Interactable>();
+            if (interactable != null)
+            {
+                interactable.TryInteract();
+            }
+        }
     }
 }

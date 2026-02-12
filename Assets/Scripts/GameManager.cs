@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour, ISaveable
 {
     public static GameManager Instance {get; private set;}
     [HideInInspector] public static GameState currentState = GameState.Init;
+    [SerializeField] private bool initialiseOnStart = true;
     public static GameState currentGameState => currentState;
     public static string targetScene;
     public static GameState targetState;
@@ -31,7 +32,10 @@ public class GameManager : MonoBehaviour, ISaveable
 
     void Update()
     {
-        Initialise();
+        if (initialiseOnStart && currentState == GameState.Init)
+        {
+            Initialise();
+        }
         //Pause();
     }
 
@@ -89,5 +93,10 @@ public class GameManager : MonoBehaviour, ISaveable
     {
         Days = data.days;
         currentGameMode = data.gameMode;
+    }
+
+    public void ConsoleMessage(string message)
+    {
+        Debug.Log(message);
     }
 }
