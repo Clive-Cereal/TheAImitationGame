@@ -1,109 +1,91 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
 public class FpsController : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Transform cameraRoot; // vertical rotate the camera. 
     [SerializeField] private Camera playerCamera;
 
     [Header("Look")]
-    [SerializeField] private float mouseSensitivity = 2.0f;
+    [SerializeField] private float mouseSensitivity = 0.2f;
     [SerializeField] private float pitchMin = -80f;
     [SerializeField] private float pitchMax = 80f;
 
     [Header("Move")]
-    [SerializeField] private float moveSpeed = 5.0f;
+    [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float sprintMultiplier = 1.6f;
     [SerializeField] private float jumpHeight = 1.2f;
     [SerializeField] private float gravity = -20f;
 
-    [Header("Ground Check")]
-    [SerializeField] private float groundedStickForce = -2f; 
-
     private CharacterController cc;
     private float pitch;
     private Vector3 velocity;
+    private bool inputEnabled = true;
+
+    private Vector2 moveInput;
+    private Vector2 lookInput;
+    private bool sprinting;
 
     private void Awake()
     {
         cc = GetComponent<CharacterController>();
-
         if (playerCamera == null) playerCamera = Camera.main;
-        if (cameraRoot == null && playerCamera != null) cameraRoot = playerCamera.transform.parent;
-
-        LockCursor(true);
+        SetInputEnabled(true);
     }
 
     private void Update()
     {
+        if (!inputEnabled) return;
         Look();
         Move();
-        PlayerInteract();
     }
 
+    // ── Input System message callbacks ──────────────────────────────────────
+    private void OnMove(InputValue value)   => moveInput = value.Get<Vector2>();
+    private void OnLook(InputValue value)   => lookInput = value.Get<Vector2>();
+    private void OnSprint(InputValue value) => sprinting = value.isPressed;
+
+    private void OnJump(InputValue value)
+    {
+        if (!inputEnabled || !cc.isGrounded) return;
+        velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+    }
+
+    private void OnInteract(InputValue value)
+    {
+        if (!inputEnabled) return;
+        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit, 5f))
+            hit.collider.GetComponent<Interactable>()?.TryInteract();
+    }
+
+    // ── Movement & look ─────────────────────────────────────────────────────
     private void Look()
     {
-        float mx = Input.GetAxisRaw("Mouse X") * mouseSensitivity;
-        float my = Input.GetAxisRaw("Mouse Y") * mouseSensitivity;
-
-        // horizontal: player rotate
-        transform.Rotate(Vector3.up * mx);
-
-        // vertical: camera rotate
-        pitch -= my;
-        pitch = Mathf.Clamp(pitch, pitchMin, pitchMax);
-
-        if (cameraRoot != null)
-            cameraRoot.localRotation = Quaternion.Euler(pitch, 0f, 0f);
-        else if (playerCamera != null)
-            playerCamera.transform.localRotation = Quaternion.Euler(pitch, 0f, 0f);
+        transform.Rotate(Vector3.up * lookInput.x * mouseSensitivity);
+        pitch -= lookInput.y * mouseSensitivity;
+        pitch  = Mathf.Clamp(pitch, pitchMin, pitchMax);
+        playerCamera.transform.localRotation = Quaternion.Euler(pitch, 0f, 0f);
     }
 
     private void Move()
     {
-        // grounded check
-        bool grounded = cc.isGrounded;
+        if (cc.isGrounded && velocity.y < 0f) velocity.y = -2f;
 
-        if (grounded && velocity.y < 0f)
-            velocity.y = groundedStickForce;
-
-        float x = Input.GetAxisRaw("Horizontal");
-        float z = Input.GetAxisRaw("Vertical");
-
-        Vector3 move = (transform.right * x + transform.forward * z).normalized;
-
-        float speed = moveSpeed;
-        if (Input.GetKey(KeyCode.LeftShift)) speed *= sprintMultiplier;
-
+        Vector3 move = (transform.right * moveInput.x + transform.forward * moveInput.y).normalized;
+        float speed  = moveSpeed * (sprinting ? sprintMultiplier : 1f);
         cc.Move(move * speed * Time.deltaTime);
-
-        if (grounded && Input.GetButtonDown("Jump"))
-        {
-            // v = sqrt(2gh) 
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
 
         velocity.y += gravity * Time.deltaTime;
         cc.Move(velocity * Time.deltaTime);
     }
 
-    public void LockCursor(bool locked)
+    // ── Called by DayManager to disable input during UI review ──────────────
+    public void SetInputEnabled(bool enabled)
     {
-        Cursor.lockState = locked ? CursorLockMode.Locked : CursorLockMode.None;
-        Cursor.visible = !locked;
-    }
-
-    public void PlayerInteract()
-    {
-        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, 5f) && Input.GetKeyDown(KeyCode.E))
-        {
-            Interactable interactable = hit.collider.GetComponent<Interactable>();
-            if (interactable != null)
-            {
-                interactable.TryInteract();
-            }
-        }
+        inputEnabled     = enabled;
+        Cursor.lockState = enabled ? CursorLockMode.Locked : CursorLockMode.None;
+        Cursor.visible   = !enabled;
     }
 }

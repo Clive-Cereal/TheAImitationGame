@@ -10,4 +10,6 @@ public class Subject : MonoBehaviour
 
     public Document document;
 
+    public string displayName;
+    public string purposeDialogue;
 }

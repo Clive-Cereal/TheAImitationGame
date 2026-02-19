@@ -25,3 +25,11 @@ public enum DeclarationItem
     gun,
     food
 }
+
+public enum DayState
+{
+    Idle,
+    Working,
+    Reviewing,
+    DayEnded
+}
