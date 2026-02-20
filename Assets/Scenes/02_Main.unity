@@ -2809,7 +2809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1831442669}
-  mouseSensitivity: 1
+  mouseSensitivity: 0.05
   pitchMin: -80
   pitchMax: 80
   moveSpeed: 5
