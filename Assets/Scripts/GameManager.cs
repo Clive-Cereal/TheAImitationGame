@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour, ISaveable
 
     public void StartNewGame()
     {
-        SceneLoader("01_Main", GameState.Playing);
+        SceneLoader("02_Main", GameState.Playing);
     }
 
     public void ContinueGame()

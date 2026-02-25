@@ -18,7 +18,7 @@ public class LoadingScene : MonoBehaviour
 
         float timer = 0f;
 
-        while (timer < 2f) //This makes fake loading time for set amount
+        while (timer < 1.5f) //This makes fake loading time for set amount
         {
             timer += Time.deltaTime;
             yield return null;
