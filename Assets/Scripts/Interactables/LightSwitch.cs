@@ -7,7 +7,7 @@ public class LightSwitch : Interactable
         if (DayManager.Instance == null) return;
 
         DayState state = DayManager.Instance.CurrentDayState;
-        if (state == DayState.Idle)        DayManager.Instance.StartDay();
+        if (state == DayState.Idle)          DayManager.Instance.StartDay();
         else if (state == DayState.DayEnded) DayManager.Instance.EndDay();
     }
 

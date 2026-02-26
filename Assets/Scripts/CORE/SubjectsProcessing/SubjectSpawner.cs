@@ -23,11 +23,12 @@ public class SubjectSpawner : MonoBehaviour
     [SerializeField, Range(0f, 1f)] private float medicationChance = 0.25f;
     [SerializeField, Range(0f, 1f)] private float substanceChance  = 0.10f;
 
-    private const int GameYear = 3157;
+   [SerializeField]public const int GameYear = 3157;
+
     private GameObject currentSubjectInstance;
 
-    private static readonly Nationality[]          AllNationalities  = (Nationality[])Enum.GetValues(typeof(Nationality));
-    private static readonly CyberwareType[]        AllCyberwareTypes = (CyberwareType[])Enum.GetValues(typeof(CyberwareType));
+    private static readonly Nationality[]           AllNationalities  = (Nationality[])Enum.GetValues(typeof(Nationality));
+    private static readonly CyberwareType[]         AllCyberwareTypes = (CyberwareType[])Enum.GetValues(typeof(CyberwareType));
     private static readonly CyberwareManufacturer[] AllManufacturers = (CyberwareManufacturer[])Enum.GetValues(typeof(CyberwareManufacturer));
 
     public void SpawnSubject(Action<Subject> onArrived)

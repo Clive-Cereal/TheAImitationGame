@@ -1,0 +1,5 @@
+These scripts are libraries: they have the data but won't be in the unity scene.
+
+You can add any according information/ item types etc in these script. The format will be easy to follow. 
+
+Be careful there are some few core-game elements among them so if you are not sure you can ask me. -Clive-

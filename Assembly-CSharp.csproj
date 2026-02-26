@@ -48,33 +48,34 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.56f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\SubjectProcessor.cs" />
-    <Compile Include="Assets\Scripts\SubjectData.cs" />
-    <Compile Include="Assets\Scripts\Interactable.cs" />
+    <Compile Include="Assets\Scripts\Libraries\SubjectData.cs" />
+    <Compile Include="Assets\Scripts\CORE\Player\InspectionToolsManager.cs" />
+    <Compile Include="Assets\Scripts\CORE\SubjectsProcessing\SubjectProcessor.cs" />
+    <Compile Include="Assets\Scripts\Libraries\Subject.cs" />
+    <Compile Include="Assets\Scripts\CORE\FUNDAMENTAL\LoadingScene.cs" />
+    <Compile Include="Assets\Scripts\CORE\SubjectsProcessing\SubjectSpawner.cs" />
+    <Compile Include="Assets\Scripts\Interactables\Interactable.cs" />
     <Compile Include="Assets\Scripts\Temp\SubjectExample.cs" />
-    <Compile Include="Assets\Scripts\BedInteractable.cs" />
-    <Compile Include="Assets\Scripts\SubjectInteractable.cs" />
-    <Compile Include="Assets\Scripts\Subject.cs" />
+    <Compile Include="Assets\Scripts\CORE\FUNDAMENTAL\GameManager.cs" />
     <Compile Include="Assets\Scripts\Libraries\DialogueLibrary.cs" />
-    <Compile Include="Assets\Scripts\InspectionToolsManager.cs" />
-    <Compile Include="Assets\Scripts\SaveSystem.cs" />
-    <Compile Include="Assets\Scripts\DayManager.cs" />
+    <Compile Include="Assets\Scripts\Libraries\Document.cs" />
+    <Compile Include="Assets\Scripts\Libraries\Cyberware.cs" />
+    <Compile Include="Assets\Scripts\CORE\FUNDAMENTAL\DayManager.cs" />
     <Compile Include="Assets\Scripts\Libraries\Enums.cs" />
+    <Compile Include="Assets\Scripts\Interactables\LightSwitch.cs" />
     <Compile Include="Assets\Scripts\Puzzles\Skillcheck.cs" />
+    <Compile Include="Assets\Scripts\CORE\UI\ConversationUI.cs" />
+    <Compile Include="Assets\Scripts\CORE\FUNDAMENTAL\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\Libraries\ItemLibrary.cs" />
-    <Compile Include="Assets\Scripts\FpsController.cs" />
-    <Compile Include="Assets\Scripts\ConversationUI.cs" />
-    <Compile Include="Assets\Scripts\Cyberware.cs" />
-    <Compile Include="Assets\Scripts\LoadingScene.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Document.cs" />
-    <Compile Include="Assets\Scripts\LightSwitch.cs" />
-    <Compile Include="Assets\Scripts\SubjectSpawner.cs" />
+    <Compile Include="Assets\Scripts\Interactables\SubjectInteractable.cs" />
+    <Compile Include="Assets\Scripts\CORE\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Interactables\BedInteractable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
+    <None Include="Assets\SubjectData\Instruction for Subjectdata&amp; Special subjects.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Downloaded assets\PolygonSciFiCity\Shaders\Polygon_Triplanar.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
@@ -90,6 +91,7 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Scripts\Libraries\Library Instruction.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\Downloaded assets\SkySeries Freebie\Hdri setup.txt" />

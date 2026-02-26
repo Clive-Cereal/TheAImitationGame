@@ -1,3 +1,5 @@
+//----------------------------------------DO NOT TOUCH THIS!!!------------------------------------------
+
 using System;
 
 [Serializable]
@@ -15,6 +17,8 @@ public struct SpecialSubstanceProduct
     public SpecialSubstanceType type;
     public CyberwareManufacturer manufacturer;
 }
+
+//----------------------------------------From here feel free to edit------------------------------------------
 
 public static class ItemLibrary
 {

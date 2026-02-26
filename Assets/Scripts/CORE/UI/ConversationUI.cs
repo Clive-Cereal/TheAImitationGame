@@ -155,4 +155,7 @@ public class ConversationUI : MonoBehaviour
     {
         dayText.text = $"Day {day + 1}";
     }
+
+
+    //to do: interrogate function, fast travel + map exploration
 }

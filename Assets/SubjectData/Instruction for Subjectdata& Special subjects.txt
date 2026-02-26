@@ -1,0 +1,6 @@
+Use this to create 'special characters' that significantly affect the story (or a fun easter egg character if you want)
+
+This will create a fixed preset of subject that won't be affected by random generation.
+
+Right click on project tab(right here in this folder) -> Create -> TheAImitationGame -> SubjectData
+Select the created subjectdata and name it properly, then adjust the parameters in the inspector.

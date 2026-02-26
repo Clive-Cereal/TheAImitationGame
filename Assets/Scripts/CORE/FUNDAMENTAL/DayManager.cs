@@ -21,7 +21,7 @@ public class DayManager : MonoBehaviour
     private float dayTimer;
     private int subjectsProcessed;
     private Subject currentSubject;
-    private FpsController fpsController;
+    private PlayerController PlayerController;
 
     public event Action OnDayStarted;
     public event Action OnDayEnded;
@@ -36,7 +36,7 @@ public class DayManager : MonoBehaviour
 
     private void Start()
     {
-        fpsController = FindFirstObjectByType<FpsController>();
+        PlayerController = FindFirstObjectByType<PlayerController>();
         lightSwitch.SetInteractable(true);
         conversationUI.UpdateDay(GameManager.Days);
         conversationUI.UpdateWarnings(0);
@@ -96,44 +96,31 @@ public class DayManager : MonoBehaviour
         EvaluateDecision(approvedAsHuman: false);
     }
 
-    /// <summary>
-    /// Called when the subject reaches the interaction point.
-    /// Registers the subject but does not start review — player must press E.
-    /// </summary>
     public void OnSubjectArrived(Subject subject)
     {
         currentSubject = subject;
-        // State stays Working; FPS stays enabled. Review starts on player interact.
     }
 
-    /// <summary>
-    /// Called by SubjectInteractable when the player presses E on the subject.
-    /// </summary>
     public void StartReview()
     {
         if (currentSubject == null || CurrentDayState != DayState.Working) return;
 
         CurrentDayState = DayState.Reviewing;
-        if (fpsController != null) fpsController.SetInputEnabled(false);
+        if (PlayerController != null) PlayerController.SetInputEnabled(false);
         conversationUI.ShowSubject(currentSubject);
         if (InspectionToolsManager.Instance != null)
             InspectionToolsManager.Instance.PopulateTablet(currentSubject);
     }
 
-    /// <summary>
-    /// Dismisses the review panel without a decision.
-    /// Subject stays at the desk — player can press E again to resume.
-    /// </summary>
     public void ExitReview()
     {
         if (CurrentDayState != DayState.Reviewing) return;
 
         CurrentDayState = DayState.Working;
         conversationUI.HidePanel();
-        if (fpsController != null) fpsController.SetInputEnabled(true);
+        if (PlayerController != null) PlayerController.SetInputEnabled(true);
     }
 
-    // ── Private Logic ────────────────────────────────────────────────────────
     private void SpawnNextSubject()
     {
         if (subjectsProcessed >= subjectsPerDay)
@@ -178,7 +165,7 @@ public class DayManager : MonoBehaviour
         }
 
         conversationUI.HidePanel();
-        if (fpsController != null) fpsController.SetInputEnabled(true);
+        if (PlayerController != null) PlayerController.SetInputEnabled(true);
         currentSubject = null;
         subjectsProcessed++;
 
@@ -190,7 +177,7 @@ public class DayManager : MonoBehaviour
     {
         CurrentDayState = DayState.DayEnded;
         conversationUI.HidePanel();
-        if (fpsController != null) fpsController.SetInputEnabled(true);
+        if (PlayerController != null) PlayerController.SetInputEnabled(true);
         lightSwitch.SetInteractable(true);
         Debug.Log("All subjects processed. Interact with the light switch to end the day.");
     }
@@ -200,7 +187,7 @@ public class DayManager : MonoBehaviour
         CurrentDayState = DayState.Idle;
         conversationUI.HidePanel();
         spawner.DestroyCurrentSubject();
-        if (fpsController != null) fpsController.SetInputEnabled(true);
+        if (PlayerController != null) PlayerController.SetInputEnabled(true);
 
         OnGameOver?.Invoke();
         Debug.Log("GAME OVER — 3 warnings reached. You are fired.");

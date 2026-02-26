@@ -1,3 +1,5 @@
+//----------------------------------------DO NOT TOUCH THIS!!!------------------------------------------
+
 public enum GameMode
 {
     Normal,
@@ -12,6 +14,33 @@ public enum GameState
     Playing,
     Paused
 }
+
+public enum DayState
+{
+    Idle,
+    Working,
+    Reviewing,
+    DayEnded
+}
+
+public enum SubjectType
+{
+    ValidHuman,
+    ValidRobot,
+    InvalidHuman,
+    InvalidRobot
+}
+
+public enum InvalidCause
+{
+    None,
+    DocumentMismatch,
+    ExpiredDocument,
+    ProhibitedItem,
+    DisapprovedCyberware
+}
+
+//----------------------------------------From here feel free to edit------------------------------------------
 
 public enum Nationality
 {
@@ -58,30 +87,6 @@ public enum SpecialSubstanceType
     ExperimentalSerum
 }
 
-public enum DayState
-{
-    Idle,
-    Working,
-    Reviewing,
-    DayEnded
-}
-
-public enum SubjectType
-{
-    ValidHuman,
-    ValidRobot,
-    InvalidHuman,
-    InvalidRobot
-}
-
-public enum InvalidCause
-{
-    None,
-    DocumentMismatch,
-    ExpiredDocument,
-    ProhibitedItem,
-    DisapprovedCyberware
-}
 
 public enum CyberwareType
 {

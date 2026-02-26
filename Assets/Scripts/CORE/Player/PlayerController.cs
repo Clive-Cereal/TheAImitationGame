@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
-public class FpsController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Camera playerCamera;
