@@ -812,6 +812,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4894872305640102}
   - component: {fileID: 95464216564743392}
+  - component: {fileID: -2312657338870549108}
+  - component: {fileID: 5457481097384547029}
+  - component: {fileID: -8572519829276539337}
+  - component: {fileID: -5257181860860722443}
+  - component: {fileID: -8211143489925619867}
   m_Layer: 0
   m_Name: Character_Cyber_Female_01
   m_TagString: Untagged
@@ -829,7 +834,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4299157913399462}
@@ -877,6 +882,108 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-2312657338870549108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174504732505636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898ceb31f0b23eb48a1fc0bd646dee90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRobot: 0
+  dateofbirth: 0
+  nationality: 0
+  weight: 0
+  height: 0
+  bionicPercent: 0
+  metalPercent: 0
+  document: {fileID: 0}
+  displayName: 
+  purposeDialogue: 
+  subjectType: 0
+  invalidCause: 0
+--- !u!114 &5457481097384547029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174504732505636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19d0bf2359e66364ab2ee6b66132ce50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isRobot: 0
+  _dateofbirth: 0
+  _nationality: 0
+  isExpired: 0
+  expiryYear: 0
+  _declaration: 
+  medicationDetail:
+    name: 
+    type: 0
+    manufacturer: 0
+  substanceDetail:
+    name: 
+    type: 0
+    manufacturer: 0
+  cyberware: []
+--- !u!114 &-8572519829276539337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174504732505636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d87d339e640ffdb4ba9eaad5444f97be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  rotationSpeed: 8
+  arrivalThreshold: 0.05
+--- !u!136 &-5257181860860722443
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174504732505636}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &-8211143489925619867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174504732505636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3e6a41441d374e498c3e569972d4107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInteractable: 1
 --- !u!1 &1187777853360582
 GameObject:
   m_ObjectHideFlags: 0

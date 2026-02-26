@@ -204,6 +204,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4438700912050984}
   - component: {fileID: 95753207625120232}
+  - component: {fileID: 652575953887727855}
+  - component: {fileID: -1661522959295774862}
+  - component: {fileID: -2197253113431616584}
+  - component: {fileID: 1964674712193849743}
+  - component: {fileID: 6404244685044448920}
   m_Layer: 0
   m_Name: Character_Alien_Male_02
   m_TagString: Untagged
@@ -221,7 +226,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4284638604232626}
@@ -269,6 +274,108 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &652575953887727855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085419920687770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898ceb31f0b23eb48a1fc0bd646dee90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRobot: 0
+  dateofbirth: 0
+  nationality: 0
+  weight: 0
+  height: 0
+  bionicPercent: 0
+  metalPercent: 0
+  document: {fileID: 0}
+  displayName: 
+  purposeDialogue: 
+  subjectType: 0
+  invalidCause: 0
+--- !u!114 &-1661522959295774862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085419920687770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19d0bf2359e66364ab2ee6b66132ce50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isRobot: 0
+  _dateofbirth: 0
+  _nationality: 0
+  isExpired: 0
+  expiryYear: 0
+  _declaration: 
+  medicationDetail:
+    name: 
+    type: 0
+    manufacturer: 0
+  substanceDetail:
+    name: 
+    type: 0
+    manufacturer: 0
+  cyberware: []
+--- !u!114 &-2197253113431616584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085419920687770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d87d339e640ffdb4ba9eaad5444f97be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  rotationSpeed: 8
+  arrivalThreshold: 0.05
+--- !u!136 &1964674712193849743
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085419920687770}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &6404244685044448920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085419920687770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3e6a41441d374e498c3e569972d4107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInteractable: 1
 --- !u!1 &1089191859110574
 GameObject:
   m_ObjectHideFlags: 0

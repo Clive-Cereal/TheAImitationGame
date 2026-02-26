@@ -12,7 +12,6 @@ public class DayManager : MonoBehaviour
     [SerializeField] private LightSwitch lightSwitch;
 
     [Header("Day Settings")]
-    [SerializeField] private float dayDuration = 300f;
     [SerializeField] private int subjectsPerDay = 5;
     [SerializeField] private int maxWarnings = 3;
 
@@ -41,21 +40,15 @@ public class DayManager : MonoBehaviour
         lightSwitch.SetInteractable(true);
         conversationUI.UpdateDay(GameManager.Days);
         conversationUI.UpdateWarnings(0);
-        conversationUI.UpdateTimer(dayDuration);
+        conversationUI.UpdateTimer(0f);
     }
 
     private void Update()
     {
         if (CurrentDayState == DayState.Working || CurrentDayState == DayState.Reviewing)
         {
-            dayTimer -= Time.deltaTime;
+            dayTimer += Time.deltaTime;
             conversationUI.UpdateTimer(dayTimer);
-
-            if (dayTimer <= 0f)
-            {
-                dayTimer = 0f;
-                HandleTimerExpired();
-            }
         }
     }
 
@@ -67,7 +60,7 @@ public class DayManager : MonoBehaviour
         CurrentDayState   = DayState.Working;
         warnings          = 0;
         subjectsProcessed = 0;
-        dayTimer          = dayDuration;
+        dayTimer          = 0f;
 
         lightSwitch.SetInteractable(false);
         conversationUI.UpdateWarnings(0);
@@ -84,11 +77,11 @@ public class DayManager : MonoBehaviour
         GameManager.Days++;
         CurrentDayState = DayState.Idle;
 
-        lightSwitch.SetInteractable(true);
+        lightSwitch.SetInteractable(false);
         conversationUI.UpdateDay(GameManager.Days);
 
         OnDayEnded?.Invoke();
-        Debug.Log($"Day ended. Total days completed: {GameManager.Days}");
+        Debug.Log("Day ended. Interact with the bed to start the next day.");
     }
 
     public void OnApprove()
@@ -101,6 +94,43 @@ public class DayManager : MonoBehaviour
     {
         if (CurrentDayState != DayState.Reviewing) return;
         EvaluateDecision(approvedAsHuman: false);
+    }
+
+    /// <summary>
+    /// Called when the subject reaches the interaction point.
+    /// Registers the subject but does not start review — player must press E.
+    /// </summary>
+    public void OnSubjectArrived(Subject subject)
+    {
+        currentSubject = subject;
+        // State stays Working; FPS stays enabled. Review starts on player interact.
+    }
+
+    /// <summary>
+    /// Called by SubjectInteractable when the player presses E on the subject.
+    /// </summary>
+    public void StartReview()
+    {
+        if (currentSubject == null || CurrentDayState != DayState.Working) return;
+
+        CurrentDayState = DayState.Reviewing;
+        if (fpsController != null) fpsController.SetInputEnabled(false);
+        conversationUI.ShowSubject(currentSubject);
+        if (InspectionToolsManager.Instance != null)
+            InspectionToolsManager.Instance.PopulateTablet(currentSubject);
+    }
+
+    /// <summary>
+    /// Dismisses the review panel without a decision.
+    /// Subject stays at the desk — player can press E again to resume.
+    /// </summary>
+    public void ExitReview()
+    {
+        if (CurrentDayState != DayState.Reviewing) return;
+
+        CurrentDayState = DayState.Working;
+        conversationUI.HidePanel();
+        if (fpsController != null) fpsController.SetInputEnabled(true);
     }
 
     // ── Private Logic ────────────────────────────────────────────────────────
@@ -119,34 +149,22 @@ public class DayManager : MonoBehaviour
     private IEnumerator SpawnWithDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-
-        currentSubject = spawner.SpawnSubject();
-
-        if (currentSubject == null)
-        {
-            Debug.LogWarning("DayManager: SpawnSubject returned null.");
-            subjectsProcessed++;
-            SpawnNextSubject();
-            yield break;
-        }
-
-        CurrentDayState = DayState.Reviewing;
-        fpsController?.SetInputEnabled(false);
-        conversationUI.ShowSubject(currentSubject);
+        spawner.SpawnSubject(OnSubjectArrived);
     }
 
     private void EvaluateDecision(bool approvedAsHuman)
     {
         if (currentSubject == null) return;
 
-        bool isCorrect = approvedAsHuman ? !currentSubject.isRobot : currentSubject.isRobot;
+        bool shouldApprove = currentSubject.subjectType == SubjectType.ValidHuman;
+        bool isCorrect     = approvedAsHuman ? shouldApprove : !shouldApprove;
 
         if (!isCorrect)
         {
             warnings++;
             conversationUI.UpdateWarnings(warnings);
             OnWarningAdded?.Invoke(warnings);
-            Debug.Log($"Wrong decision! Warnings: {warnings}/{maxWarnings}");
+            Debug.Log($"Wrong decision! [{currentSubject.subjectType}] Warnings: {warnings}/{maxWarnings}");
 
             if (warnings >= maxWarnings)
             {
@@ -156,15 +174,15 @@ public class DayManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Correct decision.");
+            Debug.Log($"Correct decision. [{currentSubject.subjectType}]");
         }
 
         conversationUI.HidePanel();
-        spawner.DestroyCurrentSubject();
+        if (fpsController != null) fpsController.SetInputEnabled(true);
         currentSubject = null;
         subjectsProcessed++;
 
-        fpsController?.SetInputEnabled(true);
+        spawner.SendSubjectAway();
         SpawnNextSubject();
     }
 
@@ -172,21 +190,9 @@ public class DayManager : MonoBehaviour
     {
         CurrentDayState = DayState.DayEnded;
         conversationUI.HidePanel();
-        fpsController?.SetInputEnabled(true);
+        if (fpsController != null) fpsController.SetInputEnabled(true);
         lightSwitch.SetInteractable(true);
         Debug.Log("All subjects processed. Interact with the light switch to end the day.");
-    }
-
-    private void HandleTimerExpired()
-    {
-        if (CurrentDayState == DayState.Reviewing && currentSubject != null)
-        {
-            Debug.Log("Time expired — auto-rejecting.");
-            EvaluateDecision(approvedAsHuman: false);
-            return;
-        }
-
-        FinishAllSubjects();
     }
 
     public void TriggerGameOver()
@@ -194,7 +200,7 @@ public class DayManager : MonoBehaviour
         CurrentDayState = DayState.Idle;
         conversationUI.HidePanel();
         spawner.DestroyCurrentSubject();
-        fpsController?.SetInputEnabled(true);
+        if (fpsController != null) fpsController.SetInputEnabled(true);
 
         OnGameOver?.Invoke();
         Debug.Log("GAME OVER — 3 warnings reached. You are fired.");
