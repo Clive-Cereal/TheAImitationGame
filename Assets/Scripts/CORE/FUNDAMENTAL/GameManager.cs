@@ -1,18 +1,20 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using System.Collections;
 using System.IO;
 
 public class GameManager : MonoBehaviour, ISaveable
 {
     public static GameManager Instance {get; private set;}
-    [HideInInspector] public static GameState currentState = GameState.Init;
+    [HideInInspector] public static GameState currentState = GameState.Init; //this is one to be set
+    [Header("Uncheck this if you are testing from non-init scene")]
     [SerializeField] private bool initialiseOnStart = true;
-    public static GameState currentGameState => currentState;
+
+    public static GameState currentGameState => currentState; //no touchy read only
     public static string targetScene;
     public static GameState targetState;
-
     public static int Days = 0;
     public static int MaxDays;
     public static GameMode currentGameMode;
@@ -28,6 +30,8 @@ public class GameManager : MonoBehaviour, ISaveable
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        if (!initialiseOnStart) currentState = GameState.Playing;
     }
 
     void Update()
@@ -36,7 +40,7 @@ public class GameManager : MonoBehaviour, ISaveable
         {
             Initialise();
         }
-        //Pause();
+        Debug.Log("Current Game State : " + currentGameState.ToString());
     }
 
 //---------------------------------------------------------------------
@@ -56,6 +60,7 @@ public class GameManager : MonoBehaviour, ISaveable
 
         SceneManager.LoadScene("_Loading");
     }
+
 //-------------------FOR UI BUTTONS------------------------------------
 
     public void StartNewGame()
@@ -66,14 +71,19 @@ public class GameManager : MonoBehaviour, ISaveable
     public void ContinueGame()
     {
         SaveManager.Instance.LoadGame();
-        SceneLoader("01_Main", GameState.Playing);
+        SceneLoader("02_Main", GameState.Playing);
     }
 
-//---------------------------------------------------------------------
+    public void LoadMenuScene()
+    {
+        SceneLoader("01_Menu", GameState.Menu);
+    }
+    
     public void ExitGame()
     {
         Application.Quit();
     }
+//-----------Save----------------------------------------------------
 
 //---------------------------------------------------------------------
 

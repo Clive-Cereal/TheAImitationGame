@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using TMPro;
 using System.Text;
 
-public class ConversationUI : MonoBehaviour
+public class UIManager : MonoBehaviour
 {
     [Header("Dialogue Panel")]
     [SerializeField] private GameObject dialoguePanel;
@@ -35,6 +36,11 @@ public class ConversationUI : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private TMP_Text dayText;
 
+    [Header("Pause Menu")]
+    [SerializeField] private GameObject pauseMenu;
+
+
+
     private void Awake()
     {
         approveButton.onClick.AddListener(() => DayManager.Instance.OnApprove());
@@ -43,6 +49,7 @@ public class ConversationUI : MonoBehaviour
         toggleDocumentsButton.onClick.AddListener(ToggleDocuments);
         dialoguePanel.SetActive(false);
         reviewPanel.SetActive(false);
+        pauseMenu.SetActive(false);
     }
 
     public void ToggleDocuments()
@@ -156,6 +163,27 @@ public class ConversationUI : MonoBehaviour
         dayText.text = $"Day {day + 1}";
     }
 
+    //── Pause ───────────────────────────────────────────────────────────────────
 
-    //to do: interrogate function, fast travel + map exploration
+    private void OnPause(InputValue _) => PauseGame();
+
+    void PauseGame()
+    {
+        Debug.Log("Game Paused");
+        bool isPausedMenu = pauseMenu.activeSelf;
+        bool isPausedState = GameManager.currentState == GameState.Paused ? true : false;
+        bool isPausedTime = Time.timeScale == 0f ? true : false;
+        bool needCursor = isPausedMenu || isPausedState || isPausedTime;
+
+        if(GameManager.currentGameState == GameState.Playing || GameManager.currentGameState == GameState.Paused)
+        {
+            GameManager.currentState = isPausedState ? GameState.Playing : GameState.Paused;
+            pauseMenu.SetActive(!isPausedMenu);
+            Time.timeScale = isPausedTime ? 1f : 0f;
+            Cursor.lockState = needCursor ? CursorLockMode.None  : CursorLockMode.Locked;
+            Cursor.visible   = needCursor;
+        }
+    }
+
+    //to do: interrogate function, Scene swap after work phase
 }
