@@ -363,6 +363,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4bb1b0fdbf9e594e8457252e2949a28, type: 3}
+--- !u!1001 &252127049
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 012c569aa56d8c64a98cb2e02b99142c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 44.083
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 012c569aa56d8c64a98cb2e02b99142c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 39.41
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 012c569aa56d8c64a98cb2e02b99142c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 86.35291
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 012c569aa56d8c64a98cb2e02b99142c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 012c569aa56d8c64a98cb2e02b99142c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 012c569aa56d8c64a98cb2e02b99142c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 012c569aa56d8c64a98cb2e02b99142c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 012c569aa56d8c64a98cb2e02b99142c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 012c569aa56d8c64a98cb2e02b99142c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 012c569aa56d8c64a98cb2e02b99142c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 012c569aa56d8c64a98cb2e02b99142c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: af7be1614e3b7fa46b4303900e6a7efe, type: 2}
+    - target: {fileID: 919132149155446097, guid: 012c569aa56d8c64a98cb2e02b99142c, type: 3}
+      propertyPath: m_Name
+      value: Cyberpunk characters moedels11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 012c569aa56d8c64a98cb2e02b99142c, type: 3}
 --- !u!1001 &308782753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -542,6 +603,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8af3f088e9929374f905c9943a544141, type: 3}
+--- !u!1001 &585451398
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 907c0ea8f781acf4a8d790eb3d4ec7d2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 52.059
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 907c0ea8f781acf4a8d790eb3d4ec7d2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 37.046
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 907c0ea8f781acf4a8d790eb3d4ec7d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 85.06
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 907c0ea8f781acf4a8d790eb3d4ec7d2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 907c0ea8f781acf4a8d790eb3d4ec7d2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 907c0ea8f781acf4a8d790eb3d4ec7d2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 907c0ea8f781acf4a8d790eb3d4ec7d2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 907c0ea8f781acf4a8d790eb3d4ec7d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 907c0ea8f781acf4a8d790eb3d4ec7d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 907c0ea8f781acf4a8d790eb3d4ec7d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2958426682642127962, guid: 907c0ea8f781acf4a8d790eb3d4ec7d2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b793de52a49a7084c8fb2cd0d2950501, type: 2}
+    - target: {fileID: 919132149155446097, guid: 907c0ea8f781acf4a8d790eb3d4ec7d2, type: 3}
+      propertyPath: m_Name
+      value: Cyberpunk characters moedels11@Neutral Idle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 907c0ea8f781acf4a8d790eb3d4ec7d2, type: 3}
 --- !u!1 &668210544
 GameObject:
   m_ObjectHideFlags: 0
@@ -1546,3 +1668,5 @@ SceneRoots:
   - {fileID: 1693457535}
   - {fileID: 1908276419}
   - {fileID: 308782753}
+  - {fileID: 252127049}
+  - {fileID: 585451398}
