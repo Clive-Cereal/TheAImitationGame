@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\Temp\SubjectExample.cs" />
     <Compile Include="Assets\Scripts\CORE\FUNDAMENTAL\GameManager.cs" />
     <Compile Include="Assets\Scripts\Libraries\DialogueLibrary.cs" />
+    <Compile Include="Assets\Dzeruza\MinimalScifiPack\Documentation\Welcomecard_MinimalScifiPack.cs" />
     <Compile Include="Assets\Scripts\Libraries\Document.cs" />
     <Compile Include="Assets\Scripts\Libraries\Cyberware.cs" />
     <Compile Include="Assets\Scripts\CORE\FUNDAMENTAL\DayManager.cs" />
