@@ -23,6 +23,11 @@ public class InspectionToolsManager : MonoBehaviour
         if (Instance != null && Instance != this) { Destroy(this); return; }
         Instance = this;
 
+        tabletBionicText = transform.Find("tablet_Bionic").GetComponent<TMP_Text>();
+        tabletMetalText = transform.Find("tablet_Metal").GetComponent<TMP_Text>();
+        tabletSubjectName = transform.Find("tablet_Name").GetComponent<TMP_Text>();
+        tabletItemsText = transform.Find("tablet_Items").GetComponent<TMP_Text>();
+
         tabletPanel.SetActive(false);
         manualPanel.SetActive(false);
         notepadPanel.SetActive(false);
