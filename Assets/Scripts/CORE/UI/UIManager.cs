@@ -57,6 +57,7 @@ public class UIManager : MonoBehaviour
         documentSection.SetActive(!documentSection.activeSelf);
     }
 
+    // THIS MAKES DIALOGUE-------------------------------------------------------------------------
     public void ShowDialogue(string npcName, string npcLine, string playerLine = null)
     {
         npcNameText.text     = npcName;
@@ -184,6 +185,4 @@ public class UIManager : MonoBehaviour
             Cursor.visible   = needCursor;
         }
     }
-
-    //to do: interrogate function, Scene swap after work phase
 }

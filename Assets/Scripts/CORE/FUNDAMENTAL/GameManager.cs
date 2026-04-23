@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour, ISaveable
     public static GameState currentGameState => currentState; //no touchy read only
     public static string targetScene;
     public static GameState targetState;
-    public static int Days = 0;
+    public static int Days = 1;
     public static int MaxDays;
     public static GameMode currentGameMode;
 
@@ -84,8 +84,6 @@ public class GameManager : MonoBehaviour, ISaveable
         Application.Quit();
     }
 //-----------Save----------------------------------------------------
-
-//---------------------------------------------------------------------
 
     public void SetGameMode(string mode)
     {

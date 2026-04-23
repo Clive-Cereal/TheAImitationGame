@@ -123,9 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb0aa55c5d815a4459cae835535e73ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabletPanel: {fileID: 7840977892264978126, guid: fb8cdc67fcfa9d24bb76d043539c9f8d, type: 3}
-  manualPanel: {fileID: 8125017013698844196, guid: 25258b89584db444f8f4cf759df9c9fb, type: 3}
-  notepadPanel: {fileID: 1562117832985231178, guid: 8a79285f482fe5240aeb3d53d5621ce2, type: 3}
+  tabletPanel: {fileID: 0}
+  manualPanel: {fileID: 0}
+  notepadPanel: {fileID: 0}
   tabletSubjectName: {fileID: 0}
   tabletBionicText: {fileID: 0}
   tabletMetalText: {fileID: 0}

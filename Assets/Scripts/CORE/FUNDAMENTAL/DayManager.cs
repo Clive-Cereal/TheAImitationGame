@@ -73,8 +73,7 @@ public class DayManager : MonoBehaviour
     public void EndDay()
     {
         if (CurrentDayState != DayState.DayEnded) return;
-
-        GameManager.Days++;
+        
         CurrentDayState = DayState.Idle;
 
         lightSwitch.SetInteractable(false);

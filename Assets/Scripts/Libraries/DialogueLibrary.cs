@@ -59,4 +59,9 @@ public static class DialogueLibrary
         "Following programmed route.",
         "Waste processing assignment."
     };
+
+    public static readonly string[] Dialogue = new string[]
+    {
+        "yappa yappa yappa"
+    };
 }
