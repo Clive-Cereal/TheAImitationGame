@@ -10,10 +10,14 @@ public class DayManager : MonoBehaviour
     [SerializeField] private SubjectSpawner spawner;
     [SerializeField] private UIManager UImanager;
     [SerializeField] private LightSwitch lightSwitch;
+    [SerializeField] private MazePuzzleManager reviewPuzzle;
 
     [Header("Day Settings")]
     [SerializeField] private int subjectsPerDay = 5;
     [SerializeField] private int maxWarnings = 3;
+
+    [Header("Review Gate")]
+    [SerializeField] private bool requirePuzzleBeforeReview = true;
 
     public DayState CurrentDayState { get; private set; } = DayState.Idle;
 
@@ -21,6 +25,8 @@ public class DayManager : MonoBehaviour
     private float dayTimer;
     private int subjectsProcessed;
     private Subject currentSubject;
+    private Subject puzzleSolvedForSubject;
+    private bool reviewPuzzleActive;
     private PlayerController PlayerController;
 
     public event Action OnDayStarted;
@@ -61,6 +67,9 @@ public class DayManager : MonoBehaviour
         warnings          = 0;
         subjectsProcessed = 0;
         dayTimer          = 0f;
+        currentSubject    = null;
+        puzzleSolvedForSubject = null;
+        reviewPuzzleActive = false;
 
         lightSwitch.SetInteractable(false);
         UImanager.UpdateWarnings(0);
@@ -98,17 +107,28 @@ public class DayManager : MonoBehaviour
     public void OnSubjectArrived(Subject subject)
     {
         currentSubject = subject;
+        puzzleSolvedForSubject = null;
+        reviewPuzzleActive = false;
     }
 
     public void StartReview()
     {
         if (currentSubject == null || CurrentDayState != DayState.Working) return;
+        if (reviewPuzzleActive) return;
 
-        CurrentDayState = DayState.Reviewing;
-        if (PlayerController != null) PlayerController.SetInputEnabled(false);
-        UImanager.ShowSubject(currentSubject);
-        if (InspectionToolsManager.Instance != null)
-            InspectionToolsManager.Instance.PopulateTablet(currentSubject);
+        bool needsPuzzle = requirePuzzleBeforeReview &&
+                           reviewPuzzle != null &&
+                           puzzleSolvedForSubject != currentSubject;
+
+        if (needsPuzzle)
+        {
+            reviewPuzzleActive = true;
+            if (PlayerController != null) PlayerController.SetInputEnabled(false);
+            reviewPuzzle.StartPuzzle(OnReviewPuzzleSolved);
+            return;
+        }
+
+        BeginReviewForCurrentSubject();
     }
 
     public void ExitReview()
@@ -118,6 +138,31 @@ public class DayManager : MonoBehaviour
         CurrentDayState = DayState.Working;
         UImanager.HidePanel();
         if (PlayerController != null) PlayerController.SetInputEnabled(true);
+    }
+
+    private void OnReviewPuzzleSolved()
+    {
+        reviewPuzzleActive = false;
+
+        if (currentSubject == null || CurrentDayState != DayState.Working)
+        {
+            if (PlayerController != null) PlayerController.SetInputEnabled(true);
+            return;
+        }
+
+        puzzleSolvedForSubject = currentSubject;
+        BeginReviewForCurrentSubject();
+    }
+
+    private void BeginReviewForCurrentSubject()
+    {
+        if (currentSubject == null || CurrentDayState != DayState.Working) return;
+
+        CurrentDayState = DayState.Reviewing;
+        if (PlayerController != null) PlayerController.SetInputEnabled(false);
+        UImanager.ShowSubject(currentSubject);
+        if (InspectionToolsManager.Instance != null)
+            InspectionToolsManager.Instance.PopulateTablet(currentSubject);
     }
 
     private void SpawnNextSubject()
@@ -166,6 +211,8 @@ public class DayManager : MonoBehaviour
         UImanager.HidePanel();
         if (PlayerController != null) PlayerController.SetInputEnabled(true);
         currentSubject = null;
+        puzzleSolvedForSubject = null;
+        reviewPuzzleActive = false;
         subjectsProcessed++;
 
         spawner.SendSubjectAway();
@@ -176,6 +223,7 @@ public class DayManager : MonoBehaviour
     {
         CurrentDayState = DayState.DayEnded;
         UImanager.HidePanel();
+        if (reviewPuzzle != null) reviewPuzzle.ForceClose();
         if (PlayerController != null) PlayerController.SetInputEnabled(true);
         lightSwitch.SetInteractable(true);
         Debug.Log("All subjects processed. Interact with the light switch to end the day.");
@@ -185,8 +233,13 @@ public class DayManager : MonoBehaviour
     {
         CurrentDayState = DayState.Idle;
         UImanager.HidePanel();
+        if (reviewPuzzle != null) reviewPuzzle.ForceClose();
         spawner.DestroyCurrentSubject();
         if (PlayerController != null) PlayerController.SetInputEnabled(true);
+
+        currentSubject = null;
+        puzzleSolvedForSubject = null;
+        reviewPuzzleActive = false;
 
         OnGameOver?.Invoke();
         Debug.Log("GAME OVER — 3 warnings reached. You are fired.");
