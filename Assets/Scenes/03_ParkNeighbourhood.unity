@@ -55540,6 +55540,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4190384165951000, guid: 5e4bdc96038d5424fbd9029b5ecaea9f, type: 3}
   m_PrefabInstance: {fileID: 1058404121}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1061817146
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 8af3f088e9929374f905c9943a544141, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 40.123135
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8af3f088e9929374f905c9943a544141, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.302
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8af3f088e9929374f905c9943a544141, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.1522
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8af3f088e9929374f905c9943a544141, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8af3f088e9929374f905c9943a544141, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8af3f088e9929374f905c9943a544141, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8af3f088e9929374f905c9943a544141, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8af3f088e9929374f905c9943a544141, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8af3f088e9929374f905c9943a544141, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8af3f088e9929374f905c9943a544141, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8af3f088e9929374f905c9943a544141, type: 3}
+      propertyPath: m_Name
+      value: Cyberpunk characters moedels1@Happy Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 8af3f088e9929374f905c9943a544141, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 846d1b5e11f103746aea56dd6b158ee6, type: 3}
+    - target: {fileID: 5866666021909216657, guid: 8af3f088e9929374f905c9943a544141, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3ae756a5d0bafc040bc7237ccb7fe273, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8af3f088e9929374f905c9943a544141, type: 3}
 --- !u!1001 &1063197133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85345,6 +85410,66 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4076457533959554, guid: a279d9ca726ccb34a923266d9c5f9987, type: 3}
   m_PrefabInstance: {fileID: 1582229444}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1582564703
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 87d663218fde23a468938849d5a6fb26, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 42.357456
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87d663218fde23a468938849d5a6fb26, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.64
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87d663218fde23a468938849d5a6fb26, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.4403074
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87d663218fde23a468938849d5a6fb26, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87d663218fde23a468938849d5a6fb26, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87d663218fde23a468938849d5a6fb26, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87d663218fde23a468938849d5a6fb26, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87d663218fde23a468938849d5a6fb26, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87d663218fde23a468938849d5a6fb26, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87d663218fde23a468938849d5a6fb26, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87d663218fde23a468938849d5a6fb26, type: 3}
+      propertyPath: m_Name
+      value: Cyberpunk characters moedels1@Talking
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 87d663218fde23a468938849d5a6fb26, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1940649147}
+  m_SourcePrefab: {fileID: 100100000, guid: 87d663218fde23a468938849d5a6fb26, type: 3}
 --- !u!1001 &1583634810
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -104083,6 +104208,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8684918676983624230, guid: 865ebd1afbd90b24493c51b4db684e4c, type: 3}
   m_PrefabInstance: {fileID: 1940109008}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1940649146 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 87d663218fde23a468938849d5a6fb26, type: 3}
+  m_PrefabInstance: {fileID: 1582564703}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1940649147
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940649146}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1941061784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115499,3 +115651,5 @@ SceneRoots:
   - {fileID: 705236238}
   - {fileID: 368555947}
   - {fileID: 500106584}
+  - {fileID: 1061817146}
+  - {fileID: 1582564703}
