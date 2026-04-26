@@ -878,6 +878,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ca7295660089fd4c95d8c93a1a2115e, type: 3}
+--- !u!1001 &729631124
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 5251b93b99195304d9f06c84166657ae, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 38.834
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5251b93b99195304d9f06c84166657ae, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 39.06369
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5251b93b99195304d9f06c84166657ae, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 84.265
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5251b93b99195304d9f06c84166657ae, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5251b93b99195304d9f06c84166657ae, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5251b93b99195304d9f06c84166657ae, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5251b93b99195304d9f06c84166657ae, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5251b93b99195304d9f06c84166657ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5251b93b99195304d9f06c84166657ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5251b93b99195304d9f06c84166657ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5251b93b99195304d9f06c84166657ae, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f2d6ed6fca699574d849bce11903a36b, type: 2}
+    - target: {fileID: 919132149155446097, guid: 5251b93b99195304d9f06c84166657ae, type: 3}
+      propertyPath: m_Name
+      value: Cyberpunk characters moedels12
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5251b93b99195304d9f06c84166657ae, type: 3}
 --- !u!1001 &834421907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -939,6 +1000,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 846d1b5e11f103746aea56dd6b158ee6, type: 3}
+--- !u!1001 &917536767
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 238fb3c2c89f5e541986b7c87cb01279, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 51.075
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 238fb3c2c89f5e541986b7c87cb01279, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 37.039
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 238fb3c2c89f5e541986b7c87cb01279, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 85.17
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 238fb3c2c89f5e541986b7c87cb01279, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 238fb3c2c89f5e541986b7c87cb01279, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 238fb3c2c89f5e541986b7c87cb01279, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 238fb3c2c89f5e541986b7c87cb01279, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 238fb3c2c89f5e541986b7c87cb01279, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 238fb3c2c89f5e541986b7c87cb01279, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 238fb3c2c89f5e541986b7c87cb01279, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 238fb3c2c89f5e541986b7c87cb01279, type: 3}
+      propertyPath: m_Name
+      value: Cyberpunk characters moedels12@Dwarf Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969664560246009605, guid: 238fb3c2c89f5e541986b7c87cb01279, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c0b9952f39eb51540b6ff0f77d5503a3, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 238fb3c2c89f5e541986b7c87cb01279, type: 3}
 --- !u!1001 &926185084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1670,3 +1792,5 @@ SceneRoots:
   - {fileID: 308782753}
   - {fileID: 252127049}
   - {fileID: 585451398}
+  - {fileID: 729631124}
+  - {fileID: 917536767}
