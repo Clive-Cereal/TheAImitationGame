@@ -33,7 +33,7 @@ MonoBehaviour:
     m_Value: 0.1
   bilateralSpatialSigma:
     m_OverrideState: 1
-    m_Value: 2.92
+    m_Value: 2
   enableColorMapping:
     m_OverrideState: 1
     m_Value: 1
@@ -64,7 +64,7 @@ MonoBehaviour:
     m_Value: 0.93
   brightness:
     m_OverrideState: 1
-    m_Value: 0.163
+    m_Value: 0.1
   shadowHueShift:
     m_OverrideState: 1
     m_Value: 0.03
@@ -169,16 +169,16 @@ MonoBehaviour:
     m_Value: 1
   finalSaturation:
     m_OverrideState: 1
-    m_Value: 0.64
+    m_Value: 0.81
   finalContrast:
     m_OverrideState: 1
-    m_Value: 1.087
+    m_Value: 0.982
   shadowTint:
     m_OverrideState: 1
-    m_Value: {r: 0.002647739, g: 0.033018857, b: 0.004545934, a: 1}
+    m_Value: {r: 0, g: 0, b: 0.04, a: 1}
   shadowInfluence:
     m_OverrideState: 1
-    m_Value: 0.462
+    m_Value: 0.335
   enablePixelate:
     m_OverrideState: 1
     m_Value: 0
@@ -196,19 +196,19 @@ MonoBehaviour:
     m_Value: 1
   crtCurve:
     m_OverrideState: 1
-    m_Value: 4.67
+    m_Value: 6.88
   chromaticAberration:
     m_OverrideState: 1
     m_Value: 0.003
   scanlineCount:
     m_OverrideState: 1
-    m_Value: 387
+    m_Value: 313
   scanlineIntensity:
     m_OverrideState: 1
-    m_Value: 0.107
+    m_Value: 0.164
   vignetteIntensity:
     m_OverrideState: 1
-    m_Value: 1.83
+    m_Value: 1.24
   enableVaporwave:
     m_OverrideState: 1
     m_Value: 0
