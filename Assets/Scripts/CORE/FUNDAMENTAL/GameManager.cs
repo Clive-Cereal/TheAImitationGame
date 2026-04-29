@@ -1,26 +1,23 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using UnityEngine.InputSystem;
-using System.Collections;
-using System.IO;
 
-public class GameManager : MonoBehaviour, ISaveable
+public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance {get; private set;}
-    [HideInInspector] public static GameState currentState = GameState.Init; //this is one to be set
+    public static GameManager Instance { get; private set; }
+    [HideInInspector] public static GameState currentState = GameState.Init;
     [Header("Uncheck this if you are testing from non-init scene")]
     [SerializeField] private bool initialiseOnStart = true;
 
-    public static GameState currentGameState => currentState; //no touchy read only
+    public static GameState currentGameState => currentState;
     public static string targetScene;
     public static GameState targetState;
-    public static int Days = 1;
-    public static int MaxDays;
-    public static GameMode currentGameMode;
+    public static int        Days           = 1;
+    public static int        MaxDays        = 20;
+    public static GameMode   currentGameMode;
+    public static AnyaOutcome CurrentOutcome = AnyaOutcome.None;
+    public static string     NotepadContent = "";
 
-
-    private void Awake() 
+    private void Awake()
     {
         if (Instance != null && Instance != this)
         {
@@ -30,34 +27,56 @@ public class GameManager : MonoBehaviour, ISaveable
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
-        if (!initialiseOnStart) currentState = GameState.Playing;
     }
 
-    void Update()
+    private void Start()
     {
+        if (SaveManager.Instance != null)
+            SaveManager.Instance.OnLoad += RestoreFromSave;
+
         if (initialiseOnStart && currentState == GameState.Init)
-        {
             Initialise();
-        }
-        Debug.Log("Current Game State : " + currentGameState.ToString());
+        else if (!initialiseOnStart)
+            currentState = GameState.Playing;
+    }
+
+    private void OnDestroy()
+    {
+        if (SaveManager.Instance != null)
+            SaveManager.Instance.OnLoad -= RestoreFromSave;
+    }
+
+    private void RestoreFromSave(SaveData data)
+    {
+        Days           = data.days;
+        currentGameMode = data.gameMode;
+        CurrentOutcome = data.anyaOutcome;
+        NotepadContent = data.notepadContent ?? "";
+    }
+
+    public void SaveGame()
+    {
+        if (SaveManager.Instance == null) return;
+        SaveManager.Instance.SaveGame(new SaveData
+        {
+            days           = Days,
+            gameMode       = currentGameMode,
+            anyaOutcome    = CurrentOutcome,
+            notepadContent = NotepadContent
+        });
     }
 
 //---------------------------------------------------------------------
 
     void Initialise()
     {
-        if(currentState == GameState.Init)
-        {
-            SceneLoader("01_Menu", GameState.Menu);
-        }
+        SceneLoader("01_Menu", GameState.Menu);
     }
 
-    public void SceneLoader(string sceneName, GameState stateName) //To use this : eg. GameManager.Instance.SceneLoader("desiredscenename", GameState.desiredstate);
+    public void SceneLoader(string sceneName, GameState stateName)
     {
         targetScene = sceneName;
         targetState = stateName;
-
         SceneManager.LoadScene("_Loading");
     }
 
@@ -65,6 +84,7 @@ public class GameManager : MonoBehaviour, ISaveable
 
     public void StartNewGame()
     {
+        Days = 1;
         SceneLoader("02_Main", GameState.Playing);
     }
 
@@ -78,29 +98,17 @@ public class GameManager : MonoBehaviour, ISaveable
     {
         SceneLoader("01_Menu", GameState.Menu);
     }
-    
+
     public void ExitGame()
     {
         Application.Quit();
     }
-//-----------Save----------------------------------------------------
+
+//-----------Utility----------------------------------------------------
 
     public void SetGameMode(string mode)
     {
         currentGameMode = (GameMode)System.Enum.Parse(typeof(GameMode), mode);
-        Debug.Log("Game mode set to: " + currentGameMode);
-    }
-
-    public void OnSave(SaveData data)
-    {
-        data.days = Days;
-        data.gameMode = currentGameMode;
-    }
-
-    public void OnLoad(SaveData data)
-    {
-        Days = data.days;
-        currentGameMode = data.gameMode;
     }
 
     public void ConsoleMessage(string message)

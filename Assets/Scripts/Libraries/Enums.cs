@@ -12,7 +12,22 @@ public enum GameState
     Loading,
     Menu,
     Playing,
-    Paused
+    Paused,
+    Ending
+}
+
+// Tracks the player's final choice regarding Anya — determines which ending plays.
+// Option 1: helped her cross (HC exposed, Leon gets message)
+// Option 2: refused help but she tried alone (50/50 — HC exposed or detained)
+// Option 3: indirectly told her to go home (HC not exposed, gets farewell message)
+// Option 4: reported her to authorities (detained, HC not exposed)
+public enum AnyaOutcome
+{
+    None,       // not yet decided
+    Helped,
+    Refused,
+    SentHome,
+    Reported
 }
 
 public enum DayState

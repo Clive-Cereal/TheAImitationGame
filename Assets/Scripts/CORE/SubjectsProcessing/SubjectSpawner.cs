@@ -23,7 +23,7 @@ public class SubjectSpawner : MonoBehaviour
     [SerializeField, Range(0f, 1f)] private float medicationChance = 0.25f;
     [SerializeField, Range(0f, 1f)] private float substanceChance  = 0.10f;
 
-   [SerializeField]public const int GameYear = 3157;
+    public const int GameYear = 3157;
 
     private GameObject currentSubjectInstance;
 
@@ -75,8 +75,8 @@ public class SubjectSpawner : MonoBehaviour
         Nationality nat = AllNationalities[UnityEngine.Random.Range(0, AllNationalities.Length)];
 
         string displayName   = DialogueLibrary.Names[UnityEngine.Random.Range(0, DialogueLibrary.Names.Length)];
-        string dialogue      = (isRobot ? DialogueLibrary.RobotPurpose : DialogueLibrary.HumanPurpose)
-                               [UnityEngine.Random.Range(0, isRobot ? DialogueLibrary.RobotPurpose.Length : DialogueLibrary.HumanPurpose.Length)];
+        string dialogue      = (isRobot ? DialogueLibrary.RobotPurposeRobotic : DialogueLibrary.HumanPurpose)
+                               [UnityEngine.Random.Range(0, isRobot ? DialogueLibrary.RobotPurposeRobotic.Length : DialogueLibrary.HumanPurpose.Length)];
 
         bool docIsRobot = isRobot;
         bool docExpired = false;
@@ -171,13 +171,8 @@ public class SubjectSpawner : MonoBehaviour
 
     private InvalidCause RollInvalidCause()
     {
-        switch (UnityEngine.Random.Range(0, 4))
-        {
-            case 0:  return InvalidCause.DocumentMismatch;
-            case 1:  return InvalidCause.ExpiredDocument;
-            case 2:  return InvalidCause.ProhibitedItem;
-            default: return InvalidCause.DisapprovedCyberware;
-        }
+        InvalidCause[] allowed = DayProgressionLibrary.GetRules(GameManager.Days).allowedCauses;
+        return allowed[UnityEngine.Random.Range(0, allowed.Length)];
     }
 
     private void AddProhibitedItem(List<DeclarationItem> decl,

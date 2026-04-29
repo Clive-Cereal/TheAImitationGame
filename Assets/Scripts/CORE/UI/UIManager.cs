@@ -6,6 +6,8 @@ using System.Text;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager Instance { get; private set; }
+
     [Header("Dialogue Panel")]
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text npcNameText;
@@ -43,6 +45,9 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
+        Instance = this;
+
         approveButton.onClick.AddListener(() => DayManager.Instance.OnApprove());
         rejectButton.onClick.AddListener(() => DayManager.Instance.OnReject());
         exitReviewButton.onClick.AddListener(() => DayManager.Instance.ExitReview());
@@ -161,12 +166,25 @@ public class UIManager : MonoBehaviour
 
     public void UpdateDay(int day)
     {
-        dayText.text = $"Day {day + 1}";
+        dayText.text = $"Day {day}";
     }
 
     //── Pause ───────────────────────────────────────────────────────────────────
 
-    private void OnPause(InputValue _) => PauseGame();
+    private PlayerController _playerController;
+
+    private void Start()
+    {
+        _playerController = FindFirstObjectByType<PlayerController>();
+        if (_playerController != null)
+            _playerController.OnPausePressed += PauseGame;
+    }
+
+    private void OnDestroy()
+    {
+        if (_playerController != null)
+            _playerController.OnPausePressed -= PauseGame;
+    }
 
     void PauseGame()
     {

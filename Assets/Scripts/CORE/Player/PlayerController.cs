@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -41,10 +42,19 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
+    public event Action OnPausePressed;
+    public event Action OnTabletPressed;
+    public event Action OnManualPressed;
+    public event Action OnNotepadPressed;
+
     // ── Input System message callbacks ──────────────────────────────────────
     private void OnMove(InputValue value)   => moveInput = value.Get<Vector2>();
     private void OnLook(InputValue value)   => lookInput = value.Get<Vector2>();
     private void OnSprint(InputValue value) => sprinting = value.isPressed;
+    private void OnPause(InputValue value)  => OnPausePressed?.Invoke();
+    private void OnTablet(InputValue value) => OnTabletPressed?.Invoke();
+    private void OnManual(InputValue value) => OnManualPressed?.Invoke();
+    private void OnNotepad(InputValue value) => OnNotepadPressed?.Invoke();
 
     private void OnJump(InputValue value)
     {

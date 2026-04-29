@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using TMPro;
 using System.Text;
 
@@ -7,44 +6,85 @@ public class InspectionToolsManager : MonoBehaviour
 {
     public static InspectionToolsManager Instance { get; private set; }
 
-    [Header("Tool Panels")]
-    [SerializeField] private GameObject tabletPanel;
-    [SerializeField] private GameObject manualPanel;
-    [SerializeField] private GameObject notepadPanel;
+    private GameObject tabletPanel;
+    private GameObject manualPanel;
+    private GameObject notepadPanel;
 
-    [Header("Tablet Content")]
-    [SerializeField] private TMP_Text tabletSubjectName;
-    [SerializeField] private TMP_Text tabletBionicText;
-    [SerializeField] private TMP_Text tabletMetalText;
-    [SerializeField] private TMP_Text tabletItemsText;
+    private TMP_Text       tabletSubjectName;
+    private TMP_Text       tabletBionicText;
+    private TMP_Text       tabletMetalText;
+    private TMP_Text       tabletItemsText;
+    private TMP_InputField notepadInput;
+
+    private PlayerController _playerController;
 
     private void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(this); return; }
         Instance = this;
 
-        tabletPanel = GameObject.Find("Tablet");
-        manualPanel = GameObject.Find("Manual");
-        notepadPanel = GameObject.Find("NotePad");
+        tabletPanel  = FindIncludingInactive("Tablet");
+        manualPanel  = FindIncludingInactive("Manual");
+        notepadPanel = FindIncludingInactive("NotePad");
 
-        tabletBionicText = transform.Find("tablet_Bionic").GetComponent<TMP_Text>();
-        tabletMetalText = transform.Find("tablet_Metal").GetComponent<TMP_Text>();
-        tabletSubjectName = transform.Find("tablet_Name").GetComponent<TMP_Text>();
-        tabletItemsText = transform.Find("tablet_Items").GetComponent<TMP_Text>();
+        if (tabletPanel != null)
+        {
+            Transform t;
+            t = tabletPanel.transform.Find("tablet_Bionic"); if (t != null) tabletBionicText  = t.GetComponent<TMP_Text>();
+            t = tabletPanel.transform.Find("tablet_Metal");  if (t != null) tabletMetalText   = t.GetComponent<TMP_Text>();
+            t = tabletPanel.transform.Find("tablet_Name");   if (t != null) tabletSubjectName = t.GetComponent<TMP_Text>();
+            t = tabletPanel.transform.Find("tablet_Items");  if (t != null) tabletItemsText   = t.GetComponent<TMP_Text>();
+            tabletPanel.SetActive(false);
+        }
+        else Debug.LogError("InspectionToolsManager: could not find 'Tablet' panel in scene.", this);
 
-        tabletPanel.SetActive(false);
-        manualPanel.SetActive(false);
-        notepadPanel.SetActive(false);
+        if (notepadPanel != null)
+        {
+            Transform t = notepadPanel.transform.Find("notepad_Input");
+            if (t != null) notepadInput = t.GetComponent<TMP_InputField>();
+            notepadPanel.SetActive(false);
+        }
+
+        if (manualPanel != null) manualPanel.SetActive(false);
     }
 
-    // ── PlayerInput SendMessages callbacks ────────────────────────────────────
-    private void OnTablet(InputValue _)  => Toggle(tabletPanel);
-    private void OnManual(InputValue _)  => Toggle(manualPanel);
-    private void OnNotepad(InputValue _) => Toggle(notepadPanel);
+    private void Start()
+    {
+        _playerController = FindFirstObjectByType<PlayerController>();
+        if (_playerController != null)
+        {
+            _playerController.OnTabletPressed  += ToggleTablet;
+            _playerController.OnManualPressed  += ToggleManual;
+            _playerController.OnNotepadPressed += ToggleNotepad;
+        }
 
-    // ── Toggle logic ──────────────────────────────────────────────────────────
+        if (notepadInput != null)
+        {
+            notepadInput.text = GameManager.NotepadContent;
+            notepadInput.onValueChanged.AddListener(text => GameManager.NotepadContent = text);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (_playerController != null)
+        {
+            _playerController.OnTabletPressed  -= ToggleTablet;
+            _playerController.OnManualPressed  -= ToggleManual;
+            _playerController.OnNotepadPressed -= ToggleNotepad;
+        }
+
+        if (notepadInput != null)
+            notepadInput.onValueChanged.RemoveAllListeners();
+    }
+
+    private void ToggleTablet()  => Toggle(tabletPanel);
+    private void ToggleManual()  => Toggle(manualPanel);
+    private void ToggleNotepad() => Toggle(notepadPanel);
+
     private void Toggle(GameObject target)
     {
+        if (target == null) return;
         bool next = !target.activeSelf;
 
         tabletPanel.SetActive(false);
@@ -52,16 +92,15 @@ public class InspectionToolsManager : MonoBehaviour
         notepadPanel.SetActive(false);
         target.SetActive(next);
 
-        bool anyOpen   = tabletPanel.activeSelf || manualPanel.activeSelf || notepadPanel.activeSelf;
-        bool reviewing = DayManager.Instance != null &&
-                         DayManager.Instance.CurrentDayState == DayState.Reviewing;
+        bool anyOpen    = tabletPanel.activeSelf || manualPanel.activeSelf || notepadPanel.activeSelf;
+        bool reviewing  = DayManager.Instance != null &&
+                          DayManager.Instance.CurrentDayState == DayState.Reviewing;
         bool needCursor = anyOpen || reviewing;
 
-        Cursor.lockState = needCursor ? CursorLockMode.None  : CursorLockMode.Locked;
+        Cursor.lockState = needCursor ? CursorLockMode.None : CursorLockMode.Locked;
         Cursor.visible   = needCursor;
     }
 
-    // ── Called by DayManager when a subject arrives ───────────────────────────
     public void PopulateTablet(Subject s)
     {
         if (tabletSubjectName != null) tabletSubjectName.text = s.displayName;
@@ -87,8 +126,15 @@ public class InspectionToolsManager : MonoBehaviour
 
     public void CloseAll()
     {
-        tabletPanel.SetActive(false);
-        manualPanel.SetActive(false);
-        notepadPanel.SetActive(false);
+        if (tabletPanel  != null) tabletPanel.SetActive(false);
+        if (manualPanel  != null) manualPanel.SetActive(false);
+        if (notepadPanel != null) notepadPanel.SetActive(false);
+    }
+
+    private static GameObject FindIncludingInactive(string name)
+    {
+        foreach (var t in FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            if (t.name == name) return t.gameObject;
+        return null;
     }
 }

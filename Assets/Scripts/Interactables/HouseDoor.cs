@@ -8,7 +8,10 @@ public class HouseDoor : Interactable
 
         DayState state = DayManager.Instance.CurrentDayState;
         if (state != DayState.DayEnded) return;
-        GameManager.Instance.SceneLoader("04_Bedroom", GameState.Playing);
+        string next = GameManager.currentGameMode == GameMode.Endless
+            ? "04_Bedroom"
+            : "03_ParkNeighborhood";
+        GameManager.Instance.SceneLoader(next, GameState.Playing);
     }
 
     public void SetInteractable(bool value)

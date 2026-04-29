@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3949639458531405132}
   - component: {fileID: 7998567061440748693}
   - component: {fileID: 8131017330772931957}
+  - component: {fileID: 3098501965921354052}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -130,6 +131,29 @@ MonoBehaviour:
   tabletBionicText: {fileID: 0}
   tabletMetalText: {fileID: 0}
   tabletItemsText: {fileID: 0}
+--- !u!136 &3098501965921354052
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2849459542625461650}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5391967
+  m_Height: 1.7999997
+  m_Direction: 1
+  m_Center: {x: 3.0484115e-10, y: 1.26, z: 0.03919673}
 --- !u!1 &4961388674426191052
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,7 +198,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

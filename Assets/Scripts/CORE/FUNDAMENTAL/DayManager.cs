@@ -8,7 +8,6 @@ public class DayManager : MonoBehaviour
 
     [Header("Scene References")]
     [SerializeField] private SubjectSpawner spawner;
-    [SerializeField] private UIManager UImanager;
     [SerializeField] private LightSwitch lightSwitch;
     [SerializeField] private MazePuzzleManager reviewPuzzle;
 
@@ -44,9 +43,9 @@ public class DayManager : MonoBehaviour
     {
         PlayerController = FindFirstObjectByType<PlayerController>();
         lightSwitch.SetInteractable(true);
-        UImanager.UpdateDay(GameManager.Days);
-        UImanager.UpdateWarnings(0);
-        UImanager.UpdateTimer(0f);
+        UIManager.Instance.UpdateDay(GameManager.Days);
+        UIManager.Instance.UpdateWarnings(0);
+        UIManager.Instance.UpdateTimer(0f);
     }
 
     private void Update()
@@ -54,7 +53,7 @@ public class DayManager : MonoBehaviour
         if (CurrentDayState == DayState.Working || CurrentDayState == DayState.Reviewing)
         {
             dayTimer += Time.deltaTime;
-            UImanager.UpdateTimer(dayTimer);
+            UIManager.Instance.UpdateTimer(dayTimer);
         }
     }
 
@@ -72,8 +71,8 @@ public class DayManager : MonoBehaviour
         reviewPuzzleActive = false;
 
         lightSwitch.SetInteractable(false);
-        UImanager.UpdateWarnings(0);
-        UImanager.UpdateDay(GameManager.Days);
+        UIManager.Instance.UpdateWarnings(0);
+        UIManager.Instance.UpdateDay(GameManager.Days);
 
         OnDayStarted?.Invoke();
         SpawnNextSubject();
@@ -86,7 +85,7 @@ public class DayManager : MonoBehaviour
         CurrentDayState = DayState.Idle;
 
         lightSwitch.SetInteractable(false);
-        UImanager.UpdateDay(GameManager.Days);
+        UIManager.Instance.UpdateDay(GameManager.Days);
 
         OnDayEnded?.Invoke();
         Debug.Log("Day ended. Interact with the bed to start the next day.");
@@ -136,7 +135,7 @@ public class DayManager : MonoBehaviour
         if (CurrentDayState != DayState.Reviewing) return;
 
         CurrentDayState = DayState.Working;
-        UImanager.HidePanel();
+        UIManager.Instance.HidePanel();
         if (PlayerController != null) PlayerController.SetInputEnabled(true);
     }
 
@@ -160,7 +159,7 @@ public class DayManager : MonoBehaviour
 
         CurrentDayState = DayState.Reviewing;
         if (PlayerController != null) PlayerController.SetInputEnabled(false);
-        UImanager.ShowSubject(currentSubject);
+        UIManager.Instance.ShowSubject(currentSubject);
         if (InspectionToolsManager.Instance != null)
             InspectionToolsManager.Instance.PopulateTablet(currentSubject);
     }
@@ -193,7 +192,7 @@ public class DayManager : MonoBehaviour
         if (!isCorrect)
         {
             warnings++;
-            UImanager.UpdateWarnings(warnings);
+            UIManager.Instance.UpdateWarnings(warnings);
             OnWarningAdded?.Invoke(warnings);
             Debug.Log($"Wrong decision! [{currentSubject.subjectType}] Warnings: {warnings}/{maxWarnings}");
 
@@ -208,7 +207,7 @@ public class DayManager : MonoBehaviour
             Debug.Log($"Correct decision. [{currentSubject.subjectType}]");
         }
 
-        UImanager.HidePanel();
+        UIManager.Instance.HidePanel();
         if (PlayerController != null) PlayerController.SetInputEnabled(true);
         currentSubject = null;
         puzzleSolvedForSubject = null;
@@ -222,7 +221,7 @@ public class DayManager : MonoBehaviour
     private void FinishAllSubjects()
     {
         CurrentDayState = DayState.DayEnded;
-        UImanager.HidePanel();
+        UIManager.Instance.HidePanel();
         if (reviewPuzzle != null) reviewPuzzle.ForceClose();
         if (PlayerController != null) PlayerController.SetInputEnabled(true);
         lightSwitch.SetInteractable(true);
@@ -232,7 +231,7 @@ public class DayManager : MonoBehaviour
     public void TriggerGameOver()
     {
         CurrentDayState = DayState.Idle;
-        UImanager.HidePanel();
+        UIManager.Instance.HidePanel();
         if (reviewPuzzle != null) reviewPuzzle.ForceClose();
         spawner.DestroyCurrentSubject();
         if (PlayerController != null) PlayerController.SetInputEnabled(true);

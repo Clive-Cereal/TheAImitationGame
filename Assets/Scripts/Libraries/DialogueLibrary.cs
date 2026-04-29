@@ -74,7 +74,7 @@ public static class DialogueLibrary
     };
 
     //Robot Non-human-designed responses
-    public static readonly string[] RobotPurpose = new string[]
+    public static readonly string[] RobotPurposeRobotic = new string[]
     {
         "Delivering the package.",
         "Parts replacement. Scheduled.",
@@ -94,7 +94,7 @@ public static class DialogueLibrary
     };
 
     //Robot Human-designed responses
-    public static readonly string[] RobotPurpose = new string[]
+    public static readonly string[] RobotPurposeDisguised = new string[]
     {
         "I’m here to visit my family. It’s been a while.",
         "I’m travelling for a short holiday.",
@@ -109,7 +109,7 @@ public static class DialogueLibrary
     };
 
     //-------------------------------------------------DAY 1--------------------------------------------------------------
-    public static readonly string[] Dialogue = new string[] 
+    public static readonly string[] Day1Dialogue = new string[] 
     {
         //Anya conversation
         "*coughs*",   //Anya
@@ -215,7 +215,7 @@ public static class DialogueLibrary
     };
 
     //-------------------------------------------------DAY 2--------------------------------------------------------------
-    public static readonly string[] Dialogue = new string[] 
+    public static readonly string[] Day2Dialogue = new string[] 
     {
         //Anya conversation
         "Hey… you’re still out here.",   //Leon
@@ -288,7 +288,7 @@ public static class DialogueLibrary
     };
 
     //-------------------------------------------------DAY 3--------------------------------------------------------------
-    public static readonly string[] Dialogue = new string[] 
+    public static readonly string[] Day3Dialogue = new string[] 
     {
         //Anya conversation
         "Hey… I’ll stop trying to fix things. Wasn’t doing a great job of it anyway.",   //Leon
@@ -371,7 +371,7 @@ public static class DialogueLibrary
 
     //-------------------------------------------------DAY 4--------------------------------------------------------------
     //the day before (day 3) the player makes a choice whether they let through a medically dependend person through, but their firmware is slightly out of date, this affects the dialogue.
-    public static readonly string[] Dialogue = new string[]
+    public static readonly string[] Day4Dialogue = new string[]
     {
         //Anya conversation
         "You came back.",   //Anya
@@ -467,7 +467,7 @@ public static class DialogueLibrary
     };
 
     //-------------------------------------------------DAY 5--------------------------------------------------------------
-    public static readonly string[] Dialogue = new string[]
+    public static readonly string[] Day5Dialogue = new string[]
     {
         //Anya conversation
         "You said the other day that you were thinking about leaving… getting to the other side for treatment. I’ve been wondering what makes someone walk away from everything they’ve got just for a chance at that.",   //Leon
@@ -553,7 +553,7 @@ public static class DialogueLibrary
 
     //-------------------------------------------------DAY 6--------------------------------------------------------------
     //in day 5 player lets through an individual with HC firmware, after that the individual injures 3 people.
-    public static readonly string[] Dialogue = new string[] 
+    public static readonly string[] Day6Dialogue = new string[] 
     {
         //Anya has disappeared, no conversation with her today
         
@@ -633,7 +633,7 @@ public static class DialogueLibrary
     };
 
     //-------------------------------------------------DAY 7--------------------------------------------------------------
-    public static readonly string[] Dialogue = new string[]
+    public static readonly string[] Day7Dialogue = new string[]
     {
         //Anya has disappeared, no conversation with her today
 
@@ -720,7 +720,7 @@ public static class DialogueLibrary
     };
 
     //-------------------------------------------------DAY 8--------------------------------------------------------------
-    public static readonly string[] Dialogue = new string[] 
+    public static readonly string[] Day8Dialogue = new string[] 
     {
         //Anya conversation
         "You were gone for two days. ",   //Leon
@@ -841,7 +841,7 @@ public static class DialogueLibrary
 
     //-------------------------------------------------DAY 9--------------------------------------------------------------
     //there were sirens at night time
-    public static readonly string[] Dialogue = new string[] 
+    public static readonly string[] Day9Dialogue = new string[] 
     {
         //Anya conversation
         "The sirens last night...",   //Leon
@@ -924,7 +924,7 @@ public static class DialogueLibrary
     };
 
     //-------------------------------------------------DAY 10--------------------------------------------------------------
-    public static readonly string[] Dialogue = new string[] 
+    public static readonly string[] Day10Dialogue = new string[] 
     {
         //Anya conversation
         "You said your family worked with HC…",   //Leon
@@ -1047,7 +1047,7 @@ public static class DialogueLibrary
     };
 
     //-------------------------------------------------DAY 11--------------------------------------------------------------
-    public static readonly string[] Dialogue = new string[] 
+    public static readonly string[] Day11Dialogue = new string[] 
     {
         //Anya conversation
         "Been thinking about what you said yesterday",   //Leon
@@ -1164,7 +1164,7 @@ public static class DialogueLibrary
     };
 
     //-------------------------------------------------DAY 12--------------------------------------------------------------
-    public static readonly string[] Dialogue = new string[] 
+    public static readonly string[] Day12Dialogue = new string[] 
     {
         //Anya conversation
         "You said before… you left your home because of HC",   //Leon
@@ -1287,7 +1287,7 @@ public static class DialogueLibrary
     };
 
     //-------------------------------------------------DAY 13--------------------------------------------------------------
-    public static readonly string[] Dialogue = new string[] 
+    public static readonly string[] Day13Dialogue = new string[] 
     {
         //Anya conversation
         "I spoke to Kellen. He doesn’t handle documents… but he knows someone who does.",   //Leon
@@ -1384,7 +1384,7 @@ public static class DialogueLibrary
     //----------------------------------- DAY 14 No conversations, neighbourhood is empty-----------------------------------
 
     //-------------------------------------------------DAY 15--------------------------------------------------------------
-    public static readonly string[] Dialogue = new string[] 
+    public static readonly string[] Day15Dialogue = new string[] 
     {
         //Anya conversation
         "Yesterday… it was too quiet. I’ve never seen this place like that before.",   //Anya
@@ -1486,7 +1486,7 @@ public static class DialogueLibrary
     };
 
     //-------------------------------------------------DAY 16--------------------------------------------------------------
-    public static readonly string[] Dialogue = new string[] 
+    public static readonly string[] Day16Dialogue = new string[] 
     {
         //Anya conversation
         "I don’t think I have much time left to figure this out. The spikes are worse today.",   //Anya
@@ -1588,7 +1588,7 @@ public static class DialogueLibrary
 
     //-------------------------------------------------DAY 17--------------------------------------------------------------
     //This is where Anya's storyline splits into 4 options, until day 20, the last day.
-    public static readonly string[] Dialogue = new string[] 
+    public static readonly string[] Day17Dialogue = new string[] 
     {
         //Anya conversation
         //Option 1: Player HELPS Anya get the documents.
@@ -1720,7 +1720,7 @@ public static class DialogueLibrary
 
     //-------------------------------------------------DAY 18--------------------------------------------------------------
     //Anya's storyline is split into 4 options, until day 20, the last day.
-    public static readonly string[] Dialogue = new string[] 
+    public static readonly string[] Day18Dialogue = new string[] 
     {
         //Anya conversation
         //Option 1: Player HELPS Anya get the documents.
@@ -1836,7 +1836,7 @@ public static class DialogueLibrary
 
     //-------------------------------------------------DAY 19--------------------------------------------------------------
     //Anya's storyline is split into 4 options, until day 20, the last day.
-    public static readonly string[] Dialogue = new string[] 
+    public static readonly string[] Day19Dialogue = new string[] 
     {
         //Anya conversation
         //Option 1: Player HELPS Anya get the documents.
@@ -1959,7 +1959,7 @@ public static class DialogueLibrary
     };
 
     //-------------------------------------------------DAY 20 LAST DAY--------------------------------------------------------------
-    public static readonly string[] Dialogue = new string[] 
+    public static readonly string[] Day20Dialogue = new string[] 
     {
         //Anya conversation (message from her, probs not done in the dialogue)
         //Option 1: Player HELPS Anya get the documents.
