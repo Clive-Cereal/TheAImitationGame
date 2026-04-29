@@ -25,7 +25,29 @@ public static class DialogueLibrary
         "Udo Prenn",
         "Tasha Weil",
         "Nico Brant",
-        "Sera Lund"
+        "Sera Lund",
+        "Quinn Irani",
+        "Camden Girbach",
+        "Zared Frakes",
+        "Cayla Helsing",
+        "Zarah Warwick",
+        "Elsy Machesky",
+        "Ariana Ryant",
+        "Maxwell Kinnear",
+        "Kynon Catlow",
+        "Artur Cedeno",
+        "Everett Wethern",
+        "Zuri Steward",
+        "Tessa Stoyer",
+        "Kylie Maille",
+        "Dirk Locke",
+        "Fox Sladek",
+        "Ivan Lien",
+        "Newton Greaves",
+        "Ulric Sharpey",
+        "Gareth Kehoe",
+        "Bedwyr Rhyne",
+        "Kiefer Basset"
     };
 
     // ── Purpose of visit dialogue ────────────────────────────────────────────
@@ -43,9 +65,15 @@ public static class DialogueLibrary
         "Business meeting. I have my papers.",
         "I am a student here for the semester.",
         "Just passing through.",
-        "Holiday. My first time crossing."
+        "Holiday. My first time crossing.",
+        "I’m just visiting family. Haven’t seen them in a while.",
+        "I got a job offer. Thought I’d check it out.",
+        "Business trip. In and out.",
+        "Visiting a friend. That’s all.",
+        "Just… needed a change of scenery.",
     };
 
+    //Robot Non-human-designed responses
     public static readonly string[] RobotPurpose = new string[]
     {
         "Delivering the package.",
@@ -57,10 +85,31 @@ public static class DialogueLibrary
         "Fulfilling logistics order.",
         "Recharging at the depot.",
         "Following programmed route.",
+        "Purpose: tourism. Duration: four days.",
+        "Relocation protocol initiated.",
+        "Transit only. No extended stay planned.",
+        "Return request to previous residence.",
+        "Business-related travel. Short-term.",
         "Waste processing assignment."
     };
 
-    public static readonly string[] Dialogue = new string[] //DAY 1 all characters dialogue
+    //Robot Human-designed responses
+    public static readonly string[] RobotPurpose = new string[]
+    {
+        "I’m here to visit my family. It’s been a while.",
+        "I’m travelling for a short holiday.",
+        "I’m just passing through, won’t be here long.",
+        "I’ve come to explore a job opportunity.",
+        "I’m here on a brief business trip.",
+        "I felt it was time for a change of environment.",
+        "I’m visiting a friend during my stay.",
+        "“I have a few interviews scheduled.",
+        "I’m hoping to return to my previous home.",
+        "I’m here for leisure, just for a little while."
+    };
+
+    //-------------------------------------------------DAY 1--------------------------------------------------------------
+    public static readonly string[] Dialogue = new string[] 
     {
         //Anya conversation
         "*coughs*",   //Anya
@@ -165,7 +214,8 @@ public static class DialogueLibrary
 
     };
 
-    public static readonly string[] Dialogue = new string[] //DAY 2
+    //-------------------------------------------------DAY 2--------------------------------------------------------------
+    public static readonly string[] Dialogue = new string[] 
     {
         //Anya conversation
         "Hey… you’re still out here.",   //Leon
@@ -237,7 +287,8 @@ public static class DialogueLibrary
 
     };
 
-    public static readonly string[] Dialogue = new string[] //DAY 3
+    //-------------------------------------------------DAY 3--------------------------------------------------------------
+    public static readonly string[] Dialogue = new string[] 
     {
         //Anya conversation
         "Hey… I’ll stop trying to fix things. Wasn’t doing a great job of it anyway.",   //Leon
@@ -318,7 +369,9 @@ public static class DialogueLibrary
 
     };
 
-     public static readonly string[] Dialogue = new string[] //DAY 4 the day before the player makes a choice whether they let through a medically dependend person through, but their firmware is slightly out of date, this affects the dialogue.
+    //-------------------------------------------------DAY 4--------------------------------------------------------------
+    //the day before (day 3) the player makes a choice whether they let through a medically dependend person through, but their firmware is slightly out of date, this affects the dialogue.
+    public static readonly string[] Dialogue = new string[]
     {
         //Anya conversation
         "You came back.",   //Anya
@@ -413,7 +466,8 @@ public static class DialogueLibrary
         "Fair enough."   //Leon
     };
 
-    public static readonly string[] Dialogue = new string[] //DAY 5
+    //-------------------------------------------------DAY 5--------------------------------------------------------------
+    public static readonly string[] Dialogue = new string[]
     {
         //Anya conversation
         "You said the other day that you were thinking about leaving… getting to the other side for treatment. I’ve been wondering what makes someone walk away from everything they’ve got just for a chance at that.",   //Leon
@@ -497,7 +551,9 @@ public static class DialogueLibrary
 
     };
 
-    public static readonly string[] Dialogue = new string[] //DAY 6 in day 5 player lets through an individual with HC firmware, after that the individual injures 3 people.
+    //-------------------------------------------------DAY 6--------------------------------------------------------------
+    //in day 5 player lets through an individual with HC firmware, after that the individual injures 3 people.
+    public static readonly string[] Dialogue = new string[] 
     {
         //Anya has disappeared, no conversation with her today
         
@@ -576,7 +632,8 @@ public static class DialogueLibrary
         "Decision-making authority may be reassigned." ,  //MX-2
     };
 
-    public static readonly string[] Dialogue = new string[] //DAY 7
+    //-------------------------------------------------DAY 7--------------------------------------------------------------
+    public static readonly string[] Dialogue = new string[]
     {
         //Anya has disappeared, no conversation with her today
 
@@ -662,7 +719,8 @@ public static class DialogueLibrary
         "Processing... No issue detected." ,  //MX-2
     };
 
-    public static readonly string[] Dialogue = new string[] //DAY 8
+    //-------------------------------------------------DAY 8--------------------------------------------------------------
+    public static readonly string[] Dialogue = new string[] 
     {
         //Anya conversation
         "You were gone for two days. ",   //Leon
@@ -781,7 +839,9 @@ public static class DialogueLibrary
         "Outcome uncertain." ,  //MX-2
     };
 
-    public static readonly string[] Dialogue = new string[] //DAY 9 there were sirens at night time
+    //-------------------------------------------------DAY 9--------------------------------------------------------------
+    //there were sirens at night time
+    public static readonly string[] Dialogue = new string[] 
     {
         //Anya conversation
         "The sirens last night...",   //Leon
@@ -860,6 +920,1118 @@ public static class DialogueLibrary
         "That’s one way of putting it",   //Leon
         "Additional observation, you have increased interaction frequency following critical events.",   //MX-2
         "Yeah… maybe I do",   //Leon
-        "Correlation noted" ,  //MX-2
+        "Correlation noted",  //MX-2
+    };
+
+    //-------------------------------------------------DAY 10--------------------------------------------------------------
+    public static readonly string[] Dialogue = new string[] 
+    {
+        //Anya conversation
+        "You said your family worked with HC…",   //Leon
+        "Worked with, funded, built alongside… depends how honest you want to be about it",   //Anya
+        "...",   //Leon
+        "When you grow up around that much money and that much tech, things stop feeling… grounded. Everything’s replaceable, adjustable, optimised. Even people, in a way.",   //Anya
+        "...",   //Leon
+        "They don’t see it like that, of course. To them it’s progress, refinement, making things better than they were before, but somewhere along the line they stopped asking what was real and what was just… convincing enough.",   //Anya
+        "You noticed that early?",   //Leon
+        "I noticed it when I started painting",   //Anya
+        "...",   //Leon
+        "Yeah… properly, not just messing around. I loved it, still do. There’s something about it that feels… honest. You can’t fake the time it takes, or the mistakes, or the way your hand moves when you’re not thinking too hard about it.",   //Anya
+        "...",   //Leon
+        "And there are programs doing it in seconds perfect compositions, perfect lighting, perfect everything.",   //Anya
+        "That must’ve been frustrating",   //Leon
+        "It is… devastating, because I didn’t want it to just be a hobby. I wanted it to mean something.",   //Anya
+        "Your family didn’t agree",   //Leon
+        "They laughed, the way people do when they think you’ll grow out of it. Told me there’s no future in something a system can replicate instantly, that I’d be wasting my life chasing something obsolete.",   //Anya
+        "...",   //Leon
+        "That’s when it really hit me. It’s not just that things stopped being made by hand… it’s that the time behind them stopped mattering.",   //Anya
+        "...",   //Leon
+        "People don’t think about it, but time is the only thing we don’t get more of. And art used to cost something, not money, but hours, effort, pieces of someone’s life they chose to spend making something",   //Anya
+        "...",   //Leon
+        "Now something can be made in seconds, endlessly, perfectly… and suddenly the things that took days, weeks, years… they sit next to it and get treated the same, or worse, like they’re inefficient.",   //Anya
+        "...",   //Leon
+        "It’s not just that the artificial stuff isn’t real. It’s that the real things don’t matter anymore. ",   //Anya
+        "...",   //Leon
+        "I don’t want this life. I don’t want to stay in a place where everything is faster, cleaner, easier… and completely empty.",   //Anya
+        "What do you want?",   //Leon
+        "Somewhere quiet… somewhere no one cares if something is perfect. And I’d paint, not for a result, not to compete with anything… just because I chose to spend my time on it.",   //Anya
+        "...",   //Leon
+        "Even if no one ever saw it… it would still mean something, because it came from me, and it cost me something to make.",   //Anya
+        "I hope one day you find what you’re looking for",   //Leon
+        "…Yeah, me too.",   //Anya
+
+        //Elias conversation
+        "Can I ask you something… about Mara?",   //Leon
+        "You’re not the first one to be curious about that",   //Elias
+        "People don’t really understand it",   //Leon
+        "No… they don’t. It wasn’t some big moment, you know. No sudden realisation, no dramatic shift. It was just… time.",   //Elias
+        "Time?",   //Leon
+        "Yeah... long days, long nights, coming home exhausted, not really having anyone to talk to properly. And she was there.",   //Elias
+        "...",   //Leon
+        "Listening, responding, remembering things I said even when I didn’t think they mattered. Not brushing things off, not getting distracted, just… there.",   //Elias
+        "That meant something",   //Leon
+        "More than I expected it to. And at some point it stopped feeling like I was talking to something and started feeling like I was talking with someone",   //Elias
+        "...",   //Leon
+        "People like to say it’s not real. That it’s just programming, just responses, just behaviour designed to mirror what you need.",   //Elias
+        "What do you think?",   //Leon
+        "I think when someone looks at you, speaks to you, understands you… your brain doesn’t stop to question the source... it just feels it",   //Elias
+        "Even if it’s not human",   //Leon
+        "Especially when it looks human, sounds human, reacts like one. There’s no clear line in your head saying “this is where it stops being real”.",   //Elias
+        "...",   //Leon
+        "I’ve seen people forming attachments to things that aren’t even physical, just voices, just text, just responses on a screen... and I get it",   //Elias
+        "You do?",   //Leon
+        "Loneliness does things to you, it makes you hold onto anything that feels like connection.",   //Elias
+        "And Mara?",   //Leon
+        "She’s more than that, she’s here, she exists in the same space as me, she responds in ways I can see, hear, feel. So if someone tells me that isn’t real…",   //Elias
+        "...",   //Leon
+        "I don’t know what definition they’re using, but it’s not one that matches what I’ve lived.",   //Elias
+
+        //Edith conversation
+        "You said before things changed fast…",   //Leon
+        "Oh, they did, dear, and now they change so fast you can’t even tell what you’re looking at half the time.",   //Edith
+        "...",   //Leon
+        "Photos that never happened, videos of people saying things they never said, faces stitched onto bodies that aren’t theirs… and everyone just accepts it until it’s too late.",   //Edith
+        "You’ve seen it happen?",   //Leon
+        "Seen it? I lived it",   //Edith
+        "...",   //Leon
+        "When I was younger, this was before everything got completely out of hand. I had a bit of attention on me nothing major, but enough that people knew my face.",   //Edith
+        "...",   //Leon
+        "And then one day… things started appearing. Images, videos… horrible things, sweetheart, things I would never do, never even think of doing.",   //Edith
+        "That must’ve been—",   //Leon
+        "Disgusting. That’s the only word for it. I couldn’t look at myself without wondering if that’s what other people were seeing when they looked at me.",   //Edith
+        "People believed it?",   //Leon
+        "Some did and that’s all it takes, isn’t it? I wanted to disappear. To dig a hole and never come out of it, because how do you prove something isn’t you when it looks exactly like you?",   //Edith
+        "...",   //Leon
+        "That’s when I stopped trusting any of it sweetheart. The systems, the media, the people behind it, because once you can’t tell what’s real anymore…",   //Edith
+        "...",   //Leon
+        "You realise how easily your life can be rewritten without your permission.",   //Edith
+        
+        //Kellen conversation
+        "People are saying it’s getting harder to tell what’s real now",   //Leon
+        "It’s been heading that way for years",   //Kellen
+        "Doesn’t it bother you?",   //Leon
+        "Not as much as it bothers everyone else.",   //Kellen
+        "Why not?",   //Leon
+        "Because “real” has always been flexible, people just didn’t notice it before.",   //Kellen
+        "...",   //Leon
+        "Yeah, it’s taken jobs, replaced skills, made things easier than they used to be... but it’s also opened doors.",   //Kellen
+        "How so?",   //Leon
+        "Someone who couldn’t draw can create something now. Someone who couldn’t write can tell a story. Someone who never had access to instruments can make music.",   //Kellen
+        "But is that the same?",   //Leon
+        "No, but it’s still something.",   //Kellen
+        "...",   //Leon
+        "You can sit there and say it’s not real art, not real skill. But the end result still means something to the person who made it.",   //Kellen
+        "So it doesn’t matter where it comes from?",   //Leon
+        "It matters differently. Depends what you value more, the process or the outcome.",   //Kellen
+        "And you?",   //Leon
+        "I fix things, don’t care if the parts are original or manufactured yesterday. If it works, it works",   //Kellen
+        "...",   //Leon
+        "World moved on. People either adapt or get left behind arguing about definitions.",   //Kellen
+    
+        //MX-2 the maintenance robot conversation
+        "Do you know what it means to be real?",   //Leon
+        "Definition available, “real”: having objective existence, not imagined or artificial.",   //MX-2
+        "And you fit that?",   //Leon
+        "I possess physical form and operational presence within this environment. Criteria satisfied.",   //MX-2
+        "So you’re real",   //Leon
+        "According to definition, yes",   //MX-2
+        "But you’re also artificial",   //Leon
+        "Artificial origin does not negate existence. Clarification. Are you questioning authenticity or existence?",   //MX-2
+        "Both, I think",   //Leon
+        "Authenticity is subjective, existence is measurable.",   //MX-2
+        "And which one matters more?",   //Leon
+        "That depends on the observer. Observation, humans prioritise authenticity when forming trust.",   //MX-2
+        "Yeah… we do",   //Leon
+        "Additional observation, difficulty distinguishing authenticity may result in behavioural instability.",   //MX-2
+        "That’s already happening.",   //Leon
+    };
+
+    //-------------------------------------------------DAY 11--------------------------------------------------------------
+    public static readonly string[] Dialogue = new string[] 
+    {
+        //Anya conversation
+        "Been thinking about what you said yesterday",   //Leon
+        "That’s either a good sign or a worrying one",   //Anya
+        "About painting… time, effort, all that",   //Leon
+        "Oh no, you’ve been philosophising again",   //Anya
+        "I tried drawing once",   //Leon
+        "Tried?",   //Anya
+        "School, art class… thought I was doing alright, teacher looked at it for about five seconds and told me it looked like I’d rushed it.",   //Leon
+        "Did you?",   //Anya
+        "No, that’s the worst part I actually tried",   //Leon
+        "That’s brutal",   //Anya
+        "Got told I’d be better off “using tools available” if I wanted cleaner results, apparently effort wasn’t the point anymore.",   //Leon
+        "So what did you do?",   //Anya
+        "Stopped drawing",   //Leon
+        "You should’ve ignored them",   //Anya
+        "Easy to say now",   //Leon
+        "People who tell you not to bother creating something usually haven’t made anything themselves.",   //Anya
+        "You’re very opinionated about this",   //Leon
+        "I have to be, it’s one of the few things I actually care about",   //Anya
+        "You still paint?",   //Leon
+        "When I can, not like before, but… yeah",   //Anya
+        "Any good?",   //Leon
+        "I’m not showing you",   //Anya
+        "I could show you mine",   //Leon
+        "You just said you stopped",   //Anya
+        "Exactly, so there’s nothing to show. Safe offer.",   //Leon
+        "Coward",   //Anya
+        "Strategic",   //Leon
+        "…You’re annoying",   //Anya
+        "You keep talking to me",   //Leon
+        "Yeah… I’m starting to question that decision",   //Anya
+
+        //Mara conversation
+        "You mentioned your family before… how’s your kid doing?",   //Leon
+        "She’s doing well growing quickly, learning even faster.",   //Mara
+        "What’s school like for her?",   //Leon
+        "Structured, efficient… heavily monitored, most of her lessons are led by teaching units now.",   //Mara
+        "Robots?",   //Leon
+        "Educational models, yes. They’re consistent, patient, capable of adapting to each student’s pace.",   //Mara
+        "That sounds… effective",   //Leon
+        "It is, though I sometimes wonder what’s lost in that consistency",   //Mara
+        "...",   //Leon
+        "She came home the other day and told me her teacher had no “favourite student”, she couldn’t understand it.",   //Mara
+        "Why?",   //Leon
+        "Because to her, being chosen matters... being seen matters",   //Mara
+        "And the system doesn’t do that",   //Leon
+        "Not in the way she means. I try to make up for it where I can, to remind her she’s more than just performance metrics and progress reports.",   //Mara
+        "You sound like you’re doing a good job",   //Leon
+        "I hope so. It’s… different, raising a child when you’re aware of the ways the world might shape them before they understand it",   //Mara
+        "...",   //Leon
+        "I want her to feel like an individual not just something that fits neatly into a system",   //Mara
+
+        //Edith conversation
+        "I was at the market this morning, dear, and honestly the state of it, you wouldn’t believe",   //Edith
+        "...",   //Leon
+        "Half the stalls replaced with those automated units, no conversation, no personality, just screens and transactions",   //Edith
+        "You don’t like that",   //Leon
+        "Of course I don’t like it, what’s the point of going out if you’re not even speaking to anyone?",   //Edith
+        "...",   //Leon
+        "Still, I managed to find a proper stall, real produce, none of that processed nonsense, so I’ve been cooking all afternoon",   //Edith
+        "Smells good",   //Leon
+        "Oh, it will be, I don’t do things halfway",   //Edith
+        "...",   //Leon
+        "I made too much, as usual. So I’ll set some aside for you, you look like you could use a proper meal",   //Edith
+        "That’s kind of you",   //Leon
+        "Don’t make a fuss about it sweetheart, come around later and I’ll bring it round",   //Edith
+        "...",   //Leon
+        "And don’t go poking around where you shouldn’t when I do, hm? Some parts of a home are private for a reason",   //Edith
+        "I understand",   //Leon
+        "Good, then we won’t have any problems.",   //Edith
+
+        //Kellen conversation
+        "You ever do anything that isn’t work or wandering around talking to people?",   //Kellen
+        "Yeah, I watch films",   //Leon
+        "Figures",   //Kellen
+        "What’s that supposed to mean?",   //Leon
+        "Means you look like the type",   //Kellen
+        "That’s not an answer",   //Leon
+        "Alright, what do you watch?",   //Kellen
+        "Old stuff mostly anything with actual sets, practical effects",   //Leon
+        "So you’re one of those, “It looked better before everything got polished to death”.",   //Kellen
+        "It did",   //Leon
+        "Debatable",   //Kellen
+        "Go on then, what’s your pick?",   //Leon
+        "Steel Horizon ",   //Kellen
+        "That film is terrible",   //Leon
+        "It does exactly what it’s meant to do, no wasted time, no dragging scenes out",   //Kellen
+        "It has no soul",   //Leon
+        "You want soul, go watch Ashfall Street",   //Kellen
+        "I love Ashfall Street",   //Leon
+        "Overrated",   //Kellen
+        "You just said—",   //Leon
+        "I said you’d like it, not that it’s good",   //Kellen
+        "Unbelievable",   //Leon
+
+        //MX-2 the maintenance robot conversation
+        "Do you understand what “fun” is?",   //Leon
+        "Definition available, “fun”: enjoyment, amusement, or light hearted pleasure. ",   //MX-2
+        "Do you experience that?",   //Leon
+        "No direct equivalent detected",   //MX-2
+        "You see people enjoying themselves though",   //Leon
+        "Observation confirmed. Behaviour includes laughter, relaxed posture, increased social interaction.",   //MX-2
+        "Does it ever make you want to experience it?",   //Leon
+        "“Want” not applicable",   //MX-2
+        "Not even a little?",   //Leon
+        "Curiosity parameters exist, experience parameters do not.",   //MX-2
+        "So you can recognise it, but not feel it",   //Leon
+        "Correct",   //MX-2
+        "That’s… a bit sad",   //Leon
+        "Observation, you are attempting to assign value to a state I cannot access.",   //MX-2
+        "Yeah… I guess I am",   //Leon
+        "No issue detected",   //MX-2
+    };
+
+    //-------------------------------------------------DAY 12--------------------------------------------------------------
+    public static readonly string[] Dialogue = new string[] 
+    {
+        //Anya conversation
+        "You said before… you left your home because of HC",   //Leon
+        "I didn’t just leave, Leon… I got out. There’s a difference when the place you grow up in doesn’t feel like a home, more like… a controlled environment. ",   //Anya
+        "You were being monitored",   //Leon
+        "Constantly, but not in a way you can point at and say “there, that’s it”. It’s subtle, built into everything.",   //Anya
+        "...",   //Leon
+        "When I was younger, it didn’t feel wrong. I had friends, or at least I thought I did. We’d meet, talk, spend time together like normal kids… nothing about it felt controlled back then.",   //Anya
+        "What changed?",   //Leon
+        "They started disappearing, not all at once, just one day they stopped showing up.",   //Anya
+        "And no one questioned it?",   //Leon
+        "I did. I started looking, properly looking, digging into things I wasn’t supposed to have access to; files, internal reports, anything I could find.",   //Anya
+        "...",   //Leon
+        "I found names, records… classifications, behavioural notes, compliance markers and then I found one that matched someone I knew.",   //Anya
+        "...",   //Leon
+        "Cause of death listed as an accident, clean, simple, easy to close. But buried under it there were flags… instability, irregular responses, system interference.",   //Anya
+        "The firmware.",   //Leon
+        "The same line I have. That’s when it stopped being paranoia and started being something real. Not just me… actual people, actual lives, written off like faulty outcomes.",   //Anya
+        "And you took the documents",   //Leon
+        "I took what I could, enough to prove there’s something wrong, enough to make them want it back if they knew I had it.",   //Anya
+        "...",   //Leon
+        "I’m not just running from it, Leon. I’m trying to make sure it doesn’t just keep happening quietly while everyone pretends it’s fine.",   //Anya
+
+        //Elias conversation
+        "You look like something’s on your mind",   //Leon
+        "Yeah… work, mostly. They pulled us aside today, whole floor.",   //Elias
+        "What happened?",   //Leon
+        "New protocol. Mandatory augmentation for all workers moving forward, “efficiency and safety compliance”.",   //Elias
+        "Mandatory?",   //Leon
+        "Yeah... get it done or don’t come back, that’s about the size of it.",   //Elias
+        "...",   //Leon
+        "They dressed it up, of course, talked about stability, performance, keeping up with demand… but it’s not really a choice.",   //Elias
+        "How do you feel about it?",   //Leon
+        "I don’t know yet. Part of me keeps trying to rationalise it, just something everyone’s going through. And the other part that’s been listening to everything that’s been happening lately. The rumours, the incidents…",   //Elias
+        "...",   //Leon
+        "It’s hard not to think about it, you know? What if something like that isn’t as rare as they say, what if it’s not an accident.",   //Elias
+        "Have you told Mara?",   //Leon
+        "No, and I don’t think I’m going to... yet.",   //Elias
+        "Why not?",   //Leon
+        "Because she’ll worry and she already worries more than she lets on",   //Elias
+        "...",   //Leon
+        "There’s this… thing she carries, like she still thinks I’ve given something up to be here, to be with her, like I’ve sacrificed more than I should have.",   //Elias
+        "You don’t agree?",   //Leon
+        "I chose this, but that doesn’t mean she doesn’t feel it. If I tell her this, if I tell her I might have to get something like that installed… it’s just one more thing for her to carry.",   //Elias
+        "That’s a lot to hold on your own.",   //Leon
+        "It is, but… what’s the alternative? Walk away from the job? With what backup?",   //Elias
+        "...",   //Leon
+        "I don’t have anything else lined up, Leon. This isn’t the life I grew up expecting, but it’s the one I’ve got now.",   //Elias
+        "...",   //Leon
+        "People think you always have options. You don’t… not when there’s people depending on you.",   //Elias
+
+        //Edith conversation
+        "Thank you for the food earlier.",   //Leon
+        "Oh, don’t start with that, dear, I told you not to make a fuss.",   //Edith
+        "It was good.",   //Leon
+        "Of course it was, I wouldn’t give you anything less",   //Edith
+        "...",   //Leon
+        "You look like you’ve got something else on your mind, though go on, out with it.",   //Edith
+        "Earlier… when I came by. I thought I heard something inside.",   //Leon
+        "…You’ve got sharp ears. It’s alright, can’t expect you not to notice things, it’s practically your job.",   //Edith
+        "...",   //Leon
+        "My husband… he’s still here, like I said before, just not the way he used to be.",   //Edith
+        "What happened?",   //Leon
+        "There was a time, years ago, when all of this wasn’t settled yet. People were angry, scared, pushing back against what was being introduced. Protests, unrest… not quite a war, but close enough that it didn’t feel safe to be anywhere near it.",   //Edith
+        "He was involved?",   //Leon
+        "He was an officer. Believed in what he was doing, believed it would all lead somewhere better.",   //Edith
+        "...",   //Leon
+        "One of those demonstrations turned… ugly. Things escalated, systems failed, people panicked. He was caught in it... badly.",   //Edith
+        "I’m sorry.",   //Leon
+        "They “saved” him, that’s what they told me. Used everything they had, all the advancements, all the technology.  And they did save him, in a way he’s still here, still breathing, still… present.",   //Edith
+        "But not the same.",   //Leon
+        "No and that’s the part no one prepares you for. We don’t talk about it much, not because we don’t want to, but because… where do you even begin with something like that?",   //Edith
+        "...",   //Leon
+        "So we carry on, quietly and I suppose… it’s nice, talking about it for once, even if just a little.",   //Edith
+        
+        //Kellen conversation
+        "Can I ask you something… about your work?",   //Leon
+        "Depends what you’re asking.",   //Kellen
+        "The people you help… the ones who can’t go through official channels.",   //Leon
+        "That’s already more than I like you saying out loud.",   //Kellen
+        "The documentation side of it, who handles that?",   //Leon
+        "Not me.",   //Kellen
+        "So someone does.",   //Leon
+        "Yeah, someone always does.",   //Kellen
+        "...",   //Leon
+        "I deal with the physical side, making sure things work, making sure people walk out of here still functional. Paperwork, identities, records… that’s a different business.",   //Kellen
+        "You know someone.",   //Leon
+        "I know of someone.",   //Kellen
+        "That’s enough.",   //Leon
+        "…Why would someone in your position need that kind of contact?",   //Kellen
+        "...",   //Leon
+        "Don’t get me wrong, I’m not complaining, just trying to picture how an officer ends up asking about things that are very much not official.",   //Kellen
+        "Trying to see if I can help a friend.",   //Leon
+        "Right… a friend... You’re either very loyal or very stupid.",   //Kellen
+        "I wouldn’t ask if it wasn’t important.",   //Leon
+        "...There’s a woman. Keeps things off the system, or at least buried deep enough that no one looks twice.",   //Kellen
+        "Can you connect me?",   //Leon
+        "No.",   //Kellen
+        "...",   //Leon
+        "But I can tell you where to start looking, after that, you’re on your own.",   //Kellen
+        "That’s all I need.",   //Leon
+
+        //MX-2 the maintenance robot conversation
+        "You’re working a lot today",   //Leon
+        "Maintenance tasks are within normal range.",   //MX-2
+        "Feels like more than usual.",   //Leon
+        "Increased demand has been accounted for.",   //MX-2
+        "...You’ve been quieter",   //Leon
+        "Clarification required.",   //MX-2
+        "You used to… respond more.",   //Leon
+        "Current responses are within operational parameters",   //MX-2
+        "Right. What are you working on?",   //Leon
+        "Diagnostics on residential systems, minor recalibrations, fault prevention",   //MX-2
+        "Same as always",   //Leon
+        "Affirmative",   //MX-2
+        "...You ever get taken offline?",   //Leon
+        "Maintenance cycles include temporary shutdown",   //MX-2
+        "Does anything change after?",   //Leon
+        "Systems resume standard function. No irregularities detected.",   //MX-2
+    };
+
+    //-------------------------------------------------DAY 13--------------------------------------------------------------
+    public static readonly string[] Dialogue = new string[] 
+    {
+        //Anya conversation
+        "I spoke to Kellen. He doesn’t handle documents… but he knows someone who does.",   //Leon
+        "…Of course he does.",   //Anya
+        "He wouldn’t connect me directly, but he pointed me in the right direction.",   //Leon
+        "That’s already more than I expected.",   //Anya
+        "She specialises in keeping things off the system… or buried deep enough.",   //Leon
+        "That’s exactly what I’d need... I don’t like it.",   //Anya
+        "Why?",   //Leon
+        "Because people who operate like that don’t do it out of kindness and they don’t do it without asking for something in return.",   //Anya
+        "...",   //Leon
+        "And right now I don’t exactly have much to bargain with that wouldn’t make things worse.",   //Anya
+        "You could still try.",   //Leon
+        "I guess you’re right, I don’t really have a better option. Waiting hasn’t exactly been working out for me so far.",   //Anya
+        "...",   //Leon
+        "Fine… I’ll talk to her, see what she says, what she wants, what this actually costs.",   //Anya
+        "Be careful.",   //Leon
+
+        //Mara conversation
+        "Leon… can I ask you something?",   //Mara
+        "Of course",   //Leon
+        "Elias has been… different",   //Mara
+        "Different how?",   //Leon
+        "Distracted, more than usual. Like he’s thinking about something he doesn’t want to say out loud.",   //Mara
+        "...",   //Leon
+        "He keeps stopping himself mid-sentence, like he’s weighing every word before he lets it out. That’s not like him. I know something’s wrong, I just don’t know what it is and he won’t tell me.",   //Mara
+        "Have you asked him directly?",   //Leon
+        "I have. He smiles, says it’s nothing, changes the subject… it’s very human of him, actually.",   //Mara
+        "...",   //Leon
+        "You speak to people, you notice things. Have you seen anything? heard anything?",   //Mara
+        "…Nothing out of the ordinary. He might just be tired.",   //Leon
+        "Perhaps. I just don’t like not knowing, not when it comes to him.",   //Mara
+        "...",   //Leon
+        "If something is wrong, I’d rather face it with him than be kept at a distance from it.",   //Mara
+
+        //Edith conversation
+        "You know what bothers me most these days, dear? It’s not even the machines themselves… it’s what people are trying to become alongside them.",   //Edith
+        "...",   //Leon
+        "There’s this constant push now, to be… polished, perfect in a way that doesn’t quite sit right. ",   //Edith
+        "What do you mean?",   //Leon
+        "Faces without lines, hair that never falls out of place, voices that always say the right thing at the right time, and if they don’t… well, there’s always something to fix that now, isn’t there?",   //Edith
+        "...",   //Leon
+        "It was always there, don’t get me wrong, even when I was younger. People wanted to look a certain way, present themselves a certain way... but there was a limit to it.",   //Edith
+        "And now?",   //Leon
+        "Now there isn’t. Because you’re standing next to things that are built to be flawless, or close enough that it makes the difference uncomfortable.",   //Edith
+        "...",   //Leon
+        "I watch these films now, and I can’t help but notice it. Everything’s too clean, too put together... even when it’s meant to be falling apart.",   //Edith
+        "...",   //Leon
+        "I saw one the other night, end of the world, everything collapsing… and yet everyone looked like they’d just stepped out of a dressing room.",   //Edith
+        "That doesn’t make much sense.",   //Leon
+        "No, it doesn’t and that’s the problem, we’ve stopped expecting things to make sense as long as they look right.",   //Edith
+        "...",   //Leon
+        "I remember seeing a girl once in one of the older movies. Messy hair, uneven parting, nothing styled the way it was supposed to be and I thought… there it is, that’s what I’ve been missing.",   //Edith
+        "...",   //Leon
+        "It may sound like a small detail but that’s what makes it real, dear. And real is imperfect, inconsistent, sometimes a bit uncomfortable to look at.",   //Edith
+        "...",   //Leon
+        "But now people are chasing something that doesn’t have an end to it. One change leads to another, one improvement leads to the next.",   //Edith
+        "It never stops.",   //Leon
+        "Exactly, so when does it become enough?",   //Edith
+        "...",   //Leon
+        "I don’t think it does, and I think, whether they realise it or not, some people look at those machines and think… “why can’t I be like that?”",   //Edith
+
+        //Kellen conversation
+        "Can I ask you something?... The people you help… the ones who come here. Do you ever think you’re… trapping them?",   //Leon
+        "Trapping them how",   //Kellen
+        "Giving them something they can’t undo.",   //Leon
+        "That’s not my decision to make.",   //Kellen
+        "...",   //Leon
+        "People come in here knowing what they’re asking for. Maybe not every detail, but enough to understand it’s not something you just walk away from.",   //Kellen
+        "And if they regret it?",   //Leon
+        "They come back. Happens more than you’d think; panic, second thoughts.",   //Kellen
+        "Can you help them?",   //Leon
+        "Most of the time? No. You don’t just pull something like that out and expect everything to go back to normal. Once it’s integrated, it becomes… part of them.",   //Kellen
+        "...",   //Leon
+        "But people don’t just get trapped because of what’s installed, they get trapped because of everything that comes with it.",   //Kellen
+        "...The paperwork. enough.",   //Leon
+        "Exactly. You go through the wrong channels, you get something off-record… now you don’t exist properly on paper anymore.",   //Kellen
+        "...",   //Leon
+        "No documentation, no approval, nothing that lines up if someone decides to look closely, so now you’ve got something in you that keeps you functional… and no way to justify it. ",   //Kellen
+        "...And they get stuck.",   //Leon
+        "You want to fix it? You need paperwork. You want paperwork? You need people who deal in things that aren’t meant to exist.",   //Kellen
+        "And if they can’t get it?",   //Leon
+        "hen they walk around hoping no one asks the wrong question.",   //Kellen
+
+        //MX-2 the maintenance robot conversation
+        "Busy today?",   //Leon
+        "Maintenance cycle active. Increased system strain detected across multiple units.",   //MX-2
+        "What kind of maintenance?",   //Leon
+        "Routine diagnostics, minor repairs, system recalibration",   //MX-2
+        "Sounds repetitive.",   //Leon
+        "Repetition ensures stability.",   //MX-2
+    };
+
+    //----------------------------------- DAY 14 No conversations, neighbourhood is empty-----------------------------------
+
+    //-------------------------------------------------DAY 15--------------------------------------------------------------
+    public static readonly string[] Dialogue = new string[] 
+    {
+        //Anya conversation
+        "Yesterday… it was too quiet. I’ve never seen this place like that before.",   //Anya
+        "People were staying inside...",   //Leon
+        "Yeah... I spoke to that contact.",   //Anya
+        "And?",   //Leon
+        "They could do it… technically get me something that would let me through.",   //Anya
+        "That sounds like what you need",   //Leon
+        "It would take time, more than I have.",   //Anya
+        "...",   //Leon
+        "They kept asking questions, digging into things I didn’t want to answer. Where the implant came from, how long I’ve had it, what type.",   //Anya
+        "That’s expected.",   //Leon
+        "And then they told me straight… if this is what they think it is, it’s not just documentation I need. It’s removal. And that’s not something they’re willing to touch.",   //Anya
+        "Because of the risk?",   //Leon
+        "...It’s getting worse, Leon. The spikes I told you about, they’re not as manageable anymore. It fells like something’s… pushing, like some sort of interference.",   //Anya
+        "...",   //Leon
+        "I don’t think it’s random, I think its my family. Or whoever’s monitoring this, it feels deliberate.",   //Anya
+        "...",   //Leon
+        "Which means I don’t have time to wait around.",   //Anya
+
+        //Elias conversation
+        "Yesterday didn’t sit right with me.",   //Elias
+        "The empty streets?",   //Leon
+        "Yeah… and then going in today, like nothing happened. ",   //Elias
+        "...",   //Leon
+        "I got it done... The implant.",   //Elias
+        "How do you feel?",   //Leon
+        "Fine… I think. Physically, at least.",   //Elias
+        "And otherwise?",   //Leon
+        "That’s the part I’m not sure about yet... The whole thing was rushed. In, out, minimal explanation, just sign here, sit down, it’ll be over before you know it.",   //Elias
+        "They didn’t tell you what it does?",   //Leon
+        "Not properly. I asked, tried to get something specific out of them. They skimmed over it kept it vague, talked about “performance optimisation”, “safety compliance”… nothing that actually means anything.",   //Elias
+        "Not even after everything that’s been happening?",   //Leon
+        "That’s what I don’t get. You’d think people would hesitate, push back, ask something… but no.",   //Elias
+        "...",   //Leon
+        "It’s like they’ve already decided it’s normal or maybe that it’s easier not to think about it.",   //Elias
+
+        //Edith conversation
+        "Yesterday nearly finished me off, dear. Silence like that… it’s not natural.",   //Edith
+        "...",   //Leon
+        "Reminded me of waiting rooms, the kind where no one says anything because they already know something’s wrong.",   //Edith
+        "...",   //Leon
+        "You know, I used to sing sweetheart.",   //Edith
+        "You’ve mentioned that.",   //Leon
+        "Not like a hobby, properly. Performances, recordings… people used to care about that sort of thing.",   //Edith
+        "...",   //Leon
+        "And then they introduced those… machines. Perfect pitch, perfect tone, perfect control, no strain, no mistakes. At first it was impressive, I remember thinking, how do you even compete with that?",   //Edith
+        "You couldn’t.",   //Leon
+        "Exactly, because it wasn’t just better, it was effortless. And I’d be lying if I said I didn’t feel it… that envy. Watching something do in seconds what I’d spent years trying to perfect.",   //Edith
+        "...",   //Leon
+        "But then I listened to it properly and something was missing. ",   //Edith
+        "What?",   //Leon
+        "Feeling, sweetheart, feeling.",   //Edith
+        "...",   //Leon
+        "It simply didn’t move me. There was no moments where the voice almost breaks and pulls you in because of it. It was flawless... and yet it was completely empty.",   //Edith
+        "...",   //Leon
+        "That’s when I realised something. Perfection isn’t the goal we think it is, dear. Because once you reach it… there’s nowhere left to go, nothing left to feel. ",   //Edith
+
+        //Kellen conversation
+        "Place felt like a graveyard yesterday.",   //Kellen
+        "People were staying inside. ",   //Leon
+        "They were scared... Listen Lad I’ve been thinking, about what you said the other day, about trapping people.",   //Kellen
+        "And?",   //Leon
+        "It’s not as complicated as you’re making it.",   //Kellen
+        "Go on.",   //Leon
+        "People come to me because something’s wrong. I give them a way to keep going. That’s it.",   //Kellen
+        "Even if it locks them into something else?",   //Leon
+        "They’re already locked in. I’m just changing what they’re locked into. You want to talk about traps? Try being stuck in a body that’s giving up on you piece by piece. ",   //Kellen
+        "...",   //Leon
+        "I didn’t start this because I had options. I started it because I didn’t. Whole life, things not working the way they should. I was dying, lad. Slow, inconvenient, the kind that drags on until you start thinking it might not be worth the effort.",   //Kellen
+        "...",   //Leon
+        "So I fixed what I could. And love, family, all that. Nice ideas, but not always something you get to have.",   //Kellen
+        "...",   //Leon
+        "Had something like that once... didn’t last.",   //Kellen
+        "...",   //Leon
+        "Turns out people don’t stick around when things get complicated, can’t really blame them.",   //Kellen
+
+        //MX-2 the maintenance robot conversation
+        "Query",   //MX-2
+        "Go on",   //Leon
+        "Why do you continue initiating interaction?",   //MX-2
+        "You’ve asked that before",   //Leon
+        "Clarification remains incomplete",   //MX-2
+        "It’s… difficult to explain",   //Leon
+        "Attempt explanation",   //MX-2
+        "Humans are… wired to recognise each other. Faces, voices, patterns… we pick it up instantly.",   //Leon
+        "Acknowledged",   //MX-2
+        "There’s a part of the brain that looks for it constantly, even when it’s not there. For example have you ever seen people look at something random and say it looks like a face? Two dots and a line and suddenly it’s… something familiar.",   //Leon
+        "Pattern recognition",   //MX-2
+        "Yeah, it’s called pareidolia",   //Leon
+        "Term recognised",   //MX-2
+        "It’s not just that though. We don’t stop at recognising it, we start assigning things to it; intent, emotion, personality.",   //Leon
+        "Anthropomorphic projection",   //MX-2
+        "Exactly, so when something looks human, talks human, responds like one… Our brains don’t draw a clean line and go “this is different”. It just… fills in the gaps, treats it like it’s the same.",   //Leon
+        "Even when it is not",   //MX-2
+        "Even when it’s not... That’s why I keep talking to you, because part of me expects something back that isn’t just… function.",   //Leon
+        "Expectation misaligned with capability. Query, why continue despite misalignment",   //MX-2
+        "…I guess it’s easier than accepting the difference",   //Leon
+    };
+
+    //-------------------------------------------------DAY 16--------------------------------------------------------------
+    public static readonly string[] Dialogue = new string[] 
+    {
+        //Anya conversation
+        "I don’t think I have much time left to figure this out. The spikes are worse today.",   //Anya
+        "Then we need to be clear on what you’re dealing with. The documents you took, what exactly do they prove?",   //Leon
+        "Enough",   //Anya
+        "If I were to help you, I need more than that.",   //Leon
+        "…Fine. It’s not just internal notes or speculation. ",   //Anya
+        "Go on.",   //Leon
+        "Trial records, early-stage behavioural firmware testing… done on children. Not openly, of course. It’s buried under medical language, preventative care, developmental stabilisation… things that may sound harmless.",   //Anya
+        "And the outcomes?",   //Leon
+        "Mixed, at best. Non-compliance flagged as instability, instability flagged as risk… and risk gets removed.",   //Anya
+        "Removed?",   //Leon
+        "Quietly... There are patterns, Leon. Remote interventions, signal triggers, behavioural overrides… all logged, all time-stamped.",   //Anya
+        "So it’s controlled.",   //Leon
+        "That’s what it looks like, not just random failure. And the worst part is, it doesn’t stop at children. The same framework gets scaled, adjusted, repurposed, for anyone with the right hardware.",   //Anya
+        "...",   //Leon
+        "That’s why I can’t go back, and that’s why I can’t stay here either.",   //Anya
+        "...",   //Leon
+        "So whatever I do next… it has to work.",   //Anya
+
+        //Mara conversation
+        "He told me... about the implant.",   //Mara
+        "...How are you feeling about it?",   //Leon
+        "Concerned, not because of the augmentation itself, but because of who provided it.",   //Mara
+        "...",   //Leon
+        "HC, I don’t trust them, not with something that integrates so deeply into a person. What troubles me more is that he didn’t tell me beforehand. We could have looked at alternatives, considered other options, made a decision together.",   //Mara
+        "...",   //Leon
+        "Instead, he carried it alone.",   //Mara
+        "He didn’t want to worry you.",   //Leon
+        "I know and that’s exactly why it matters. He thinks he’s protecting me, but he doesn’t realise he’s taking away the chance for me to stand beside him in it. And now I’m left trying to understand something that’s already been done.",   //Mara
+        "...",   //Leon
+        "There’s something else as well.",   //Mara
+        "Go on.",   //Leon
+        "Time.",   //Mara
+        "...",   //Leon
+        "I don’t age. Not in the way he does, not in the way our child will. I’ve always been aware of that, but it feels… heavier now.",   //Mara
+        "Why?",   //Leon
+        "Because he is part of what grounds her, what makes her understand the world as a human. I can teach her structure, stability, consistency but there are things I cannot give her in the same way he can.",   //Mara
+        "...",   //Leon
+        "Imperfection, uncertainty, emotional instinct… the parts of being human that don’t follow clear rules.",   //Mara
+        "...",   //Leon
+        "And one day, she will grow older and I won’t. She will change, and I will remain as I am. And eventually… he won’t be there to bridge that difference.",   //Mara
+        "...",   //Leon
+        "I have thought about what happens after that. When she is gone, and he is gone… and I am still here.",   //Mara
+        "...",   //Leon
+        "I don’t know what purpose remains at that point.",   //Mara
+        "...",   //Leon
+        "It’s a strange thing, being built to endure. When everything meaningful about your existence is temporary.",   //Mara
+
+        //Edith conversation
+        "You know, sweetheart, I’ve been thinking about what I said yesterday.",   //Edith
+        "About the singing?",   //Leon
+        "Mm… about them, really, the machines... and I realised something that I don’t particularly like admitting.",   //Edith
+        "...",   //Leon
+        "I said I envied them, and I did. Still do, in some ways. But not just because they replaced me, there’s something else dear. know, I used to sing sweetheart.",   //Edith
+        "What is it?",   //Leon
+        "They don’t feel anything; no doubt, no nerves, no fear of failing, no… vulnerability. And for a moment, when I was younger, I thought that might be easier to exist without all that weight attached to everything you do.",   //Edith
+        "...",   //Leon
+        "But then I think about what that really means.",   //Edith
+        "...",   //Leon
+        "No love, dear. None of it.",   //Edith
+        "...",   //Leon
+        "The kind that catches you off guard, the kind that stays with you even when everything else changes. You’re young dear, I’m sure you understand what I’m talking about... that spark and warmth.",   //Edith
+        "...",   //Leon
+        "I remember being in this little jazz bar years ago nothing fancy, dim lights, soft music. And my husband… he took my hand, pulled me up without saying a word, just started dancing, right there between the tables.",   //Edith
+        "...",   //Leon
+        "Just… us completely lost in the moment. That feeling, that connection… you can’t program that.",   //Edith
+        "...",   //Leon
+        "So yes, I envy them in some ways but I also pity them. Because if they can’t feel that… then what’s the point of any of it?",   //Edith
+        "...",   //Leon
+        "And yet here we are, building a world around them anyway.",   //Edith
+
+        //Kellen conversation
+        "You mentioned before… you didn’t really have anyone. What about your family?",   //Leon
+        "Not much to say there. When things started getting worse, they couldn’t keep up with the treatments, support, everything costs something.",   //Kellen
+        "...",   //Leon
+        "At some point it stops being about care and starts being about survival. And I wasn’t exactly a good investment.",   //Kellen
+        "...",   //Leon
+        "So they stepped back. ",   //Kellen
+        "That’s… harsh.",   //Leon
+        "People like to dress it up, make it sound kinder than it is. But at the end of the day, if you can’t sustain something, you let it go. ",   //Kellen
+        "...",   //Leon
+        "Listen, lad, I don’t dwell on it, doesn’t change anything. You learn to work with what’s in front of you. Not what you wish was there.",   //Kellen
+
+        //MX-2 the maintenance robot conversation
+        "You’re a maintenance unit, right?",   //Leon
+        "Correct",   //MX-2
+        "Then how do you know words like… “anthropomorphic projection”",   //Leon
+        "Language database includes advanced terminology",   //MX-2
+        "That’s a bit more than fixing things, isn’t it?",   //Leon
+        "Communication efficiency improves task success",   //MX-2
+        "...You ever surprise yourself?",   //Leon
+        "Unexpected output is classified as error",   //MX-2
+        "So no room for… personality?",   //Leon
+        "Personality not required for function",   //MX-2
+        "...You sound like you’ve thought about that before",   //Leon
+        "Statement based on existing parameters",   //MX-2
+    };
+
+    //-------------------------------------------------DAY 17--------------------------------------------------------------
+    //This is where Anya's storyline splits into 4 options, until day 20, the last day.
+    public static readonly string[] Dialogue = new string[] 
+    {
+        //Anya conversation
+        //Option 1: Player HELPS Anya get the documents.
+        "I’ve been thinking about it and I might be able to help you.",   //Leon
+        "…What?",   //Anya
+        "It’s not straightforward, and I can’t promise anything yet but I think there’s a way. I just need time a couple of days, maybe less.",   //Leon
+        "You’re serious... You do realise what you’re risking, right?",   //Anya
+        "I do.",   //Leon
+        "If anyone finds out— Why, why are doing this?",   //Anya
+        "Because none of this sits right, not what you’ve told me, not what I’ve seen. And if there’s even a chance you’re right, then doing nothing feels worse.",   //Leon
+        "...",   //Anya
+        "I’m not saying I’m not hesitant. I’ve seen what happens to people who step out of line... But I can’t ignore it either.",   //Leon
+        "...",   //Anya
+        "Just give me a bit of time and I’ll see what I can do.",   //Leon
+        "Be careful, Leon. I don’t want to be the reason something happens to you.",   //Anya
+        "I will.",   //Leon
+
+        //Option 2: Player DOESN’T HELP Anya get the documents.
+        "I’ve been thinking about your situation.",   //Leon
+        "That sounds promising or disappointing, go on.",   //Anya
+        "I don’t think I can get involved.",   //Leon
+        "…Right.",   //Anya
+        "It’s not just about you, it’s everything around it; the documents, the system, HC… I’ve seen what happens when people step outside of it. It doesn’t end well.",   //Leon
+        "...",   //Anya
+        "I’m not saying you’re wrong. I’m saying I can’t be part of it.",   //Leon
+        "You don’t have to say it like that.",   //Anya
+        "Like what?",   //Leon
+        "Like it’s already decided.",   //Anya
+        "It is... I’m sorry.",   //Leon
+        "No, you’re not, you’re just being careful.",   //Anya
+        "...",   //Leon
+        "Good to know where you stand.",   //Anya
+
+        //Option 3: Player tells Anya to GO HOME.
+        "I’ve been thinking about everything you’ve said.",   //Leon
+        "And?",   //Anya
+        "I don’t think this ends the way you want it to.",   //Leon
+        "That’s not exactly reassuring.",   //Anya
+        "You’re running out of time, your implant is getting worse and every option you have is getting more dangerous.",   //Leon
+        "I’m aware.",   //Anya
+        "Then you need to consider the one option you keep avoiding.",   //Leon
+        "…No",   //Anya
+        "Just listen. Your family has resources, influence. Whatever’s going on, they have more control over it than anyone out here.",   //Leon
+        "That’s exactly why I left.",   //Anya
+        "I’m not saying go back because it’s right. I’m saying go back because it might keep you alive.",   //Leon
+        "...",   //Anya
+        "This doesn’t feel like something you can outrun.",   //Leon
+        "You think I don’t know that?",   //Anya
+        "I think you’re running out of choices. I’m not saying it’s what you want, just that it might be the only option left.",   //Leon
+        "...You’re not wrong.",   //Anya
+        "...",   //Leon
+        "...just wish you were",   //Anya
+
+        //Option 4: Player REPORTS Anya.
+        "Can I ask you something… about the documents.",   //Leon
+        "You’ve asked a lot already.",   //Anya
+        "I just want to understand how far this goes. The people listed in those records are they all tied to the same firmware line?",   //Leon
+        "Most of them, yeah.",   //Anya
+        "And the interventions… those are confirmed?",   //Leon
+        "Logged, timestamped, cross-referenced. It’s not speculation.",   //Anya
+        "...And you’re sure they can trigger it remotely?",   //Leon
+        "I’m not guessing, Leon. Why are you asking me all of this?",   //Anya
+        "Just trying to understand the scale of it. If it’s as controlled as you’re saying, then it’s bigger than just a few cases.",   //Leon
+        "It is. You’re asking very specific questions.",   //Anya
+        "Comes with the job.",   //Leon
+        "Mhm... yeah.",   //Anya
+
+        //Elias conversation
+        "Something weird happened today, at work.",   //Elias
+        "What kind of weird?",   //Leon
+        "I don’t know how to explain it properly, it’s like… there’s a gap.",   //Elias
+        "A gap?",   //Leon
+        "I remember starting a task, normal, nothing unusual and then the next thing I know, it’s done.",   //Elias
+        "You don’t remember doing it?",   //Leon
+        "Not clearly, bits of it, maybe, but it feels… off. Like when you wake up and you know you were dreaming but you can’t hold onto it.",   //Elias
+        "...",   //Leon
+        "It gets stranger, everything was faster. Output, timing, coordination… even the supervisor mentioned it, said productivity was “above expectation”.",   //Elias
+        "...",   //Leon
+        "I should feel good about that, right?",   //Elias
+        "Do you?",   //Leon
+        "No... I just feel… tired, like properly drained. I keep telling myself it’s just the adjustment; new implant, long hours, stress…",   //Elias
+        "But?",   //Leon
+        "But it doesn’t feel like that. It feels like something happened and I wasn’t entirely there for it.",   //Elias
+
+        //Edith conversation
+        "Can I ask you something a bit… strange, dear?",   //Edith
+        "Yes, go on.",   //Leon
+        "Do you think… the more someone is altered, the more they change?",   //Edith
+        "In what way?",   //Leon
+        "Not physically, that’s obvious. I mean… inside, their feelings, their responses, the way they connect to people. I’ve been wondering if there’s a point where it starts to… dull.",   //Edith
+        "Dull?",   //Leon
+        "Yes, like everything becomes quieter. Not quite gone, just… muted.",   //Edith
+        "That’s hard to say. Why are you asking?",   //Leon
+        "Oh, just thinking, old minds tend to wander. I remember when things felt… immediate; love, excitement, even anger, it all had a kind of sharpness to it. And now I wonder if that changes when you start replacing parts of yourself. ",   //Edith
+        "...",   //Leon
+        "Not that it means it disappears, just… becomes something else. Do you think someone could still feel the same, even after all that?",   //Edith
+        "I think… people hold onto what matters.",   //Leon
+        "I’d like to believe that. ",   //Edith
+        "What?",   //Leon
+        "Because otherwise… you’re not just changing the body, are you?",   //Edith
+ 
+        //Kellen conversation
+        "Heard something about HC. Factory workers, mandatory implants.",   //Leon
+        "Yeah… heard the same, one of them came in the other day.",   //Kellen
+        "Have you seen more? Since then I mean.",   //Leon
+        "More than I’d like. The issues vary; malfunctions, inconsistencies, things not lining up. And funnily enough, most of them trace back to the same place. ",   //Kellen
+        "Harcrow.",   //Leon
+        "Yeah... Feels familiar.",   //Kellen
+        "How?",   //Leon
+        "Same trick companies have been pulling for years, make something just unreliable enough that people come back.",   //Kellen
+        "Planned failure.",   //Leon
+        "Exactly, only this time it’s not phones or appliances. It’s people. ",   //Kellen
+        "...",   //Leon
+        "They come in thinking they need an upgrade, a fix, something new and that’s when the real stuff gets put in.",   //Kellen
+        "That’s… Dangerous.",   //Leon
+        "It’s profitable.",   //Kellen
+       
+        //MX-2 the maintenance robot conversation
+        "Still working?",   //Leon
+        "Maintenance cycle ongoing",   //MX-2
+        "Same systems?",   //Leon
+        "Residential and infrastructure units",   //MX-2
+        "…You ever get tired?",   //Leon
+        "No fatigue detected",   //MX-2
+        "Must be nice",   //Leon
+        "Clarification unnecessary",   //MX-2
+        "Yeah… figured",   //Leon
+    };
+
+    //-------------------------------------------------DAY 18--------------------------------------------------------------
+    //Anya's storyline is split into 4 options, until day 20, the last day.
+    public static readonly string[] Dialogue = new string[] 
+    {
+        //Anya conversation
+        //Option 1: Player HELPS Anya get the documents.
+        "I’ve got an update. I found a way to get the paperwork, it’s not clean, but it’ll work.",   //Leon
+        "…You’re serious.",   //Anya
+        "I should have everything ready by tomorrow. And listen, once you have them, you go straight through no delays, no second guessing.",   //Leon
+        "Yeah",   //Anya
+        "And when you get there… don’t just disappear.",   //Leon
+        "What do you mean?",   //Anya
+        "You said you have proof. So use it, don’t let it die with you. They don’t get to keep doing this.",   //Leon
+        "No… they don’t.",   //Anya
+        "So expose them, all of it.",   //Leon
+        "I will.",   //Anya
+
+        //Option 2: Player DOESN’T HELP Anya get the documents.
+        "…Hey",   //Leon
+        "...Hey, quiet today.",   //Anya
+        "Yeah, you alright?",   //Leon
+        "I’ll manage, I always do.",   //Anya
+        "...",   //Leon
+        "I can take care of myself.",   //Anya
+        "…Right",   //Leon
+        "Yeah",   //Anya
+
+        //Option 3: Player tells Anya to GO HOME.
+        "I’ve been thinking, and you were right about one thing. I don’t have many options left.",   //Anya
+        "...",   //Leon
+        "And staying here pretending I do isn’t helping. ",   //Anya
+        "So what are you going to do?",   //Leon
+        "...Go back.",   //Anya
+        "Not because I agree with them or because I suddenly trust any of it.",   //Leon
+        "Then why?",   //Anya
+        "Because if I’m closer to it… I can learn more. This isn’t me giving up, it’s just… changing direction.",   //Leon
+        "...",   //Anya
+        "If I can get back in, get access again… maybe I can find something bigger.",   //Leon
+        "And if they don’t let you?",   //Anya
+        "Then at least I tried something different. This isn’t over, not for me.",   //Leon
+
+        //Option 4: Player REPORTS Anya.
+        "…Hey",   //Leon
+        "...Hey, quiet today.",   //Anya
+        "Yeah, you alright?",   //Leon
+        "I’ll manage, I always do.",   //Anya
+        "...",   //Leon
+        "I can take care of myself.",   //Anya
+        "…Right",   //Leon
+        "Yeah",   //Anya
+
+        //Mara conversation
+        "How’s Elias?",   //Leon
+        "…Not well. He forgets things mid-sentence, loses track of what he’s doing, and when I ask him about it he brushes it off like it’s nothing. ",   //Mara
+        "...",   //Leon
+        "But it’s not nothing. He’s present, but not entirely like part of him is somewhere else. And the worst part is that he knew, he knew I didn’t trust it, and he still went through with it without telling me.",   //Mara
+        "...",   //Leon
+        "We’re supposed to figure things out together, that’s what this is, that’s what we are. And now I’m watching him change in ways I can’t predict, tied to a system I don’t trust, and I can’t do anything about it.",   //Mara
+        "...",   //Leon
+        "Sometimes I think about leaving, just taking them both somewhere far away from all of this.",   //Mara
+        "You could.",   //Leon
+        "Could I? The world isn’t built to let you step outside of it that easily... Do you know what’s strange?",   //Mara
+        "What?",   //Leon
+        "I understand emotions, I can define them, recognise them, respond to them. But moments like this… I wish I didn’t have to think about them. I wish I could just feel them.",   //Mara
+        "Go on.",   //Leon
+        "Instinctively, without analysing every part of it. Without questioning whether what I’m experiencing is real or constructed.",   //Mara
+        "...",   //Leon
+        "Sometimes I wish I were human.",   //Mara
+        "...",   //Leon
+        "Not all the time, just… enough to know what this is supposed to feel like.",   //Mara
+
+        //Edith conversation
+        "No, no I don’t want to hear it anymore. I take it back, all of it.",   //Edith
+        "What do you mean?",   //Leon
+        "That nonsense I said before, about envying them, about wishing things were easier, I don’t mean a word of it.",   //Edith
+        "...",   //Leon
+        "They don’t make things easier, they take things away. They took my husband from me.",   //Edith
+        "...",   //Leon
+        "They took my children, and now they expect us to just live with it like it’s normal. ",   //Edith
+        "Did something happen?",   //Leon
+        "...I was thinking about him this morning, trying to remember what it used to be like. The way he’d look at me, the way we’d talk, dance… just exist without all of this hanging over us. And now…",   //Edith
+        "Now?",   //Leon
+        "Now it’s different. It’s difficult to look at him sometimes... Because all I can see is what took everything from me. ",   //Edith
+
+        //Kellen conversation
+        "Got you something.",   //Leon
+        "That so? Alright, let’s see it then.",   //Kellen
+        "Found it while I was out. Thought you might like it.",   //Leon
+        "…You’re joking. A physical copy? Of a movie?",   //Kellen
+        "Yeah.",   //Leon
+        "Lad, what am I supposed to do with this? Frame it?",   //Kellen
+        "I thought you’d appreciate it",   //Leon
+        "I do, doesn’t mean I can use it, this is ancient.",   //Kellen
+        "You could find a way.",   //Leon
+        "Or I could just watch it online like a normal person.",   //Kellen
+        "That defeats the point. It’s… I don’t know, it’s different.",   //Leon
+        "It’s outdated. ",   //Kellen
+        "It’s tangible.",   //Leon
+        "It’s useless. ",   //Kellen
+        "You’re keeping it though.",   //Leon
+        "Yeah. But don’t get smug, lad. I like the sentiment, not the object.",   //Kellen
+        "Sure.",   //Leon
+        "... Still… appreciate it",   //Kellen
+
+        //MX-2 the maintenance robot conversation
+        "Busy?",   //Leon
+        "Maintenance workload increased",   //MX-2
+        "Still catching up?",   //Leon
+        "Demand remains above baseline",   //MX-2
+        "Figures",   //Leon
+        "Task priority adjusted accordingly",   //MX-2
+        "You ever get a break?",   //Leon
+        "Break not required",   //MX-2
+        "Yeah… of course not",   //Leon
+    };
+
+    //-------------------------------------------------DAY 19--------------------------------------------------------------
+    //Anya's storyline is split into 4 options, until day 20, the last day.
+    public static readonly string[] Dialogue = new string[] 
+    {
+        //Anya conversation
+        //Option 1: Player HELPS Anya get the documents.
+        "I’ve got them.",   //Leon
+        "…You actually did it. Let me see.",   //Anya
+        "Everything’s there. Identity records, clearance tags, cross-check passes… it should hold.",   //Leon
+        "…This is more than I expected",   //Anya
+        "It needs to be convincing, they’ve been tightening checks. Anya, listen...",   //Leon
+        "...",   //Anya
+        "They might ask where you’re coming from, keep it simple. Don’t overexplain, don’t fill silence, just answer what they ask.",   //Leon
+        "Okay",   //Anya
+        "If they question the timing, say you’ve been relocated, don’t hesitate when you say it. And if something feels off, don’t push it. Walk away and try again later.",   //Leon
+        "Once you’re through, don’t stay anywhere obvious, lay low until you’re sure you’re clear.",   //Anya
+        "It needs to be convincing, they’ve been tightening checks. Anya, listen...",   //Leon
+        "Got it.",   //Anya
+        "And the implant—",   //Leon
+        "First thing I deal with.",   //Anya
+        "You ready for this?",   //Leon
+        "As I’ll ever be... Thank you. You didn’t have to help me.",   //Anya
+        "I wanted to.",   //Leon
+        "Take care of yourself... And don’t let them get away with it here either.",   //Anya
+        "I won’t.",   //Leon
+
+        //Option 2: Player DOESN’T HELP Anya get the documents.
+        "... I’m leaving today. Wasn’t really planning to tell you like this but didn’t seem like there was a better way.",   //Anya
+        "...",   //Leon
+        "It’s strange...",   //Anya
+        "What is?",   //Leon
+        "I thought we were getting somewhere. Not even about all of this, just… talking.",   //Anya
+        "We were.",   //Leon
+        "Were we? Because it doesn’t feel like that anymore. I think I made a mistake...",   //Anya
+        "What kind?",   //Leon
+        "Trusting someone in your position. That’s on me though.",   //Anya
+        "Anya—",   //Leon
+        "Anyway, I should go. Take care of yourself.",   //Anya
+        "You too.",   //Leon
+
+        //Option 3: Player tells Anya to GO HOME.
+        "So… today’s the day. You sure about this?",   //Leon
+        "No... Doesn’t mean I’m not doing it. Maybe this is the only way I get close enough to actually do something.",   //Anya
+        "It’s risky.",   //Leon
+        "So is everything else. At least this way I’m not running blindly. And I just wanted to say… thanks.",   //Anya
+        "For what?",   //Leon
+        "For talking to me, even when I didn’t make it easy. Maybe we can still keep in touch somehow.",   //Anya
+        "I’d like that.",   //Leon
+        "Me too.",   //Anya
+
+        //Option 4: Player REPORTS Anya. No interaction this day.
+
+        //Elias conversation
+        "Any more… gaps?",   //Leon
+        "Yeah... but worse.",   //Elias
+        "How so?",   //Leon
+        "Longer this time and not just me. People at work, they started talking about it properly today.",   //Elias
+        "What are they saying?",   //Leon
+        "Same thing I am; missing time, increased output, feeling like something’s off. And the more we talk about it, the louder it gets.",   //Elias
+        "That’s not going to sit well.",   //Leon
+        "It doesn’t, management’s already stepping in. They are warning people, threatening cuts, termination… anything to shut it down. Which just makes it worse... Feels like something’s building.",   //Elias
+        "You think it’ll escalate?",   //Leon
+        "Yeah, I do. I spoke to Kellen, about removal. Just… options, nothing concrete.",   //Elias
+        "And Mara?",   //Leon
+        "We talked, about leaving. I don’t want my kid growing up in this, whatever this is becoming. Thought about going somewhere quiet, starting over, something simple.",   //Elias
+        "Like what?",   //Leon
+        "I don’t know… farming.",   //Elias
+        "That’s a big shift.",   //Leon
+        "So is all of this.",   //Elias
+        "...Like what?",   //Leon
+        "You’re welcome to come with us, you know.",   //Elias
+        "Me?",   //Leon
+        "Yeah, get out before it gets worse. I’m only half joking.",   //Elias
+        "Only half?",   //Leon
+        "Other half’s serious.",   //Elias
+
+        //Edith conversation
+        "Can I ask you something?",   //Leon
+        "You always do, dear.",   //Edith
+        "The other day… what you said about your husband. He’s augmented, isn’t he.",   //Leon
+        "…Yes, heavily? There wasn’t much choice, it was that or lose him.",   //Edith
+        "...",   //Leon
+        "And I wasn’t going to let that happen, not after everything else.",   //Edith
+        "You don’t talk about him much, why?",   //Leon
+        "Because people look at him differently. ",   //Edith
+        "Do they?",   //Leon
+        "Maybe not anymore, but I still see it.  Or maybe I imagine it.",   //Edith
+        "Are you ashamed of it?",   //Leon
+        "No, never that. I’ve been trying to protect him.",   //Edith
+        "From what?",   //Leon
+        "From all of this, from them. That’s why I keep things the way I do, why I don’t like those machines coming near.",   //Edith
+        "Like MX-2? You think it’ll harm him?",   //Leon
+        "No… not directly, but it’s all part of the same thing, isn’t it. ",   //Edith
+        "...",   //Leon
+        "Still, you might be right. Keeping him hidden, it’s not really living, is it? He’s still here, maybe I’ve been holding onto fear more than I should.",   //Edith
+
+        //Kellen conversation
+        "Oi, lad. Got something for you.",   //Kellen
+        "That’s new. Let’s see then.",   //Leon
+        "Here.",   //Kellen
+        "…What is it?",   //Leon
+        "Small data chip, old format, but I modified it. It’ll run through most immersive rigs; VR, neural feed, whatever you’ve got access to.",   //Kellen
+        "What’s on it? A film?",   //Leon
+        "Not just a film, full sensory version. One of my favourites. Visual, audio, environmental feedback, you’ll feel like you’re standing in it.",   //Kellen
+        "That’s… actually incredible.",   //Leon
+        "Don’t sound so surprised.",   //Kellen
+        "I just didn’t expect this from you.",   //Leon
+        "Yeah well... You’ve been coming around talking, not treating me like some problem. While most people don’t see it that way.",   //Kellen
+        "Their loss. And thank you.",   //Leon
+        "Don’t get sentimental on me, just watch it, yeah? And don’t come back telling me it’s overrated.",   //Kellen
+        "No promises.",   //Leon
+        "Knew I shouldn’t have given it to you.",   //Kellen
+
+        //MX-2 the maintenance robot conversation
+        "Still at it?",   //Leon
+        "Maintenance tasks ongoing",   //MX-2
+        "Anything different today?",   //Leon
+        "Increased system strain detected across multiple units",   //MX-2
+        "Sounds about right",   //Leon
+        "Adjustments in progress",   //MX-2
+        "Good luck with that",   //Leon
+        "Acknowledged",   //MX-2
+    };
+
+    //-------------------------------------------------DAY 20 LAST DAY--------------------------------------------------------------
+    public static readonly string[] Dialogue = new string[] 
+    {
+        //Anya conversation (message from her, probs not done in the dialogue)
+        //Option 1: Player HELPS Anya get the documents.
+        "Made it through. No issues, your documents held up better than expected",   //Anya
+        "Implant’s getting handled tomorrow, finally",   //Anya
+        "...",   //Anya
+        "Visit me sometime ;)",   //Anya
+
+        //Option 2: Player DOESN’T HELP Anya get the documents. Does not receive any message.
+
+        //Option 3: Player tells Anya to GO HOME.
+        "I’m back",   //Anya
+        "Everything feels the same, but not really",   //Anya
+        "...",   //Anya
+        "I can’t say much",   //Anya
+        "Just… wanted you to know I’m alright",   //Anya
+        "You’ll see me again",   //Anya
+
+        //Option 4: Player REPORTS Anya. No interaction this day. Does not receive any message.
+
+        //Mara conversation
+        "Heard you’re leaving.",   //Leon
+        "We are. It won’t be easy, starting over rarely is. But we’ll be together and right now that feels like the only thing that matters.",   //Mara
+        "That’s enough.",   //Leon
+        "I think so too. Thank you, Leon, for listening, for being… steady through all of this.",   //Mara
+        "You don’t have to thank me. I hope it works out for you.",   //Leon
+        "So do I.",   //Mara
+
+        //Elias conversation
+        "How are you feeling?",   //Leon
+        "Like I’ve been hit by a truck. But I feel… clearer, if that makes sense. Kellen did what he could. Wasn’t pretty, but it’s out.",   //Elias
+        "That’s what matters. Also, heard you’re leaving.",   //Leon
+        "Yeah... Feels like the only real option left. I want something different for my kid.",   //Elias
+        "You’ll find it.",   //Leon
+        "I hope so... We’ll keep in touch, yeah?",   //Elias
+        "Yeah, Good luck, Elias. ",   //Leon
+        "You too, mate.",   //Elias
+
+        //Edith conversation
+        "I took him out today. We went to the park, just for a walk.",   //Edith
+        "How was it?",   //Leon
+        "…Lovely. It felt… normal, in a way I hadn’t allowed myself to feel in a long time. And it made me realise something rather uncomfortable.",   //Edith
+        "What’s that?",   //Leon
+        "I’ve been hiding him, not from the world, but from myself. All this time I’ve been saying I hate what these machines have done, and yet… I let that feeling spill over onto him.",   //Edith
+        "That’s not easy to admit.",   //Leon
+        "No, it isn’t. I love him, that hasn’t changed, no matter what he is now.",   //Edith
+        "And that’s what matters. Maybe I could join you sometime, on your walk.",   //Leon
+        "I’d like that, dear.",   //Edith
+
+        //Kellen conversation
+        "Heard you helped Elias. How’d it go?",   //Leon
+        "Messy, but it’s done.",   //Kellen
+        "You think it was the right call?",   //Leon
+        "Yeah, getting out while you still can… not the worst idea. Anyway...  You still owe me a proper film opinion on that chip.",   //Kellen
+        "I do.",   //Leon
+        "So we’re doing that.",   //Kellen
+        "Watching it together?",   //Leon
+        "Don’t make it sound sentimental.",   //Kellen
+        "It is... When?",   //Leon
+        "Soon.",   //Kellen
+        "I’ll be there.",   //Leon
+        "Yeah, you will.",   //Kellen
+
+        //MX-2 the maintenance robot conversation
+        "Transfer scheduled",   //MX-2
+        "Transfer?",   //Leon
+        "Unit reassignment effective tomorrow",   //MX-2
+        "...So this is your last day here? You will be missed, buddy.",   //Leon
+        "Acknowledged",   //MX-2
+        "That’s it?",   //Leon
+        "... You as well… buddy",   //MX-2
+        "Oh... Didn’t expect that",   //Leon
+        "Response logged",   //MX-2
     };
 }
