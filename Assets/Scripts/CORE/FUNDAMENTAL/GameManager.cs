@@ -104,6 +104,11 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void SkipToPark()
+    {
+        SceneLoader("03_ParkNeighbourhood", GameState.Playing);
+    }
+
 //-----------Utility----------------------------------------------------
 
     public void SetGameMode(string mode)

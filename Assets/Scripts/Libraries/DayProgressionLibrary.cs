@@ -52,7 +52,7 @@ public static class DayProgressionLibrary
         new DayRules { allowedCauses = DocsAndContraband },
 
         // Day 4 — First Moral Test continued.
-        new DayRules { allowedCauses = DocsAndContraband },
+        new DayRules { allowedCauses = DocsAndContraband }, 
 
         // Day 5 — The Incident: entrant with HC-certified firmware cleared cleanly;
         //          DisapprovedCyberware not yet in play (HC is still trusted).
