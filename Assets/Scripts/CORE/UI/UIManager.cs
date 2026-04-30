@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
 using System.Text;
@@ -20,7 +19,6 @@ public class UIManager : MonoBehaviour
 
     [Header("Document Section")]
     [SerializeField] private GameObject documentSection;
-    [SerializeField] private Button toggleDocumentsButton;
     [SerializeField] private TMP_Text documentTypeText;
     [SerializeField] private TMP_Text documentDOBText;
     [SerializeField] private TMP_Text documentNatText;
@@ -28,12 +26,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text documentExpiryText;
     [SerializeField] private TMP_Text documentCyberwareText;
 
-    [Header("Decision Buttons")]
-    [SerializeField] private Button approveButton;
-    [SerializeField] private Button rejectButton;
-    [SerializeField] private Button exitReviewButton;
-
-    [Header("HUD")]
+[Header("HUD")]
     [SerializeField] private TMP_Text warningText;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private TMP_Text dayText;
@@ -48,14 +41,15 @@ public class UIManager : MonoBehaviour
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
 
-        approveButton.onClick.AddListener(() => DayManager.Instance.OnApprove());
-        rejectButton.onClick.AddListener(() => DayManager.Instance.OnReject());
-        exitReviewButton.onClick.AddListener(() => DayManager.Instance.ExitReview());
-        toggleDocumentsButton.onClick.AddListener(ToggleDocuments);
         dialoguePanel.SetActive(false);
         reviewPanel.SetActive(false);
         pauseMenu.SetActive(false);
-    }
+
+}
+
+    public void OnApproveClicked()    => DayManager.Instance.OnApprove();
+    public void OnRejectClicked()     => DayManager.Instance.OnReject();
+    public void OnExitReviewClicked() => DayManager.Instance.ExitReview();
 
     public void ToggleDocuments()
     {

@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private float pitch;
     private Vector3 velocity;
     private bool inputEnabled = true;
+    private bool _altPeeking;
 
     private Vector2 moveInput;
     private Vector2 lookInput;
@@ -38,7 +39,16 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         if (!inputEnabled) return;
-        Look();
+
+        bool altHeld = Keyboard.current != null && Keyboard.current.altKey.isPressed;
+        if (altHeld != _altPeeking)
+        {
+            _altPeeking      = altHeld;
+            Cursor.lockState = altHeld ? CursorLockMode.None   : CursorLockMode.Locked;
+            Cursor.visible   = altHeld;
+        }
+
+        if (!_altPeeking) Look();
         Move();
     }
 
@@ -67,7 +77,10 @@ public class PlayerController : MonoBehaviour
         if (!inputEnabled) return;
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, 5f))
-            hit.collider.GetComponent<Interactable>()?.TryInteract();
+        {
+            Interactable interactable = hit.collider.GetComponentInParent<Interactable>();
+            if (interactable != null) interactable.TryInteract();
+        }
     }
 
     // ── Movement & look ─────────────────────────────────────────────────────
@@ -95,6 +108,7 @@ public class PlayerController : MonoBehaviour
     public void SetInputEnabled(bool enabled)
     {
         inputEnabled     = enabled;
+        _altPeeking      = false;
         Cursor.lockState = enabled ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible   = !enabled;
     }

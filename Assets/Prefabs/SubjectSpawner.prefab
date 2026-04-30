@@ -110,17 +110,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   humanPrefabs:
-  - {fileID: 1752129967999806, guid: 9335937f22aa2ad40a7b14777c48f61c, type: 3}
-  - {fileID: 1189353972192656, guid: 200bc6ccceeac474080a49c821b89775, type: 3}
-  - {fileID: 1831749432875682, guid: c9751ce6917e9a34fa65260bace8c38a, type: 3}
+  - {fileID: 7928480345594949200, guid: bb93550df522cf74aacaf9801eec4785, type: 3}
+  - {fileID: 8191822305455660640, guid: a89b71d366fbedc4b8e5623351b9d979, type: 3}
+  - {fileID: 1082098678829655775, guid: 910e1327585b9a1469ba57dd9abdcbaa, type: 3}
+  - {fileID: 744140808410482227, guid: 13b4b05c2ec05b242b5ac1d6297d0486, type: 3}
+  - {fileID: 6275248912616856780, guid: a19aaefa12cfcdc488303acf7111d8f3, type: 3}
+  - {fileID: 2810341227135257763, guid: fdfb64a317fac5b4e9f27d39f987fb59, type: 3}
+  - {fileID: 2381145416497234362, guid: 17b8210b1b3c7044ba2ba7b645146e55, type: 3}
+  - {fileID: 6466705656340861409, guid: a97898ca1530c5d4fb6b79ba5998e5c1, type: 3}
   robotPrefabs:
-  - {fileID: 1675277247628234, guid: c071869dabd01174ba88c8f43a9cc9be, type: 3}
-  - {fileID: 1534689193196670, guid: 2b8c202f3d8aab24f80a30b09b342ec4, type: 3}
-  - {fileID: 1318303238961424, guid: 3470766f22e216142aa097c5eaa5a1c1, type: 3}
+  - {fileID: 7928480345594949200, guid: bb93550df522cf74aacaf9801eec4785, type: 3}
+  - {fileID: 8191822305455660640, guid: a89b71d366fbedc4b8e5623351b9d979, type: 3}
+  - {fileID: 1082098678829655775, guid: 910e1327585b9a1469ba57dd9abdcbaa, type: 3}
+  - {fileID: 744140808410482227, guid: 13b4b05c2ec05b242b5ac1d6297d0486, type: 3}
+  - {fileID: 6275248912616856780, guid: a19aaefa12cfcdc488303acf7111d8f3, type: 3}
+  - {fileID: 2810341227135257763, guid: fdfb64a317fac5b4e9f27d39f987fb59, type: 3}
+  - {fileID: 2381145416497234362, guid: 17b8210b1b3c7044ba2ba7b645146e55, type: 3}
+  - {fileID: 6466705656340861409, guid: a97898ca1530c5d4fb6b79ba5998e5c1, type: 3}
   spawnPoint: {fileID: 8011117335618422310}
   interactionPoint: {fileID: 6456333278736387659}
   exitPoint: {fileID: 5801767396778260280}
-  robotChance: 0.3
+  robotChance: 0.5
   validChance: 0.8
   cyberwareChance: 0.4
   medicationChance: 0.25
@@ -150,7 +160,7 @@ Transform:
   m_GameObject: {fileID: 8761097529351998659}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.234, y: 0.53, z: 20.42}
+  m_LocalPosition: {x: 0.46, y: 0.53, z: 20.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -1,5 +1,6 @@
 public static class DialogueLibrary
 {
+
     // ── Shared name pool ─────────────────────────────────────────────────────
     // All subjects draw from the same human-sounding pool.
     // Names are not a reliable tell — look at the document fields instead.

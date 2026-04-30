@@ -3,13 +3,18 @@ using System;
 
 public class SubjectProcessor : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 8f;
     [SerializeField] private float arrivalThreshold = 0.05f;
 
-    private Vector3 targetPosition;
-    private bool isMoving;
-    private Action onArrived;
+    private static readonly int IsWalking = Animator.StringToHash("isWalking");
+
+    private Vector3  targetPosition;
+    private bool     isMoving;
+    private Action   onArrived;
+    private Animator _anim;
+
+    private void Awake() => _anim = GetComponent<Animator>();
 
     private void Update()
     {
@@ -22,8 +27,8 @@ public class SubjectProcessor : MonoBehaviour
         {
             transform.position = targetPosition;
             isMoving = false;
+            if (_anim) _anim.SetBool(IsWalking, false);
 
-            // Clear before invoking to prevent re-entry
             Action callback = onArrived;
             onArrived = null;
             callback?.Invoke();
@@ -46,6 +51,7 @@ public class SubjectProcessor : MonoBehaviour
         targetPosition = destination;
         onArrived      = callback;
         isMoving       = true;
+        if (_anim) _anim.SetBool(IsWalking, true);
     }
 
     public void LeaveAndDestroy(Vector3 exitPoint)
