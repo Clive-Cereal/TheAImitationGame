@@ -42,7 +42,7 @@
     <UnityVersion>6000.0.56f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Users\eunsa\.vscode\extensions\visualstudiotoolsforunity.vstuc-1.2.2\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Users\1\.vscode\extensions\visualstudiotoolsforunity.vstuc-1.2.2\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.56f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.56f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.56f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
@@ -53,6 +53,7 @@
     <Compile Include="Assets\Scripts\CORE\Player\InspectionToolsManager.cs" />
     <Compile Include="Assets\Scripts\CORE\SubjectsProcessing\SubjectProcessor.cs" />
     <Compile Include="Assets\Scripts\Libraries\Subject.cs" />
+    <Compile Include="Assets\Scripts\MiniMap\MapUIManager.cs" />
     <Compile Include="Assets\Scripts\Temp\EndingScreen.cs" />
     <Compile Include="Assets\Scripts\CORE\FUNDAMENTAL\LoadingScene.cs" />
     <Compile Include="Assets\Post-processing\CelLookPostProcess-main\Scripts\CelLookPresetSwitcher.cs" />
@@ -64,17 +65,22 @@
     <Compile Include="Assets\SimpleSpinner\SimpleSpinner.cs" />
     <Compile Include="Assets\Scripts\CORE\FUNDAMENTAL\GameManager.cs" />
     <Compile Include="Assets\Post-processing\CelLookPostProcess-main\Scripts\CelLookSettings.cs" />
+    <Compile Include="Assets\Scripts\MiniMap\TopDownMapCapture.cs" />
     <Compile Include="Assets\Scripts\Libraries\DialogueLibrary.cs" />
     <Compile Include="Assets\Scripts\Libraries\Document.cs" />
+    <Compile Include="Assets\Scripts\ScenesTransfer\GoOutside.cs" />
     <Compile Include="Assets\Scripts\Libraries\DayProgressionLibrary.cs" />
     <Compile Include="Assets\Scripts\Libraries\Cyberware.cs" />
     <Compile Include="Assets\Scripts\CORE\FUNDAMENTAL\DayManager.cs" />
     <Compile Include="Assets\Scripts\Libraries\Enums.cs" />
     <Compile Include="Assets\Post-processing\CelLookPostProcess-main\Scripts\CelLookPresetAsset.cs" />
     <Compile Include="Assets\Scripts\Interactables\LightSwitch.cs" />
+    <Compile Include="Assets\Scripts\Interactables\BedSleep.cs" />
     <Compile Include="Assets\Scripts\Interactables\NPCInteractable.cs" />
     <Compile Include="Assets\Scripts\Misc\Door.cs" />
+    <Compile Include="Assets\Scripts\ScenesTransfer\GoToWork.cs" />
     <Compile Include="Assets\Scripts\Interactables\HouseDoor.cs" />
+    <Compile Include="Assets\Scripts\ScenesTransfer\LeaveOffice.cs" />
     <Compile Include="Assets\Scripts\CORE\FUNDAMENTAL\SaveSystem.cs" />
     <Compile Include="Assets\Post-processing\CelLookPostProcess-main\Scripts\CelLookRenderFeature.cs" />
     <Compile Include="Assets\Scripts\Libraries\ItemLibrary.cs" />
@@ -83,6 +89,7 @@
     <Compile Include="Assets\Scripts\Temp\Skillcheck.cs" />
     <Compile Include="Assets\Scripts\CORE\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Interactables\BedInteractable.cs" />
+    <Compile Include="Assets\Scripts\ScenesTransfer\GoToBedroom.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Downloaded assets\PolygonCyberCity\Shaders\SyntyStudios_Skybox.shader" />
@@ -608,12 +615,16 @@
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Android.Types">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.56f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.56f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Android.Gradle">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.56f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.56f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.Apple.Extensions.Common">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.56f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.Apple.Extensions.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
