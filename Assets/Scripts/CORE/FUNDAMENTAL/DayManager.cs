@@ -19,7 +19,7 @@ public class DayManager : MonoBehaviour
     [SerializeField] private bool requirePuzzleBeforeReview = true;
 
     public DayState CurrentDayState { get; private set; } = DayState.Idle;
-
+    public bool CanLeaveOffice { get; private set; } = false;
     private int warnings;
     private float dayTimer;
     private int subjectsProcessed;
@@ -46,6 +46,8 @@ public class DayManager : MonoBehaviour
         UIManager.Instance.UpdateDay(GameManager.Days);
         UIManager.Instance.UpdateWarnings(0);
         UIManager.Instance.UpdateTimer(0f);
+
+        CanLeaveOffice = false;
     }
 
     private void Update()
@@ -76,6 +78,8 @@ public class DayManager : MonoBehaviour
 
         OnDayStarted?.Invoke();
         SpawnNextSubject();
+
+        CanLeaveOffice = false;
     }
 
     public void EndDay()
@@ -89,6 +93,8 @@ public class DayManager : MonoBehaviour
 
         OnDayEnded?.Invoke();
         Debug.Log("Day ended. Interact with the bed to start the next day.");
+
+        CanLeaveOffice = true;
     }
 
     public void OnApprove()
@@ -242,5 +248,7 @@ public class DayManager : MonoBehaviour
 
         OnGameOver?.Invoke();
         Debug.Log("GAME OVER — 3 warnings reached. You are fired.");
+
+        CanLeaveOffice = false;
     }
 }

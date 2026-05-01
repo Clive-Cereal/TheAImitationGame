@@ -4,40 +4,40 @@ using UnityEngine.SceneManagement;
 public class LeaveOffice : Interactable
 {
     [SerializeField] private string targetSceneName = "03_ParkNeighbourhood";
+    [SerializeField] private string blockedMessage = "Better get my job done.";
 
     private void Start()
     {
-        isInteractable = false;
-
-        if (DayManager.Instance != null)
-        {
-            DayManager.Instance.OnDayStarted += LockButton;
-            DayManager.Instance.OnDayEnded += UnlockButton;
-        }
-    }
-
-    private void OnDestroy()
-    {
-        if (DayManager.Instance != null)
-        {
-            DayManager.Instance.OnDayStarted -= LockButton;
-            DayManager.Instance.OnDayEnded -= UnlockButton;
-        }
-    }
-
-    private void LockButton()
-    {
-        isInteractable = false;
-    }
-
-    private void UnlockButton()
-    {
+        // Keep it interactable so the player can receive feedback.
         isInteractable = true;
-        Debug.Log("Leave office button unlocked.");
     }
 
     protected override void Interact()
     {
+        if (DayManager.Instance == null)
+        {
+            ShowMessage(blockedMessage);
+            return;
+        }
+
+        if (!DayManager.Instance.CanLeaveOffice)
+        {
+            ShowMessage(blockedMessage);
+            return;
+        }
+
         SceneManager.LoadScene(targetSceneName);
+    }
+
+    private void ShowMessage(string message)
+    {
+        if (ScreenMessageUI.Instance != null)
+        {
+            ScreenMessageUI.Instance.ShowMessage(message);
+        }
+        else
+        {
+            Debug.Log(message);
+        }
     }
 }

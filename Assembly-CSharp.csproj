@@ -77,6 +77,8 @@
     <Compile Include="Assets\Scripts\Interactables\LightSwitch.cs" />
     <Compile Include="Assets\Scripts\Interactables\BedSleep.cs" />
     <Compile Include="Assets\Scripts\Interactables\NPCInteractable.cs" />
+    <Compile Include="Assets\Scripts\Interactables\InteractableHighlighter.cs" />
+    <Compile Include="Assets\Scripts\CORE\UI\ScreenMessageUI.cs" />
     <Compile Include="Assets\Scripts\Misc\Door.cs" />
     <Compile Include="Assets\Scripts\ScenesTransfer\GoToWork.cs" />
     <Compile Include="Assets\Scripts\Interactables\HouseDoor.cs" />

@@ -18,7 +18,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float sprintMultiplier = 1.6f;
     [SerializeField] private float jumpHeight = 1.2f;
     [SerializeField] private float gravity = -20f;
+    
+    [Header("Interaction")]
+    [SerializeField] private float interactDistance = 5f;
+    [SerializeField] private float interactRadius = 0.35f;
+    [SerializeField] private LayerMask interactMask = ~0;
 
+    private Interactable currentInteractable;
+    private Interactable previousInteractable;
     private CharacterController cc;
     private float pitch;
     private Vector3 velocity;
@@ -50,6 +57,7 @@ public class PlayerController : MonoBehaviour
 
         if (!_altPeeking) Look();
         Move();
+        UpdateCurrentInteractable();
     }
 
     public event Action OnPausePressed;
@@ -65,7 +73,7 @@ public class PlayerController : MonoBehaviour
     private void OnTablet(InputValue value) => OnTabletPressed?.Invoke();
     private void OnManual(InputValue value) => OnManualPressed?.Invoke();
     private void OnNotepad(InputValue value) => OnNotepadPressed?.Invoke();
-
+    
     private void OnJump(InputValue value)
     {
         if (!inputEnabled || !cc.isGrounded) return;
@@ -74,14 +82,77 @@ public class PlayerController : MonoBehaviour
 
     private void OnInteract(InputValue value)
     {
-        if (!inputEnabled) return;
-        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, 5f))
+    if (!inputEnabled) return;
+    if (!value.isPressed) return;
+
+    if (currentInteractable != null)
+    {
+        currentInteractable.TryInteract();
+    }
+    }
+
+    private void UpdateCurrentInteractable()
+{
+    previousInteractable = currentInteractable;
+    currentInteractable = null;
+
+    if (playerCamera == null) return;
+
+    Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+
+    RaycastHit[] hits = Physics.SphereCastAll(
+        ray,
+        interactRadius,
+        interactDistance,
+        interactMask,
+        QueryTriggerInteraction.Collide
+    );
+
+    float closestDistance = Mathf.Infinity;
+
+    foreach (RaycastHit hit in hits)
+    {
+        Interactable interactable = hit.collider.GetComponentInParent<Interactable>();
+
+        if (interactable == null) continue;
+
+        if (hit.distance < closestDistance)
         {
-            Interactable interactable = hit.collider.GetComponentInParent<Interactable>();
-            if (interactable != null) interactable.TryInteract();
+            closestDistance = hit.distance;
+            currentInteractable = interactable;
         }
     }
+
+    if (previousInteractable != currentInteractable)
+    {
+        SetInteractableHighlight(previousInteractable, false);
+        SetInteractableHighlight(currentInteractable, true);
+    }
+}
+
+
+
+
+
+private void SetInteractableHighlight(Interactable interactable, bool value)
+{
+    if (interactable == null) return;
+
+    InteractableHighlighter highlighter =
+        interactable.GetComponentInParent<InteractableHighlighter>();
+
+    if (highlighter != null)
+    {
+        highlighter.SetHighlighted(value);
+    }
+}
+
+private void OnDisable()
+{
+    SetInteractableHighlight(currentInteractable, false);
+    currentInteractable = null;
+    previousInteractable = null;
+}
 
     // ── Movement & look ─────────────────────────────────────────────────────
     private void Look()
