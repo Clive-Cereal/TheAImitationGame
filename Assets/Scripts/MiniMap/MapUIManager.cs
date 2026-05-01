@@ -24,6 +24,13 @@ public class MapUIManager : MonoBehaviour
     [Tooltip("Width / Height of generated map image. 2048x2048 = 1.")]
     [SerializeField] private float mapCaptureAspect = 1f;
 
+    [Header("Manual Map Offset")]
+    [Tooltip("Small normalized X offset for map alignment. 0.01 = 1% of map width.")]
+    [SerializeField] private float mapOffsetX = 0f;
+
+    [Tooltip("Small normalized Y offset for map alignment. 0.01 = 1% of map height.")]
+    [SerializeField] private float mapOffsetY = 0f;
+
     [Header("Full Map Zoom / Drag")]
     [SerializeField] private float minFullMapZoom = 0.6f;
     [SerializeField] private float maxFullMapZoom = 3f;
@@ -146,6 +153,10 @@ public class MapUIManager : MonoBehaviour
 
         float normalizedX = Mathf.InverseLerp(minX, maxX, playerPosition.x);
         float normalizedY = Mathf.InverseLerp(minZ, maxZ, playerPosition.z);
+
+        // Manual offset calibration.
+        normalizedX += mapOffsetX;
+        normalizedY += mapOffsetY;
 
         normalizedX = Mathf.Clamp01(normalizedX);
         normalizedY = Mathf.Clamp01(normalizedY);
