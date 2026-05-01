@@ -182,19 +182,13 @@ public class UIManager : MonoBehaviour
 
     void PauseGame()
     {
-        Debug.Log("Game Paused");
-        bool isPausedMenu = pauseMenu.activeSelf;
-        bool isPausedState = GameManager.currentState == GameState.Paused ? true : false;
-        bool isPausedTime = Time.timeScale == 0f ? true : false;
-        bool needCursor = isPausedMenu || isPausedState || isPausedTime;
+        if (GameManager.currentState != GameState.Playing && GameManager.currentState != GameState.Paused) return;
 
-        if(GameManager.currentGameState == GameState.Playing || GameManager.currentGameState == GameState.Paused)
-        {
-            GameManager.currentState = isPausedState ? GameState.Playing : GameState.Paused;
-            pauseMenu.SetActive(!isPausedMenu);
-            Time.timeScale = isPausedTime ? 1f : 0f;
-            Cursor.lockState = needCursor ? CursorLockMode.None  : CursorLockMode.Locked;
-            Cursor.visible   = needCursor;
-        }
+        bool willPause = GameManager.currentState != GameState.Paused;
+        GameManager.currentState = willPause ? GameState.Paused : GameState.Playing;
+        pauseMenu.SetActive(willPause);
+        Time.timeScale           = willPause ? 0f : 1f;
+        Cursor.lockState         = willPause ? CursorLockMode.None   : CursorLockMode.Locked;
+        Cursor.visible           = willPause;
     }
 }

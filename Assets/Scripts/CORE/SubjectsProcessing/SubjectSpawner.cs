@@ -75,8 +75,12 @@ public class SubjectSpawner : MonoBehaviour
         Nationality nat = AllNationalities[UnityEngine.Random.Range(0, AllNationalities.Length)];
 
         string displayName   = DialogueLibrary.Names[UnityEngine.Random.Range(0, DialogueLibrary.Names.Length)];
-        string dialogue      = (isRobot ? DialogueLibrary.RobotPurposeRobotic : DialogueLibrary.HumanPurpose)
-                               [UnityEngine.Random.Range(0, isRobot ? DialogueLibrary.RobotPurposeRobotic.Length : DialogueLibrary.HumanPurpose.Length)];
+        string[] dialoguePool = isRobot
+            ? (cause == InvalidCause.DocumentMismatch
+                ? DialogueLibrary.RobotPurposeDisguised
+                : DialogueLibrary.RobotPurposeRobotic)
+            : DialogueLibrary.HumanPurpose;
+        string dialogue = dialoguePool[UnityEngine.Random.Range(0, dialoguePool.Length)];
 
         bool docIsRobot = isRobot;
         bool docExpired = false;
