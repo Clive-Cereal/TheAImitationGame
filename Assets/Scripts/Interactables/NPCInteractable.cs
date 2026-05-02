@@ -4,6 +4,10 @@ public class NPCInteractable : Interactable
 {
     public enum Mode { Dialogue, SubjectReview }
 
+    [Header("Identity")]
+    [Tooltip("Matched by ParkDayLoader to assign dialogue and location for the current day. Leave blank on subject prefabs.")]
+    public string npcId;
+
     [Header("Mode")]
     [SerializeField] private Mode mode = Mode.Dialogue;
 
@@ -57,6 +61,12 @@ public class NPCInteractable : Interactable
         }
 
         ShowLine();
+    }
+
+    public void SetLines(DialogueLine[] newLines)
+    {
+        lines = newLines;
+        _lineIndex = -1;
     }
 
     private void ShowLine()

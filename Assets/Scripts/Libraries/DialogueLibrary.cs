@@ -1,4 +1,4 @@
-public static class DialogueLibrary
+﻿public static class DialogueLibrary
 {
 
     // ── Shared name pool ─────────────────────────────────────────────────────
@@ -109,31 +109,33 @@ public static class DialogueLibrary
         "I’m here for leisure, just for a little while."
     };
 
-    //-------------------------------------------------DAY 1--------------------------------------------------------------
-        public static readonly DialogueLine[] Day1Dialogue = new DialogueLine[]
-    {
-        // Anya
-            new DialogueLine("Anya",  "*coughs*"),
-            new DialogueLine("Leon",  "You alright?"),
-            new DialogueLine("Anya",  "Fine. *coughs again*"),
-            new DialogueLine("Leon",  "Doesn't sound like it."),
-            new DialogueLine("Anya",  "Then don't listen."),
-            new DialogueLine("Leon",  "Right... There's a clinic two streets over."),
-            new DialogueLine("Anya",  "I'm not from here."),
-            new DialogueLine("Leon",  "It's not restricted."),
-            new DialogueLine("Anya",  "…That supposed to help?"),
-            new DialogueLine("Leon",  "Just saying you could go."),
-            new DialogueLine("Anya",  "I'm good."),
-            new DialogueLine("Leon",  "Doesn't sound like it."),
-            new DialogueLine("Anya",  "You always repeat yourself?"),
-            new DialogueLine("Leon",  "Only when people ignore me."),
-            new DialogueLine("Anya",  "Maybe take the hint."),
-            new DialogueLine("Leon",  "...Alright."),
-            new DialogueLine("Anya",  "And stop looking at me like that."),
-            new DialogueLine("Leon",  "Like what?"),
-            new DialogueLine("Anya",  "Like I'm your problem."),
+    // -- Day 1 --
 
-        //Elias conversation
+    public static readonly DialogueLine[] Day1_Anya = new DialogueLine[]
+    {
+        new DialogueLine("Anya",  "*coughs*"),
+        new DialogueLine("Leon",  "You alright?"),
+        new DialogueLine("Anya",  "Fine. *coughs again*"),
+        new DialogueLine("Leon",  "Doesn't sound like it."),
+        new DialogueLine("Anya",  "Then don't listen."),
+        new DialogueLine("Leon",  "Right... There's a clinic two streets over."),
+        new DialogueLine("Anya",  "I'm not from here."),
+        new DialogueLine("Leon",  "It's not restricted."),
+        new DialogueLine("Anya",  "…That supposed to help?"),
+        new DialogueLine("Leon",  "Just saying you could go."),
+        new DialogueLine("Anya",  "I'm good."),
+        new DialogueLine("Leon",  "Doesn't sound like it."),
+        new DialogueLine("Anya",  "You always repeat yourself?"),
+        new DialogueLine("Leon",  "Only when people ignore me."),
+        new DialogueLine("Anya",  "Maybe take the hint."),
+        new DialogueLine("Leon",  "...Alright."),
+        new DialogueLine("Anya",  "And stop looking at me like that."),
+        new DialogueLine("Leon",  "Like what?"),
+        new DialogueLine("Anya",  "Like I'm your problem."),
+    };
+
+    public static readonly DialogueLine[] Day1_Elias = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Hello, I just moved here recently."),
         new DialogueLine("Elias", "Yeah, I thought so. Haven’t seen you around before... Welcome by the way, I’m Elias."),
         new DialogueLine("Leon", "Thanks, I’m Leon."),
@@ -149,8 +151,10 @@ public static class DialogueLibrary
         new DialogueLine("Leon", "You’ve lived here long?"),
         new DialogueLine("Elias", "Yeah, long enough to remember when it wasn’t like this... Long enough to know it’s better not to stand out too much. Anyway Kid, you’ll be fine. Just keep your head down, be polite. That goes a long way around here."),
         new DialogueLine("Leon", "Alright thanks, I’ll keep that in mind."),
-        
-        //Edith conversation
+    };
+
+    public static readonly DialogueLine[] Day1_Edith = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Hello, I just moved here, I’m Leon."),
         new DialogueLine("Edith", "Oh! Well about time they sent someone over."),
         new DialogueLine("Leon", "Send someone over?"),
@@ -179,8 +183,10 @@ public static class DialogueLibrary
         new DialogueLine("Edith", "Edith! Edith!"),   //An individuals voice coming from inside the house
         new DialogueLine("Edith", "Alright, keep your wits about you, Dear. Not everyone’s as they seem."),   //Edith
         new DialogueLine("Leon", "I’ll keep that in mind."),   //Leon
+    };
 
-        //Kellen conversation
+    public static readonly DialogueLine[] Day1_Kellen = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Hello."),   //Leon
         new DialogueLine("Kellen", "..."),   //Kellen
         new DialogueLine("Leon", "What is this place?"),   //Leon
@@ -195,186 +201,194 @@ public static class DialogueLibrary
         new DialogueLine("Kellen", "So do yourself a favour and turn around, walk back the way you came, and don’t wander down here again."),   //Kellen
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Kellen", "We clear?"),   //Kellen
-
-        //MX-2 the maintenance robot conversation
-        new DialogueLine("Leon", "Hello."),   //Leon
-        new DialogueLine("MX-2", "Maintenance unit active. Please keep clear of the work area."),   //MX-2
-        new DialogueLine("Leon", "Right… I was just wondering what you’re working on."),   //Leon
-        new DialogueLine("MX-2", "Surface panel degradation detected. Repair in progress."),   //MX-2
-        new DialogueLine("Leon", "Do you handle this whole area?"),   //Leon
-        new DialogueLine("MX-2", "Assigned zone: Sector 3. Tasks include maintenance, delivery, and structural upkeep."),   //MX-2
-        new DialogueLine("Leon", "Sounds like a lot."),   //Leon
-        new DialogueLine("MX-2", "Workload within acceptable parameters."),   //MX-2
-        new DialogueLine("Leon", "Do you ever stop?"),   //Leon
-        new DialogueLine("MX-2", "Rest cycles are not required."),   //MX-2
-        new DialogueLine("Leon", "..."),   //Leon
-        new DialogueLine("MX-2", "Please maintain distance. Obstruction will delay completion time."),   //MX-2
-        new DialogueLine("Leon", "I’m not in the way."),   //Leon
-        new DialogueLine("MX-2", "Proximity threshold exceeded."),   //MX-2
-        new DialogueLine("Leon", "Alright, I’ll move.")   //Leon
-
     };
+
+    public static readonly DialogueLine[] Day1_MX2 = new DialogueLine[]
+    {
+        new DialogueLine("Leon", "Hello."),   //Leon
+        new DialogueLine("Leon", "Right… I was just wondering what you’re working on."),   //Leon
+        new DialogueLine("Leon", "Do you handle this whole area?"),   //Leon
+        new DialogueLine("Leon", "Sounds like a lot."),   //Leon
+        new DialogueLine("Leon", "Do you ever stop?"),   //Leon
+        new DialogueLine("Leon", "..."),   //Leon
+        new DialogueLine("Leon", "I’m not in the way."),   //Leon
+        new DialogueLine("Leon", "Alright, I’ll move.")   //Leon
+    };
+
 
     //-------------------------------------------------DAY 2--------------------------------------------------------------
-    public static readonly DialogueLine[] Day2Dialogue = new DialogueLine[] 
-    {
-        //Anya conversation
-        new DialogueLine("Leon", "Hey… you’re still out here."),   //Leon
-        new DialogueLine("Anya", "And you’re still talking to me."),   //Anya
-        new DialogueLine("Leon", "You don’t look any better."),   //Leon
-        new DialogueLine("Anya", "I don’t remember asking for an update."),   //Anya
-        new DialogueLine("Leon", "It’s hard not to notice."),   //Leon
-        new DialogueLine("Anya", "Then stop trying."),   //Anya
-        new DialogueLine("Leon", "Look whatever’s going on, you don’t have to deal with it on your own."),   //Leon
-        new DialogueLine("Anya", "That’s exactly how you deal with it."),   //Anya
-        new DialogueLine("Leon", "…Right."),   //Leon
-        new DialogueLine("Anya", "You don’t know me. So don’t act like you do."),   //Anya
-        new DialogueLine("Leon", "I was only trying to help."),   //Leon
-        new DialogueLine("Anya", "I don’t need help."),   //Anya
-        new DialogueLine("Leon", "Alright..."),   //Leon
 
-       //Mara conversation
-       new DialogueLine("Leon", "Excuse me, do you know when this stall closes?"),   //Leon
-       new DialogueLine("Mara", "Soon, it usually closes late."),   //Mara
-       new DialogueLine("Leon", "Right. I thought maybe you worked here."),   //Leon
-       new DialogueLine("Mara", "Oh, no... Although I do get that sometimes."),   //Mara
-       new DialogueLine("Leon", "Sorry, I didn’t mean—"),   //Leon
-       new DialogueLine("Mara", "It’s alright. I’m just picking things up for my family."),   //Mara
-       new DialogueLine("Leon", "You live nearby?"),   //Leon
-       new DialogueLine("Mara", "Just down the street. My husband, Elias, and I moved here a while ago."),   //Mara
-       new DialogueLine("Leon", "Elias, I met him briefly yesterday."),   //Leon
-       new DialogueLine("Mara", "You did, did you? He did mention that someone new had arrived. It’s nice, having new people around."),   //Mara
-       new DialogueLine("Leon", "Most people don’t seem to think so."),   //Leon
-       new DialogueLine("Mara", "People take time, they like things to stay the same."),   //Mara
-       new DialogueLine("Leon", "And you don’t?"),   //Leon
-       new DialogueLine("Mara", "I like what I have, that’s enough for me... I didn’t catch your name."),   //Mara
-       new DialogueLine("Leon", "Leon."),   //Leon
-       new DialogueLine("Mara", "It was nice to meet you Leon. And you’ll get used to it here, It’s not as unkind as it first feels."),   //Mara
+        public static readonly DialogueLine[] Day2_Anya = new DialogueLine[] 
+        {
+            new DialogueLine("Leon", "Hey… you’re still out here."),   //Leon
+            new DialogueLine("Anya", "And you’re still talking to me."),   //Anya
+            new DialogueLine("Leon", "You don’t look any better."),   //Leon
+            new DialogueLine("Anya", "I don’t remember asking for an update."),   //Anya
+            new DialogueLine("Leon", "It’s hard not to notice."),   //Leon
+            new DialogueLine("Anya", "Then stop trying."),   //Anya
+            new DialogueLine("Leon", "Look whatever’s going on, you don’t have to deal with it on your own."),   //Leon
+            new DialogueLine("Anya", "That’s exactly how you deal with it."),   //Anya
+            new DialogueLine("Leon", "…Right."),   //Leon
+            new DialogueLine("Anya", "You don’t know me. So don’t act like you do."),   //Anya
+            new DialogueLine("Leon", "I was only trying to help."),   //Leon
+            new DialogueLine("Anya", "I don’t need help."),   //Anya
+            new DialogueLine("Leon", "Alright..."),   //Leon
+        }; 
 
-        //Edith conversation
-        new DialogueLine("Leon", "Hello again."),   //Leon
-        new DialogueLine("Edith", "Oh, Dear it’s you. Good, maybe someone can finally do something useful around here."),   //Edith
-        new DialogueLine("Leon", "What happened?"),   //Leon
-        new DialogueLine("Edith", "That thing strolling about like it owns the place. Nearly took my foot off this morning."),   //Edith
-        new DialogueLine("Leon", "The maintenance unit?"),   //Leon
-        new DialogueLine("Edith", "Whatever it calls itself. Useless, that’s what it is."),   //Edith
-        new DialogueLine("Leon", "I thought it just did maintenance."),   //Leon
-        new DialogueLine("Edith", "Badly. All noise, no sense. Buzzing around, stopping in the middle of the road like it’s thinking, as if it could."),   //Edith
-        new DialogueLine("Leon", "He’s just doing his job."),   //Leon
-        new DialogueLine("Edith", "He? Oh sweetheart I was hoping you weren’t like the others, I am disappointed. "),   //Edith
-        new DialogueLine("Leon", "..."),   //Leon
-        new DialogueLine("Edith", "Nevertheless, I’m telling you, they shouldn’t be left to their own devices. Something’s going to go wrong one day."),   //Edith
-        new DialogueLine("Leon", "Mhm, have a good evening Edith. "),   //Leon
-        new DialogueLine("Edith", "Yes, yes goodbye Dear."),   //Edith
+        public static readonly DialogueLine[] Day2_Mara = new DialogueLine[]  
+        {   
+            new DialogueLine("Leon", "Excuse me, do you know when this stall closes?"),   //Leon
+            new DialogueLine("Mara", "Soon, it usually closes late."),   //Mara
+            new DialogueLine("Leon", "Right. I thought maybe you worked here."),   //Leon
+            new DialogueLine("Mara", "Oh, no... Although I do get that sometimes."),   //Mara
+            new DialogueLine("Leon", "Sorry, I didn’t mean—"),   //Leon
+            new DialogueLine("Mara", "It’s alright. I’m just picking things up for my family."),   //Mara
+            new DialogueLine("Leon", "You live nearby?"),   //Leon
+            new DialogueLine("Mara", "Just down the street. My husband, Elias, and I moved here a while ago."),   //Mara
+            new DialogueLine("Leon", "Elias, I met him briefly yesterday."),   //Leon
+            new DialogueLine("Mara", "You did, did you? He did mention that someone new had arrived. It’s nice, having new people around."),   //Mara
+            new DialogueLine("Leon", "Most people don’t seem to think so."),   //Leon
+            new DialogueLine("Mara", "People take time, they like things to stay the same."),   //Mara
+            new DialogueLine("Leon", "And you don’t?"),   //Leon
+            new DialogueLine("Mara", "I like what I have, that’s enough for me... I didn’t catch your name."),   //Mara
+            new DialogueLine("Leon", "Leon."),   //Leon
+            new DialogueLine("Mara", "It was nice to meet you Leon. And you’ll get used to it here, It’s not as unkind as it first feels."),   //Mara
+        };
+  
+        public static readonly DialogueLine[] Day2_Edith = new DialogueLine[]  
+        {   
+            new DialogueLine("Leon", "Hello again."),   //Leon
+            new DialogueLine("Edith", "Oh, Dear it’s you. Good, maybe someone can finally do something useful around here."),   //Edith
+            new DialogueLine("Leon", "What happened?"),   //Leon
+            new DialogueLine("Edith", "That thing strolling about like it owns the place. Nearly took my foot off this morning."),   //Edith
+            new DialogueLine("Leon", "The maintenance unit?"),   //Leon
+            new DialogueLine("Edith", "Whatever it calls itself. Useless, that’s what it is."),   //Edith
+            new DialogueLine("Leon", "I thought it just did maintenance."),   //Leon
+            new DialogueLine("Edith", "Badly. All noise, no sense. Buzzing around, stopping in the middle of the road like it’s thinking, as if it could."),   //Edith
+            new DialogueLine("Leon", "He’s just doing his job."),   //Leon
+            new DialogueLine("Edith", "He? Oh sweetheart I was hoping you weren’t like the others, I am disappointed. "),   //Edith
+            new DialogueLine("Leon", "..."),   //Leon
+            new DialogueLine("Edith", "Nevertheless, I’m telling you, they shouldn’t be left to their own devices. Something’s going to go wrong one day."),   //Edith
+            new DialogueLine("Leon", "Mhm, have a good evening Edith. "),   //Leon
+            new DialogueLine("Edith", "Yes, yes goodbye Dear."),   //Edith
+        };
 
-        //Kellen conversation
-        new DialogueLine("Leon", "..."),   //Leon
-        new DialogueLine("Kellen", "You again."),   //Kellen
-        new DialogueLine("Leon", "Just passing through."),   //Leon
-        new DialogueLine("Kellen", "Then pass quicker."),   //Kellen
-        new DialogueLine("Leon", "Didn’t mean to interrupt."),   //Leon
-        new DialogueLine("Kellen", "If you don’t need anything done, then move along and don’t come down here. I’ve got people waiting."),   //Kellen
-        new DialogueLine("Leon", "Right..."),   //Leon
-        new DialogueLine("Kellen", "And stop looking like you’re figuring things out. Nothing down here concerns you."),   //Kellen
+        public static readonly DialogueLine[] Day2_Kellen = new DialogueLine[]  
+        {   
+            new DialogueLine("Leon", "..."),   //Leon
+            new DialogueLine("Kellen", "You again."),   //Kellen
+            new DialogueLine("Leon", "Just passing through."),   //Leon
+            new DialogueLine("Kellen", "Then pass quicker."),   //Kellen
+            new DialogueLine("Leon", "Didn’t mean to interrupt."),   //Leon
+            new DialogueLine("Kellen", "If you don’t need anything done, then move along and don’t come down here. I’ve got people waiting."),   //Kellen
+            new DialogueLine("Leon", "Right..."),   //Leon
+            new DialogueLine("Kellen", "And stop looking like you’re figuring things out. Nothing down here concerns you."),   //Kellen
+        };
 
-        //MX-2 the maintenance robot conversation
-        new DialogueLine("Leon", "You’re working on something new today."),   //Leon
-        new DialogueLine("MX-2", "Drainage obstruction detected. Clearing in progress. Debris accumulation exceeds expected levels. Task priority increased."),   //MX-2
-        new DialogueLine("Leon", "Do you ever fall behind?"),   //Leon
-        new DialogueLine("MX-2", "Delays are corrected through extended operation time."),   //MX-2
-        new DialogueLine("Leon", "So you just keep going."),   //Leon
-        new DialogueLine("MX-2", "Affirmative."),   //MX-2
-        new DialogueLine("Leon", "Please maintain distance. Hazard risk elevated.")   //Leon
-
-    };
+        public static readonly DialogueLine[] Day2_MX2 = new DialogueLine[]  
+        {   
+            new DialogueLine("Leon", "You’re working on something new today."),   //Leon
+            new DialogueLine("MX-2", "Drainage obstruction detected. Clearing in progress. Debris accumulation exceeds expected levels. Task priority increased."),   //MX-2
+            new DialogueLine("Leon", "Do you ever fall behind?"),   //Leon
+            new DialogueLine("MX-2", "Delays are corrected through extended operation time."),   //MX-2
+            new DialogueLine("Leon", "So you just keep going."),   //Leon
+            new DialogueLine("MX-2", "Affirmative."),   //MX-2
+            new DialogueLine("Leon", "Please maintain distance. Hazard risk elevated.")   //Leon
+        };
 
     //-------------------------------------------------DAY 3--------------------------------------------------------------
-    public static readonly DialogueLine[] Day3Dialogue = new DialogueLine[] 
-    {
-        //Anya conversation
-        new DialogueLine("Leon", "Hey… I’ll stop trying to fix things. Wasn’t doing a great job of it anyway."),   //Leon
-        new DialogueLine("Anya", "No, you weren’t."),   //Anya
-        new DialogueLine("Leon", "Thought I’d try something else instead. I’m Leon."),   //Leon
-        new DialogueLine("Anya", "..."),   //Anya
-        new DialogueLine("Leon", "You don’t have to tell me. Just feels strange talking like this without a name."),   //Leon
-        new DialogueLine("Anya", "You talk a lot."),   //Anya
-        new DialogueLine("Leon", "Only when people don’t give me much to work with."),   //Leon
-        new DialogueLine("Anya", "...Anya."),   //Anya
-        new DialogueLine("Leon", "..."),   //Leon
-        new DialogueLine("Anya", "Don’t test your luck, just Anya."),   //Anya
-        new DialogueLine("Leon", "You always this friendly with people?"),   //Leon
-        new DialogueLine("Anya", "Only the ones that keep coming back."),   //Anya
-        new DialogueLine("Leon", "Guess I’ve earned that, then."),   //Leon
-        new DialogueLine("Anya", "Maybe."),   //Anya
-        new DialogueLine("Leon", "I’ll take it."),   //Leon
 
-       //Elias conversation
-        new DialogueLine("Leon", "Hey. Good to see you again."),   //Leon
-        new DialogueLine("Elias", "Hey Leon, you too. Settling in alright?"),   //Elias
-        new DialogueLine("Leon", "Getting there. You and Mara have been the easiest to talk to so far."),   //Leon
-        new DialogueLine("Elias", "That’s good to hear, not everyone makes it easy. Anyway, had to pick something up earlier, a replacement unit. Old one started acting up again."),   //Elias
-        new DialogueLine("Leon", "From where?"),   //Leon
-        new DialogueLine("Elias", "Harcrow. Same place everything comes from these days. They manufacture, supply, maintain pretty much anything. Almost everything that runs in this city has their name on it."),   //Elias
-        new DialogueLine("Leon", "Interesting, didn’t realise it was that much."),   //Leon
-        new DialogueLine("Elias", "Most people don’t, at first. Then you start noticing the logos, ads, billboards, you name it."),   //Elias
-        new DialogueLine("Leon", "Is that a problem?"),   //Leon
-        new DialogueLine("Elias", "Depends who you ask... For some people, it’s the only reason things keep working."),   //Elias
-        new DialogueLine("Leon", "And for others?"),   //Leon
-        new DialogueLine("Elias", "They’d rather not rely on it at all. Anyway lad, I’ll see you around."),   //Elias
+        public static readonly DialogueLine[] Day3_Anya = new DialogueLine[]  
+        {
+            new DialogueLine("Leon", "Hey… I’ll stop trying to fix things. Wasn’t doing a great job of it anyway."),   //Leon
+            new DialogueLine("Anya", "No, you weren’t."),   //Anya
+            new DialogueLine("Leon", "Thought I’d try something else instead. I’m Leon."),   //Leon
+            new DialogueLine("Anya", "..."),   //Anya
+            new DialogueLine("Leon", "You don’t have to tell me. Just feels strange talking like this without a name."),   //Leon
+            new DialogueLine("Anya", "You talk a lot."),   //Anya
+            new DialogueLine("Leon", "Only when people don’t give me much to work with."),   //Leon
+            new DialogueLine("Anya", "...Anya."),   //Anya
+            new DialogueLine("Leon", "..."),   //Leon
+            new DialogueLine("Anya", "Don’t test your luck, just Anya."),   //Anya
+            new DialogueLine("Leon", "You always this friendly with people?"),   //Leon
+            new DialogueLine("Anya", "Only the ones that keep coming back."),   //Anya
+            new DialogueLine("Leon", "Guess I’ve earned that, then."),   //Leon
+            new DialogueLine("Anya", "Maybe."),   //Anya
+            new DialogueLine("Leon", "I’ll take it."),   //Leon
+        };
 
-        //Edith conversation
-        new DialogueLine("Leon", "Hello Edith, have you ever heard of Harcrow Corporations?"),   //Leon
-        new DialogueLine("Edith", "Heard of them? Oh sweetheart, they won’t leave me alone."),   //Edith
-        new DialogueLine("Leon", "What do you mean?"),   //Leon
-        new DialogueLine("Edith", "Letters, pamphlets, little offers through the door, “support for your age group,” they say. Discounts on implants, upgrades, replacements. Like I asked for any of it."),   //Edith
-        new DialogueLine("Leon", "Sounds like they’re pushing it hard."),   //Leon
-        new DialogueLine("Edith", "Pushing? They’re desperate! Trying to get people like me signed up before we know what we’re agreeing to."),   //Edith
-        new DialogueLine("Leon", "You don’t trust it."),   //Leon
-        new DialogueLine("Edith", "Of course I don’t trust it. It’s all a sham! Dress it up nicely, make it sound safe, and next thing you know they’ve got their hands in everything."),   //Edith
-        new DialogueLine("Leon", "..."),   //Leon
-        new DialogueLine("Edith", "They run the whole place, whether people admit it or not. I wouldn’t trust a single device made by them Dear."),   //Edith
-        new DialogueLine("Leon", "...Right."),   //Leon
-        new DialogueLine("Edith", "You know, I’m surprised you don’t know that, sweetheart. I’d imagine they supply half of what you lot use over there at work."),   //Edith
-        new DialogueLine("Edith", "Edith, who are you talking to?"),   //An individuals voice coming from inside the house
-        new DialogueLine("Edith", "I’ll see you later Dear."),   //Edith
-      
-        //Kellen conversation
-        new DialogueLine("Leon", "We need to talk."),   //Leon
-        new DialogueLine("Kellen", "No, we don’t."),   //Kellen
-        new DialogueLine("Leon", "Yeah, we do. Because I’m getting real tired of being told to get lost every time I walk past."),   //Leon
-        new DialogueLine("Kellen", "Then stop walking past."),   //Kellen
-        new DialogueLine("Leon", "...I know exactly what kind of place this is."),   //Leon
-        new DialogueLine("Kellen", "You don’t know anything."),   //Kellen
-        new DialogueLine("Leon", "I know enough. And if I’d said something by now, you wouldn’t still be standing here."),   //Leon
-        new DialogueLine("Kellen", "..."),   //Kellen
-        new DialogueLine("Leon", "At the end of the day I’m still the one wearing a uniform. So maybe drop the attitude. I’m not here to shut you down."),   //Leon
-        new DialogueLine("Kellen", "Then what are you here for?"),   //Kellen
-        new DialogueLine("Leon", "Same as everyone else. Trying to get through the day without making it worse for anyone."),   //Leon
-        new DialogueLine("Kellen", "The man in the uniform does have some balls after all. I can keep it civil, as long as you stay in your lane, and I stay in mine."),   //Kellen
-        new DialogueLine("Leon", "...Leon."),   //Leon
-        new DialogueLine("Kellen", "I didn’t ask for your name, lad. I see no point in names, and I will not be giving you mine."),   //Kellen
-        new DialogueLine("Leon", "Alright, I’ll see you later Kellen."),   //Leon
-        new DialogueLine("Kellen", "..."),   //Kellen
+        public static readonly DialogueLine[] Day3_Elias = new DialogueLine[]  
+        {
+            new DialogueLine("Leon", "Hey. Good to see you again."),   //Leon
+            new DialogueLine("Elias", "Hey Leon, you too. Settling in alright?"),   //Elias
+            new DialogueLine("Leon", "Getting there. You and Mara have been the easiest to talk to so far."),   //Leon
+            new DialogueLine("Elias", "That’s good to hear, not everyone makes it easy. Anyway, had to pick something up earlier, a replacement unit. Old one started acting up again."),   //Elias
+            new DialogueLine("Leon", "From where?"),   //Leon
+            new DialogueLine("Elias", "Harcrow. Same place everything comes from these days. They manufacture, supply, maintain pretty much anything. Almost everything that runs in this city has their name on it."),   //Elias
+            new DialogueLine("Leon", "Interesting, didn’t realise it was that much."),   //Leon
+            new DialogueLine("Elias", "Most people don’t, at first. Then you start noticing the logos, ads, billboards, you name it."),   //Elias
+            new DialogueLine("Leon", "Is that a problem?"),   //Leon
+            new DialogueLine("Elias", "Depends who you ask... For some people, it’s the only reason things keep working."),   //Elias
+            new DialogueLine("Leon", "And for others?"),   //Leon
+            new DialogueLine("Elias", "They’d rather not rely on it at all. Anyway lad, I’ll see you around."),   //Elias
+        };
         
-        //MX-2 the maintenance robot conversation
-        new DialogueLine("Leon", "That woman, Edith. She gives you a hard time."),   //Leon
-        new DialogueLine("MX-2", "Verbal hostility from resident “Edith” recorded. Frequency: HIGH."),   //MX-2
-        new DialogueLine("Leon", "You notice that?"),   //Leon
-        new DialogueLine("MX-2", "All interactions are logged."),   //MX-2
-        new DialogueLine("Leon", "Does it affect your work?"),   //Leon
-        new DialogueLine("MX-2", "Task completion remains within acceptable parameters."),   //MX-2
-        new DialogueLine("Leon", "So it doesn’t bother you."),   //Leon
-        new DialogueLine("MX-2", "“Bother” is not a recognised operational state. Similar behaviour observed across multiple residents. Interaction pattern classified as normal."),   //MX-2
-        new DialogueLine("Leon", "Normal?"),   //Leon
-        new DialogueLine("MX-2", "Affirmative. Please maintain distance. Task in progress.")   //MX-2
+        public static readonly DialogueLine[] Day3_Edith = new DialogueLine[]  
+        {   
+            new DialogueLine("Leon", "Hello Edith, have you ever heard of Harcrow Corporations?"),   //Leon
+            new DialogueLine("Edith", "Heard of them? Oh sweetheart, they won’t leave me alone."),   //Edith
+            new DialogueLine("Leon", "What do you mean?"),   //Leon
+            new DialogueLine("Edith", "Letters, pamphlets, little offers through the door, “support for your age group,” they say. Discounts on implants, upgrades, replacements. Like I asked for any of it."),   //Edith
+            new DialogueLine("Leon", "Sounds like they’re pushing it hard."),   //Leon
+            new DialogueLine("Edith", "Pushing? They’re desperate! Trying to get people like me signed up before we know what we’re agreeing to."),   //Edith
+            new DialogueLine("Leon", "You don’t trust it."),   //Leon
+            new DialogueLine("Edith", "Of course I don’t trust it. It’s all a sham! Dress it up nicely, make it sound safe, and next thing you know they’ve got their hands in everything."),   //Edith
+            new DialogueLine("Leon", "..."),   //Leon
+            new DialogueLine("Edith", "They run the whole place, whether people admit it or not. I wouldn’t trust a single device made by them Dear."),   //Edith
+            new DialogueLine("Leon", "...Right."),   //Leon
+            new DialogueLine("Edith", "You know, I’m surprised you don’t know that, sweetheart. I’d imagine they supply half of what you lot use over there at work."),   //Edith
+            new DialogueLine("Edith", "Edith, who are you talking to?"),   //An individuals voice coming from inside the house
+            new DialogueLine("Edith", "I’ll see you later Dear."),   //Edith
+        };
+      
+        public static readonly DialogueLine[] Day3_Kellen = new DialogueLine[]
+        {
+            new DialogueLine("Leon", "We need to talk."),   //Leon
+            new DialogueLine("Kellen", "No, we don’t."),   //Kellen
+            new DialogueLine("Leon", "Yeah, we do. Because I’m getting real tired of being told to get lost every time I walk past."),   //Leon
+            new DialogueLine("Kellen", "Then stop walking past."),   //Kellen
+            new DialogueLine("Leon", "...I know exactly what kind of place this is."),   //Leon
+            new DialogueLine("Kellen", "You don’t know anything."),   //Kellen
+            new DialogueLine("Leon", "I know enough. And if I’d said something by now, you wouldn’t still be standing here."),   //Leon
+            new DialogueLine("Kellen", "..."),   //Kellen
+            new DialogueLine("Leon", "At the end of the day I’m still the one wearing a uniform. So maybe drop the attitude. I’m not here to shut you down."),   //Leon
+            new DialogueLine("Kellen", "Then what are you here for?"),   //Kellen
+            new DialogueLine("Leon", "Same as everyone else. Trying to get through the day without making it worse for anyone."),   //Leon
+            new DialogueLine("Kellen", "The man in the uniform does have some balls after all. I can keep it civil, as long as you stay in your lane, and I stay in mine."),   //Kellen
+            new DialogueLine("Leon", "...Leon."),   //Leon
+            new DialogueLine("Kellen", "I didn’t ask for your name, lad. I see no point in names, and I will not be giving you mine."),   //Kellen
+            new DialogueLine("Leon", "Alright, I’ll see you later Kellen."),   //Leon
+            new DialogueLine("Kellen", "..."),   //Kellen
+        };
 
-    };
+        public static readonly DialogueLine[] Day3_MX2 = new DialogueLine[]
+        {
+            new DialogueLine("Leon", "That woman, Edith. She gives you a hard time."),   //Leon
+            new DialogueLine("MX-2", "Verbal hostility from resident “Edith” recorded. Frequency: HIGH."),   //MX-2
+            new DialogueLine("Leon", "You notice that?"),   //Leon
+            new DialogueLine("MX-2", "All interactions are logged."),   //MX-2
+            new DialogueLine("Leon", "Does it affect your work?"),   //Leon
+            new DialogueLine("MX-2", "Task completion remains within acceptable parameters."),   //MX-2
+            new DialogueLine("Leon", "So it doesn’t bother you."),   //Leon
+            new DialogueLine("MX-2", "“Bother” is not a recognised operational state. Similar behaviour observed across multiple residents. Interaction pattern classified as normal."),   //MX-2
+            new DialogueLine("Leon", "Normal?"),   //Leon
+            new DialogueLine("MX-2", "Affirmative. Please maintain distance. Task in progress.")   //MX-2
+        };
 
     //-------------------------------------------------DAY 4--------------------------------------------------------------
     //the day before (day 3) the player makes a choice whether they let through a medically dependend person through, but their firmware is slightly out of date, this affects the dialogue.
-    public static readonly new DialogueLine[] Day4Dialogue = new DialogueLine[]
+    public static readonly DialogueLine[] Day4_Anya = new DialogueLine[]
     {
-        //Anya conversation
         new DialogueLine("Anya", "You came back."),   //Anya
         new DialogueLine("Leon", "Starting to sound like a routine."),   //Leon
         new DialogueLine("Anya", "...Word travels fast around here."),   //Anya
@@ -390,9 +404,11 @@ public static class DialogueLibrary
         new DialogueLine("Anya", "Wouldn’t you?"),   //Anya
         new DialogueLine("Leon", "Depends what’s waiting."),   //Leon
         new DialogueLine("Anya", "Healthcare that actually works sounds like a good start. Some people don’t have time to wait for things to get worse."),   //Anya
-        new DialogueLine("Leon", "Yeah."),   //Leon
+        new DialogueLine("Leon", "Yeah.")   //Leon
+    };
 
-        //Elias conversation
+    public static readonly DialogueLine[] Day4_Elias = new DialogueLine[]
+    {
         new DialogueLine("Elias", "Hey. You look tired."),   //Elias
         new DialogueLine("Leon", "Yeah… long shift."),   //Leon
         new DialogueLine("Leon", "Hope you don’t mind me asking, where do you work?"),   //Leon
@@ -404,9 +420,11 @@ public static class DialogueLibrary
         new DialogueLine("Leon", "Do people take them?"),   //Leon
         new DialogueLine("Elias", "I’ve managed without so far... But it’s getting harder. You start thinking about it differently when you’ve got people relying on you. It’s not just about what you’re comfortable with anymore."),   //Elias
         new DialogueLine("Leon", "Your family."),   //Leon
-        new DialogueLine("Elias", "Exactly. You just… keep going. However you can."),   //Elias
+        new DialogueLine("Elias", "Exactly. You just… keep going. However you can.")   //Elias
+    };
 
-        //Edith conversation
+    public static readonly DialogueLine[] Day4_Edith = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Hey, Edith. I’ve been meaning to ask you something."),   //Leon
         new DialogueLine("Edith", "Of course Dear, but if it’s about those machines again, I’ve already told you everything I know."),   //Edith
         new DialogueLine("Leon", "No, it’s just that... the other day, someone called out from inside."),   //Leon
@@ -418,10 +436,11 @@ public static class DialogueLibrary
         new DialogueLine("Leon", "...Alright."),   //Leon
         new DialogueLine("Edith", "…It’s my husband... He’s not well. That’s all you need to know."),   //Edith
         new DialogueLine("Leon", "I apologise if I over stepped, Edith."),   //Leon
-        new DialogueLine("Edith", "People get sick, you know. Not everything’s your business to go poking into."),   //Edith
+        new DialogueLine("Edith", "People get sick, you know. Not everything’s your business to go poking into.")   //Edith
+    };
 
-        //Kellen conversation
-        //Option 1: Player LETS the medical individual through.
+    public static readonly DialogueLine[] Day4_Kellen_Helped = new DialogueLine[]
+    {
         new DialogueLine("Kellen", "…Word is someone got through yesterday."),   //Kellen
         new DialogueLine("Leon", "Yeah."),   //Leon
         new DialogueLine("Kellen", "Doesn’t happen often."),   //Kellen
@@ -435,8 +454,10 @@ public static class DialogueLibrary
         new DialogueLine("Kellen", "No. But things like this matter more than you may think. Gives people like myself, and others here, a sense of hope."),   //Kellen
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Kellen", "That there are some alright people among ones like yourself."),   //Kellen
+    };
 
-        //Option 2: Player DOES NOT let the medical individual through.
+    public static readonly DialogueLine[] Day4_Kellen_Refused = new DialogueLine[]
+    {
         new DialogueLine("Kellen", "…Word is someone got turned away yesterday."),   //Kellen
         new DialogueLine("Leon", "Yeah."),   //Leon
         new DialogueLine("Kellen", "That’s how it usually goes."),   //Kellen
@@ -449,9 +470,11 @@ public static class DialogueLibrary
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Kellen", "Guess I was wrong. System stays the same, people like me deal with the fallout, and people like you keep telling themselves it’s just the way things are."),   //Kellen
         new DialogueLine("Leon", "..."),   //Leon
-        new DialogueLine("Kellen", "Doesn’t matter. It is what it is."),   //Kellen
+        new DialogueLine("Kellen", "Doesn’t matter. It is what it is.")   //Kellen
+    };
 
-        //MX-2 the maintenance robot conversation
+    public static readonly DialogueLine[] Day4_MX2 = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Didn’t expect to see you out here."),   //Leon
         new DialogueLine("MX-2", "Ground maintenance in progress. Surface irregularities detected."),   //MX-2
         new DialogueLine("Leon", "This place looks different when it’s quiet."),   //Leon
@@ -468,9 +491,8 @@ public static class DialogueLibrary
     };
 
     //-------------------------------------------------DAY 5--------------------------------------------------------------
-    public static readonly  DialogueLine[] Day5Dialogue = new DialogueLine[]
+    public static readonly DialogueLine[] Day5_Anya = new DialogueLine[]
     {
-        //Anya conversation
         new DialogueLine("Leon", "You said the other day that you were thinking about leaving… getting to the other side for treatment. I’ve been wondering what makes someone walk away from everything they’ve got just for a chance at that."),   //Leon
         new DialogueLine("Anya", "That’s a very polite way of asking what’s wrong with me."),   //Anya
         new DialogueLine("Leon", "I’m trying to improve."),   //Leon
@@ -494,9 +516,11 @@ public static class DialogueLibrary
         new DialogueLine("Leon", "Maybe."),   //Leon
         new DialogueLine("Anya", "...You’re not what I expected."),   //Anya
         new DialogueLine("Leon", "Disappointed?"),   //Leon
-        new DialogueLine("Anya", "Not yet."),   //Anya
+        new DialogueLine("Anya", "Not yet.")   //Anya
+    };
 
-        //Mara conversation
+    public static readonly DialogueLine[] Day5_Mara = new DialogueLine[]
+    {
         new DialogueLine("Leon", "I ran into Elias yesterday. He looked exhausted."),   //Leon
         new DialogueLine("Mara", "He’s been pushing himself more than usual lately. He tries not to bring it home with him, but you can always tell."),   //Mara
         new DialogueLine("Leon", "It doesn’t seem like the kind of work that lets you slow down."),   //Leon
@@ -510,11 +534,13 @@ public static class DialogueLibrary
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Mara", "Sometimes I think he carries more because of me. Because of how people see us, how they treat him. And I wonder if things would be easier for him if his life looked… more acceptable."),   //Mara
         new DialogueLine("Leon", "Do you believe that?"),   //Leon
-        new DialogueLine("Mara", "No. But that doesn’t stop the thought from being there."),   //Mara
+        new DialogueLine("Mara", "No. But that doesn’t stop the thought from being there.")   //Mara
+    };
 
-        //Edith doesn't want to speak to Leon today.
+    //Edith doesn't want to speak to Leon today.
 
-        //Kellen conversation
+    public static readonly DialogueLine[] Day5_Kellen = new DialogueLine[]
+    {
         new DialogueLine("Kellen", "We’re not talking about yesterday."),   //Kellen
         new DialogueLine("Leon", "Wasn’t planning on it."),   //Leon
         new DialogueLine("Kellen", "Good. Leave it where it is... So what do you want?"),   //Kellen
@@ -530,9 +556,11 @@ public static class DialogueLibrary
         new DialogueLine("Kellen", "Didn’t expect that."),   //Kellen
         new DialogueLine("Leon", "Most people don’t."),   //Leon
         new DialogueLine("Kellen", "Well, if that thing ever gives out on you and you go deaf again, you know where to come."),   //Kellen
-        new DialogueLine("Leon", "I’ll keep that in mind."),   //Leon
+        new DialogueLine("Leon", "I’ll keep that in mind.")   //Leon
+    };
 
-        //MX-2 the maintenance robot conversation
+    public static readonly DialogueLine[] Day5_MX2 = new DialogueLine[]
+    {
         new DialogueLine("Leon", "…What happened to you?"),   //Leon
         new DialogueLine("MX-2", "Structural damage detected. Upper limb functionality compromised."),   //MX-2
         new DialogueLine("Leon", "That arm is barely holding on."),   //Leon
@@ -551,13 +579,13 @@ public static class DialogueLibrary
         new DialogueLine("MX-2", "Repair will be conducted when resources become available. Task continues." )  //MX-2
     };
 
+
     //-------------------------------------------------DAY 6--------------------------------------------------------------
     //in day 5 player lets through an individual with HC firmware, after that the individual injures 3 people.
-    public static readonly DialogueLine[] Day6Dialogue = new DialogueLine[] 
+    //Anya has disappeared, no conversation with her today
+
+    public static readonly DialogueLine[] Day6_Elias = new DialogueLine[]
     {
-        //Anya has disappeared, no conversation with her today
-        
-        //Elias conversation
         new DialogueLine("Leon", "Feels different today."),   //Leon
         new DialogueLine("Elias", "Yeah… people are talking. Hard not to when something like that happens so close to home."),   //Elias
         new DialogueLine("Leon", "You heard anything solid?"),   //Leon
@@ -577,9 +605,11 @@ public static class DialogueLibrary
         new DialogueLine("Leon", "You don’t want that."),   //Leon
         new DialogueLine("Elias", "No. But wanting doesn’t really factor into it, does it?"),   //Elias
         new DialogueLine("Leon", "..."),   //Leon
-        new DialogueLine("Elias", "If the same company making all of this is tied into the systems you work with… it makes you wonder how anything slips through. Or if it’s even slipping at all."),   //Elias
+        new DialogueLine("Elias", "If the same company making all of this is tied into the systems you work with… it makes you wonder how anything slips through. Or if it’s even slipping at all.")   //Elias
+    };
 
-        //Edith conversation
+    public static readonly DialogueLine[] Day6_Edith = new DialogueLine[]
+    {
         new DialogueLine("Edith", "There you are, sweetheart. I was wondering when you’d come around."),   //Edith
         new DialogueLine("Leon", "You seem… energetic today."),   //Leon
         new DialogueLine("Edith", "Of course I am. I told you, didn’t I? I said something like this would happen and now look at it."),   //Edith
@@ -598,9 +628,11 @@ public static class DialogueLibrary
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Edith", "So don’t let anyone tell you this is normal, sweetheart. It isn’t. Something’s rotten in all of this, and it’s only a matter of time before it shows again."),   //Edith
         new DialogueLine("Leon", "..."),   //Leon
-        new DialogueLine("Edith", "Still… I’m glad you’re around. Makes things feel a little less out of control."),   //Edith
+        new DialogueLine("Edith", "Still… I’m glad you’re around. Makes things feel a little less out of control.")   //Edith
+    };
 
-        //Kellen conversation
+    public static readonly DialogueLine[] Day6_Kellen = new DialogueLine[]
+    {
         new DialogueLine("Kellen", "You’ve heard."),   //Kellen
         new DialogueLine("Leon", "Yeah."),   //Leon
         new DialogueLine("Kellen", "Then you already know it doesn’t add up."),   //Kellen
@@ -613,9 +645,11 @@ public static class DialogueLibrary
         new DialogueLine("Leon", "Makes you wonder if it wasn’t failure at all. If something didn’t just… take over."),   //Leon
         new DialogueLine("Kellen", "You think that’s possible?"),   //Kellen
         new DialogueLine("Leon", "If you build something that can be updated, monitored, adjusted, then yeah. It’s possible."),   //Leon
-        new DialogueLine("Kellen", "I don’t touch that kind of work. Never have. What I do keeps people running, not controlled."),   //Kellen
+        new DialogueLine("Kellen", "I don’t touch that kind of work. Never have. What I do keeps people running, not controlled.")   //Kellen
+    };
 
-        //MX-2 the maintenance robot conversation
+    public static readonly DialogueLine[] Day6_MX2 = new DialogueLine[]
+    {
         new DialogueLine("Leon", "You got your arm fixed. That’s good."),   //Leon
         new DialogueLine("MX-2", "Repair completed. Functionality restored."),   //MX-2
         new DialogueLine("Leon", "There’s been talk today. About augments… firmware issues."),   //Leon
@@ -633,11 +667,9 @@ public static class DialogueLibrary
     };
 
     //-------------------------------------------------DAY 7--------------------------------------------------------------
-    public static readonly DialogueLine[] Day7Dialogue = new DialogueLine[]
+    public static readonly DialogueLine[] Day7_Mara = new DialogueLine[]
+    
     {
-        //Anya has disappeared, no conversation with her today
-
-        //Mara conversation
         new DialogueLine("Leon", "Can I ask you something… a bit more personal this time?"),   //Leon
         new DialogueLine("Mara", "You can ask. Whether I answer is a different matter."),   //Mara
         new DialogueLine("Leon", "Fair. It’s about… you. Your systems, your firmware, where you came from."),   //Leon
@@ -668,8 +700,10 @@ public static class DialogueLibrary
         new DialogueLine("Mara", "If something can suffer, even if you’re not entirely sure how, shouldn’t that be enough to treat it with care?"),   //Mara
         new DialogueLine("Leon", "I’d say so."),   //Leon
         new DialogueLine("Mara", "Some people don’t need certainty to show kindness. Others need absolute proof before they consider it. And by then… it’s usually too late."),   //Mara
+    };
 
-        //Edith conversation
+    public static readonly DialogueLine[] Day7_Edith = new DialogueLine[]
+    {
         new DialogueLine("Edith", "You’ve been busy lately, haven’t you, sweetheart?"),   //Edith
         new DialogueLine("Leon", "Something like that."),   //Leon
         new DialogueLine("Edith", "Mm. I imagine it’s not easy, being on that side of things when everything starts going wrong at once."),   //Edith
@@ -685,8 +719,10 @@ public static class DialogueLibrary
         new DialogueLine("Edith", "He’s still here. Not the way he used to be, but… he’s here. So don’t think I don’t understand what your job does to people, or what it asks of them. I do."),   //Edith
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Edith", "That’s why I say what I say. Not because I hate all this… but because I’ve seen what happens when people trust it too much."),   //Edith
+    };
 
-        //Kellen conversation
+    public static readonly DialogueLine[] Day7_Kellen = new DialogueLine[]
+    {
         new DialogueLine("Leon", "You look busy."),   //Leon
         new DialogueLine("Kellen", "I am."),   //Kellen
         new DialogueLine("Leon", "Word’s got people worried."),   //Leon
@@ -697,8 +733,10 @@ public static class DialogueLibrary
         new DialogueLine("Kellen", "Look lad, I don’t have time today. Come back when things calm down... if they calm down."),   //Kellen
         new DialogueLine("Leon", "Alright."),   //Leon
         new DialogueLine("Kellen", "And stay out of the way while you’re here."),   //Kellen
+    };
 
-        //MX-2 the maintenance robot conversation
+    public static readonly DialogueLine[] Day7_MX2 = new DialogueLine[]
+    {
         new DialogueLine("Leon", "How’s today been?"),   //Leon
         new DialogueLine("MX-2", "Task completion ongoing. Maintenance schedule adjusted to increased demand."),   //MX-2
         new DialogueLine("Leon", "People keeping you occupied?"),   //Leon
@@ -720,9 +758,8 @@ public static class DialogueLibrary
     };
 
     //-------------------------------------------------DAY 8--------------------------------------------------------------
-    public static readonly DialogueLine[] Day8Dialogue = new DialogueLine[] 
+    public static readonly DialogueLine[] Day8_Anya = new DialogueLine[]
     {
-        //Anya conversation
         new DialogueLine("Leon", "You were gone for two days."),   //Leon
         new DialogueLine("Anya", "I didn’t realise I had a curfew."),   //Anya
         new DialogueLine("Leon", "You didn’t. Doesn’t mean people didn’t notice... Where did you go?"),   //Leon
@@ -751,8 +788,10 @@ public static class DialogueLibrary
         new DialogueLine("Anya", "I don’t have the luxury of waiting anymore"),   //Anya
         new DialogueLine("Leon", "So what are you going to do?"),   //Leon
         new DialogueLine("Anya", "...I don’t know yet"),   //Anya
+    };
 
-        //Mara conversation
+    public static readonly DialogueLine[] Day8_Mara = new DialogueLine[]
+    {
         new DialogueLine("Leon", "I’ve been thinking about what you said, about sentience… and where the line is"),   //Leon
         new DialogueLine("Mara", "And you’ve decided there is one?"),   //Mara
         new DialogueLine("Leon", "I’ve decided we pretend there is, there’s something we’re taught..."),   //Leon
@@ -777,8 +816,10 @@ public static class DialogueLibrary
         new DialogueLine("Mara", "Then it’s doing something valuable after all"),   //Mara
         new DialogueLine("Leon", "Confusing me?"),   //Leon
         new DialogueLine("Mara", "Making you question it"),   //Mara
+    };
 
-        //Edith conversation
+    public static readonly DialogueLine[] Day8_Edith = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Can I ask you something about before all this?"),   //Leon
         new DialogueLine("Edith", "Before all what, dear?"),   //Edith
         new DialogueLine("Leon", "The augments, the robots… when it all started becoming normal"),   //Leon
@@ -801,8 +842,10 @@ public static class DialogueLibrary
         new DialogueLine("Edith", "Less arguing because people realised no one was listening, less fighting because they were too tired to keep doing it. That’s not improvement, dear, that’s people giving up."),   //Edith
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Edith", "And once people give up, you can introduce anything you like and call it progress."),   //Edith
+    };
 
-        //Kellen conversation
+    public static readonly DialogueLine[] Day8_Kellen = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Got a minute today?"),   //Leon
         new DialogueLine("Kellen", "Barely, make it worth it"),   //Kellen
         new DialogueLine("Leon", "I wanted to ask you something… different"),   //Leon
@@ -821,8 +864,10 @@ public static class DialogueLibrary
         new DialogueLine("Kellen", "All the time... and neither when it matters. I don’t fit cleanly anywhere not with them, not fully with you lot either."),   //Kellen
         new DialogueLine("Leon", "The “borderline”... Does that make things harder?"),   //Leon
         new DialogueLine("Kellen", "Makes things clearer. You stop believing in neat categories when you can’t sit in one."),   //Kellen
+    };
 
-        //MX-2 the maintenance robot conversation
+    public static readonly DialogueLine[] Day8_MX2 = new DialogueLine[]
+    {
         new DialogueLine("Leon", "I’ve got another question for you"),   //Leon
         new DialogueLine("MX-2", "Query acknowledged"),   //MX-2
         new DialogueLine("Leon", "Do you think you’re sentient?"),   //Leon
@@ -839,11 +884,10 @@ public static class DialogueLibrary
         new DialogueLine("MX-2", "Outcome uncertain." ),  //MX-2
     };
 
-    //-------------------------------------------------DAY 9--------------------------------------------------------------
-    //there were sirens at night time
-    public static readonly new DialogueLine[] Day9Dialogue = new DialogueLine[]
+    // -- Day 9 --
+
+    public static readonly DialogueLine[] Day9_Anya = new DialogueLine[]
     {
-        //Anya conversation
         new DialogueLine("Leon", "The sirens last night..."),   //Leon
         new DialogueLine("Anya", "Yeah… they were closer this time. Not just noise in the distance you can pretend isn’t your problem"),   //Anya
         new DialogueLine("Leon", "People are saying it was another incident. You didn’t leave this time?"),   //Leon
@@ -862,8 +906,10 @@ public static class DialogueLibrary
         new DialogueLine("Anya", "I found proof... or at least enough of it to make me a problem if the wrong person realises I have it"),   //Leon
         new DialogueLine("Anya", "That’s why you can’t stay"),   //Anya
         new DialogueLine("Leon", "That’s why I won’t... So no, I’m not letting someone start pulling pieces out of me here and hoping for the best"),   //Leon
+    };
 
-        //Elias conversation
+    public static readonly DialogueLine[] Day9_Elias = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Rough night?"),   //Leon
         new DialogueLine("Elias", "Sirens will do that. Woke everyone up, Mara wouldn’t say it but I could tell it got to her"),   //Elias
         new DialogueLine("Leon", "People are worried"),   //Leon
@@ -878,8 +924,10 @@ public static class DialogueLibrary
         new DialogueLine("Elias", "Doesn’t really make it feel better. If something like that came off a line I worked on… and it ends up hurting people like that…"),   //Elias
         new DialogueLine("Leon", "You’re not responsible for what they hide"),   //Leon
         new DialogueLine("Elias", "Tell that to the people making the decisions, they’ve already decided where the blame goes."),   //Elias
+    };
 
-        //Edith conversation
+    public static readonly DialogueLine[] Day9_Edith = new DialogueLine[]
+    {
         new DialogueLine("Edith", "Those sirens last night oh, I thought my heart was going to give out right there and then, I’m not built like those things, you know, no neat little ticking system keeping me steady."),   //Edith
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Edith", "It’s the sound of them, that awful rising noise, it doesn’t just wake you up, it drags something up with it"),   //Edith
@@ -889,8 +937,10 @@ public static class DialogueLibrary
         new DialogueLine("Edith", "I had two children... a boy and a girl and in the middle of all that… Gone just like that, no warning, no explanation that ever made sense of it"),   //Edith
         new DialogueLine("Leon", "I’m sorry"),   //Leon
         new DialogueLine("Edith", "That’s why I can’t stand any of this, sweetheart. People talk about systems and progress and safety like it’s all under control, like someone’s watching over it properly... But I’ve heard those sirens before and every time I do, it sounds exactly the same."),   //Edith
+    };
 
-        //Kellen conversation
+    public static readonly DialogueLine[] Day9_Kellen = new DialogueLine[]
+    {
         new DialogueLine("Leon", "You heard the sirens?"),   //Leon
         new DialogueLine("Kellen", "Heard them, yeah, bad for business when things get that loud"),   //Kellen
         new DialogueLine("Leon", "You thinking of doing anything about HC units?"),   //Leon
@@ -907,8 +957,10 @@ public static class DialogueLibrary
         new DialogueLine("Kellen", "Didn’t have much of a choice, but I kept it practical. I don’t touch cosmetic work unless I have to."),   //Kellen
         new DialogueLine("Leon", "Why not?"),   //Leon
         new DialogueLine("Kellen", "Because this isn’t decoration, it’s survival. People forget that when it becomes common."),   //Kellen
+    };
 
-        //MX-2 the maintenance robot conversation
+    public static readonly DialogueLine[] Day9_MX2 = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Busy after last night?"),   //Leon
         new DialogueLine("MX-2", "Activity levels increased, emergency protocols were briefly activated within surrounding sectors."),   //MX-2
         new DialogueLine("Leon", "You were involved?"),   //Leon
@@ -923,10 +975,10 @@ public static class DialogueLibrary
         new DialogueLine("MX-2", "Correlation noted"),  //MX-2
     };
 
-    //-------------------------------------------------DAY 10--------------------------------------------------------------
-    public static readonly new DialogueLine[] Day10Dialogue = new DialogueLine[]
+    // -- Day 10 --
+
+    public static readonly DialogueLine[] Day10_Anya = new DialogueLine[]
     {
-        //Anya conversation
         new DialogueLine("Leon", "You said your family worked with HC…"),   //Leon
         new DialogueLine("Anya", "Worked with, funded, built alongside… depends how honest you want to be about it"),   //Anya
         new DialogueLine("Leon", "..."),   //Leon
@@ -959,8 +1011,10 @@ public static class DialogueLibrary
         new DialogueLine("Anya", "Even if no one ever saw it… it would still mean something, because it came from me, and it cost me something to make."),   //Anya
         new DialogueLine("Leon", "I hope one day you find what you’re looking for"),   //Leon
         new DialogueLine("Anya", "…Yeah, me too."),   //Anya
+    };
 
-        //Elias conversation
+    public static readonly DialogueLine[] Day10_Elias = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Can I ask you something… about Mara?"),   //Leon
         new DialogueLine("Elias", "You’re not the first one to be curious about that"),   //Elias
         new DialogueLine("Leon", "People don’t really understand it"),   //Leon
@@ -985,8 +1039,10 @@ public static class DialogueLibrary
         new DialogueLine("Elias", "She’s more than that, she’s here, she exists in the same space as me, she responds in ways I can see, hear, feel. So if someone tells me that isn’t real…"),   //Elias
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Elias", "I don’t know what definition they’re using, but it’s not one that matches what I’ve lived."),   //Elias
+    };
 
-        //Edith conversation
+    public static readonly DialogueLine[] Day10_Edith = new DialogueLine[]
+    {
         new DialogueLine("Leon", "You said before things changed fast…"),   //Leon
         new DialogueLine("Edith", "Oh, they did, dear, and now they change so fast you can’t even tell what you’re looking at half the time."),   //Edith
         new DialogueLine("Leon", "..."),   //Leon
@@ -1005,8 +1061,10 @@ public static class DialogueLibrary
         new DialogueLine("Edith", "That’s when I stopped trusting any of it sweetheart. The systems, the media, the people behind it, because once you can’t tell what’s real anymore…"),   //Edith
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Edith", "You realise how easily your life can be rewritten without your permission."),   //Edith
+    };
 
-        //Kellen conversation
+    public static readonly DialogueLine[] Day10_Kellen = new DialogueLine[]
+    {
         new DialogueLine("Leon", "People are saying it’s getting harder to tell what’s real now"),   //Leon
         new DialogueLine("Kellen", "It’s been heading that way for years"),   //Kellen
         new DialogueLine("Leon", "Doesn’t it bother you?"),   //Leon
@@ -1027,8 +1085,10 @@ public static class DialogueLibrary
         new DialogueLine("Kellen", "I fix things, don’t care if the parts are original or manufactured yesterday. If it works, it works"),   //Kellen
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Kellen", "World moved on. People either adapt or get left behind arguing about definitions."),   //Kellen
-    
-        //MX-2 the maintenance robot conversation
+    };
+
+    public static readonly DialogueLine[] Day10_MX2 = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Do you know what it means to be real?"),   //Leon
         new DialogueLine("MX-2", "Definition available, “real”: having objective existence, not imagined or artificial."),   //MX-2
         new DialogueLine("Leon", "And you fit that?"),   //Leon
@@ -1046,10 +1106,10 @@ public static class DialogueLibrary
         new DialogueLine("Leon", "That’s already happening.")   //Leon
     };
 
-    //-------------------------------------------------DAY 11--------------------------------------------------------------
-    public static readonly DialogueLine[] Day11Dialogue = new DialogueLine[] 
+    // -- Day 11 --
+
+    public static readonly DialogueLine[] Day11_Anya = new DialogueLine[]
     {
-        //Anya conversation
         new DialogueLine("Leon", "Been thinking about what you said yesterday"),   //Leon
         new DialogueLine("Anya", "That’s either a good sign or a worrying one"),   //Anya
         new DialogueLine("Leon", "About painting… time, effort, all that"),   //Leon
@@ -1080,8 +1140,10 @@ public static class DialogueLibrary
         new DialogueLine("Anya", "…You’re annoying"),   //Anya
         new DialogueLine("Leon", "You keep talking to me"),   //Leon
         new DialogueLine("Anya", "Yeah… I’m starting to question that decision"),   //Anya
+    };
 
-        //Mara conversation
+    public static readonly DialogueLine[] Day11_Mara = new DialogueLine[]
+    {
         new DialogueLine("Leon", "You mentioned your family before… how’s your kid doing?"),   //Leon
         new DialogueLine("Mara", "She’s doing well growing quickly, learning even faster."),   //Mara
         new DialogueLine("Leon", "What’s school like for her?"),   //Leon
@@ -1100,8 +1162,10 @@ public static class DialogueLibrary
         new DialogueLine("Mara", "I hope so. It’s… different, raising a child when you’re aware of the ways the world might shape them before they understand it"),   //Mara
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Mara", "I want her to feel like an individual not just something that fits neatly into a system"),   //Mara
+    };
 
-        //Edith conversation
+    public static readonly DialogueLine[] Day11_Edith = new DialogueLine[]
+    {
         new DialogueLine("Edith", "I was at the market this morning, dear, and honestly the state of it, you wouldn’t believe"),   //Edith
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Edith", "Half the stalls replaced with those automated units, no conversation, no personality, just screens and transactions"),   //Edith
@@ -1119,8 +1183,10 @@ public static class DialogueLibrary
         new DialogueLine("Edith", "And don’t go poking around where you shouldn’t when I do, hm? Some parts of a home are private for a reason"),   //Edith
         new DialogueLine("Leon", "I understand"),   //Leon
         new DialogueLine("Edith", "Good, then we won’t have any problems."),   //Edith
+    };
 
-        //Kellen conversation
+    public static readonly DialogueLine[] Day11_Kellen = new DialogueLine[]
+    {
         new DialogueLine("Kellen", "You ever do anything that isn’t work or wandering around talking to people?"),   //Kellen
         new DialogueLine("Leon", "Yeah, I watch films"),   //Leon
         new DialogueLine("Kellen", "Figures"),   //Kellen
@@ -1143,8 +1209,10 @@ public static class DialogueLibrary
         new DialogueLine("Leon", "You just said—"),   //Leon
         new DialogueLine("Kellen", "I said you’d like it, not that it’s good"),   //Kellen
         new DialogueLine("Leon", "Unbelievable"),   //Leon
+    };
 
-        //MX-2 the maintenance robot conversation
+    public static readonly DialogueLine[] Day11_MX2 = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Do you understand what “fun” is?"),   //Leon
         new DialogueLine("MX-2", "Definition available, “fun”: enjoyment, amusement, or light hearted pleasure. "),   //MX-2
         new DialogueLine("Leon", "Do you experience that?"),   //Leon
@@ -1163,10 +1231,10 @@ public static class DialogueLibrary
         new DialogueLine("MX-2", "No issue detected"),   //MX-2
     };
 
-    //-------------------------------------------------DAY 12--------------------------------------------------------------
-    public static readonly DialogueLine[] Day12Dialogue = new DialogueLine[]
+    // -- Day 12 --
+
+    public static readonly DialogueLine[] Day12_Anya = new DialogueLine[]
     {
-        //Anya conversation
         new DialogueLine("Leon", "You said before… you left your home because of HC"),   //Leon
         new DialogueLine("Anya", "I didn’t just leave, Leon… I got out. There’s a difference when the place you grow up in doesn’t feel like a home, more like… a controlled environment. "),   //Anya
         new DialogueLine("Leon", "You were being monitored"),   //Leon
@@ -1187,8 +1255,10 @@ public static class DialogueLibrary
         new DialogueLine("Anya", "I took what I could, enough to prove there’s something wrong, enough to make them want it back if they knew I had it."),   //Anya
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Anya", "I’m not just running from it, Leon. I’m trying to make sure it doesn’t just keep happening quietly while everyone pretends it’s fine."),   //Anya
+    };
 
-        //Elias conversation
+    public static readonly DialogueLine[] Day12_Elias = new DialogueLine[]
+    {
         new DialogueLine("Leon", "You look like something’s on your mind"),   //Leon
         new DialogueLine("Elias", "Yeah… work, mostly. They pulled us aside today, whole floor."),   //Elias
         new DialogueLine("Leon", "What happened?"),   //Leon
@@ -1215,8 +1285,10 @@ public static class DialogueLibrary
         new DialogueLine("Elias", "I don’t have anything else lined up, Leon. This isn’t the life I grew up expecting, but it’s the one I’ve got now."),   //Elias
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Elias", "People think you always have options. You don’t… not when there’s people depending on you."),   //Elias
+    };
 
-        //Edith conversation
+    public static readonly DialogueLine[] Day12_Edith = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Thank you for the food earlier."),   //Leon
         new DialogueLine("Edith", "Oh, don’t start with that, dear, I told you not to make a fuss."),   //Edith
         new DialogueLine("Leon", "It was good."),   //Leon
@@ -1239,8 +1311,10 @@ public static class DialogueLibrary
         new DialogueLine("Edith", "No and that’s the part no one prepares you for. We don’t talk about it much, not because we don’t want to, but because… where do you even begin with something like that?"),   //Edith
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Edith", "So we carry on, quietly and I suppose… it’s nice, talking about it for once, even if just a little."),   //Edith
+    };
 
-        //Kellen conversation
+    public static readonly DialogueLine[] Day12_Kellen = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Can I ask you something… about your work?"),   //Leon
         new DialogueLine("Kellen", "Depends what you’re asking."),   //Kellen
         new DialogueLine("Leon", "The people you help… the ones who can’t go through official channels."),   //Leon
@@ -1266,8 +1340,10 @@ public static class DialogueLibrary
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Kellen", "But I can tell you where to start looking, after that, you’re on your own."),   //Kellen
         new DialogueLine("Leon", "That’s all I need."),   //Leon
+    };
 
-        //MX-2 the maintenance robot conversation
+    public static readonly DialogueLine[] Day12_MX2 = new DialogueLine[]
+    {
         new DialogueLine("Leon", "You’re working a lot today"),   //Leon
         new DialogueLine("MX-2", "Maintenance tasks are within normal range."),   //MX-2
         new DialogueLine("Leon", "Feels like more than usual."),   //Leon
@@ -1286,10 +1362,10 @@ public static class DialogueLibrary
         new DialogueLine("MX-2", "Systems resume standard function. No irregularities detected.")   //MX-2
     };
 
-    //-------------------------------------------------DAY 13--------------------------------------------------------------
-    public static readonly DialogueLine[] Day13Dialogue = new DialogueLine[]
+    // -- Day 13 --
+
+    public static readonly DialogueLine[] Day13_Anya = new DialogueLine[]
     {
-        //Anya conversation
         new DialogueLine("Leon", "I spoke to Kellen. He doesn’t handle documents… but he knows someone who does."),   //Leon
         new DialogueLine("Anya", "…Of course he does."),   //Anya
         new DialogueLine("Leon", "He wouldn’t connect me directly, but he pointed me in the right direction."),   //Leon
@@ -1305,8 +1381,10 @@ public static class DialogueLibrary
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Anya", "Fine… I’ll talk to her, see what she says, what she wants, what this actually costs."),   //Anya
         new DialogueLine("Leon", "Be careful."),   //Leon
+    };
 
-        //Mara conversation
+    public static readonly DialogueLine[] Day13_Mara = new DialogueLine[]
+    {
         new DialogueLine("Mara", "Leon… can I ask you something?"),   //Mara
         new DialogueLine("Leon", "Of course"),   //Leon
         new DialogueLine("Mara", "Elias has been… different"),   //Mara
@@ -1322,8 +1400,10 @@ public static class DialogueLibrary
         new DialogueLine("Mara", "Perhaps. I just don’t like not knowing, not when it comes to him."),   //Mara
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Mara", "If something is wrong, I’d rather face it with him than be kept at a distance from it."),   //Mara
+    };
 
-        //Edith conversation
+    public static readonly DialogueLine[] Day13_Edith = new DialogueLine[]
+    {
         new DialogueLine("Edith", "You know what bothers me most these days, dear? It’s not even the machines themselves… it’s what people are trying to become alongside them."),   //Edith
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Edith", "There’s this constant push now, to be… polished, perfect in a way that doesn’t quite sit right. "),   //Edith
@@ -1349,8 +1429,10 @@ public static class DialogueLibrary
         new DialogueLine("Edith", "Exactly, so when does it become enough?"),   //Edith
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Edith", "I don’t think it does, and I think, whether they realise it or not, some people look at those machines and think… “why can’t I be like that?”"),   //Edith
+    };
 
-        //Kellen conversation
+    public static readonly DialogueLine[] Day13_Kellen = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Can I ask you something?... The people you help… the ones who come here. Do you ever think you’re… trapping them?"),   //Leon
         new DialogueLine("Kellen", "Trapping them how"),   //Kellen
         new DialogueLine("Leon", "Giving them something they can’t undo."),   //Leon
@@ -1371,8 +1453,10 @@ public static class DialogueLibrary
         new DialogueLine("Kellen", "You want to fix it? You need paperwork. You want paperwork? You need people who deal in things that aren’t meant to exist."),   //Kellen
         new DialogueLine("Leon", "And if they can’t get it?"),   //Leon
         new DialogueLine("Kellen", "Then they walk around hoping no one asks the wrong question."),   //Kellen
+    };
 
-        //MX-2 the maintenance robot conversation
+    public static readonly DialogueLine[] Day13_MX2 = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Busy today?"),   //Leon
         new DialogueLine("MX-2", "Maintenance cycle active. Increased system strain detected across multiple units."),   //MX-2
         new DialogueLine("Leon", "What kind of maintenance?"),   //Leon
@@ -1381,12 +1465,10 @@ public static class DialogueLibrary
         new DialogueLine("MX-2", "Repetition ensures stability.")   //MX-2
     };
 
-    //----------------------------------- DAY 14 No conversations, neighbourhood is empty-----------------------------------
+    // -- Day 15 --
 
-    //-------------------------------------------------DAY 15--------------------------------------------------------------
-    public static readonly DialogueLine[] Day15Dialogue = new DialogueLine[] 
+    public static readonly DialogueLine[] Day15_Anya = new DialogueLine[]
     {
-        //Anya conversation
         new DialogueLine("Anya", "Yesterday… it was too quiet. I’ve never seen this place like that before."),   //Anya
         new DialogueLine("Leon", "People were staying inside..."),   //Leon
         new DialogueLine("Anya", "Yeah... I spoke to that contact."),   //Anya
@@ -1404,8 +1486,10 @@ public static class DialogueLibrary
         new DialogueLine("Anya", "I don’t think it’s random, I think its my family. Or whoever’s monitoring this, it feels deliberate."),   //Anya
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Anya", "Which means I don’t have time to wait around."),   //Anya
+    };
 
-        //Elias conversation
+    public static readonly DialogueLine[] Day15_Elias = new DialogueLine[]
+    {
         new DialogueLine("Elias", "Yesterday didn’t sit right with me."),   //Elias
         new DialogueLine("Leon", "The empty streets?"),   //Leon
         new DialogueLine("Elias", "Yeah… and then going in today, like nothing happened. "),   //Elias
@@ -1421,8 +1505,10 @@ public static class DialogueLibrary
         new DialogueLine("Elias", "That’s what I don’t get. You’d think people would hesitate, push back, ask something… but no."),   //Elias
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Elias", "It’s like they’ve already decided it’s normal or maybe that it’s easier not to think about it."),   //Elias
+    };
 
-        //Edith conversation
+    public static readonly DialogueLine[] Day15_Edith = new DialogueLine[]
+    {
         new DialogueLine("Edith", "Yesterday nearly finished me off, dear. Silence like that… it’s not natural."),   //Edith
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Edith", "Reminded me of waiting rooms, the kind where no one says anything because they already know something’s wrong."),   //Edith
@@ -1442,8 +1528,10 @@ public static class DialogueLibrary
         new DialogueLine("Edith", "It simply didn’t move me. There was no moments where the voice almost breaks and pulls you in because of it. It was flawless... and yet it was completely empty."),   //Edith
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Edith", "That’s when I realised something. Perfection isn’t the goal we think it is, dear. Because once you reach it… there’s nowhere left to go, nothing left to feel. "),   //Edith
+    };
 
-        //Kellen conversation
+    public static readonly DialogueLine[] Day15_Kellen = new DialogueLine[]
+    {
         new DialogueLine("Kellen", "Place felt like a graveyard yesterday."),   //Kellen
         new DialogueLine("Leon", "People were staying inside. "),   //Leon
         new DialogueLine("Kellen", "They were scared... Listen Lad I’ve been thinking, about what you said the other day, about trapping people."),   //Kellen
@@ -1461,8 +1549,10 @@ public static class DialogueLibrary
         new DialogueLine("Kellen", "Had something like that once... didn’t last."),   //Kellen
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Kellen", "Turns out people don’t stick around when things get complicated, can’t really blame them."),   //Kellen
+    };
 
-        //MX-2 the maintenance robot conversation
+    public static readonly DialogueLine[] Day15_MX2 = new DialogueLine[]
+    {
         new DialogueLine("MX-2", "Query"),   //MX-2
         new DialogueLine("Leon", "Go on"),   //Leon
         new DialogueLine("MX-2", "Why do you continue initiating interaction?"),   //MX-2
@@ -1485,10 +1575,10 @@ public static class DialogueLibrary
         new DialogueLine("Leon", "…I guess it’s easier than accepting the difference"),   //Leon
     };
 
-    //-------------------------------------------------DAY 16--------------------------------------------------------------
-    public static readonly DialogueLine[] Day16Dialogue = new DialogueLine[]
+    // -- Day 16 --
+
+    public static readonly DialogueLine[] Day16_Anya = new DialogueLine[]
     {
-        //Anya conversation
         new DialogueLine("Anya", "I don’t think I have much time left to figure this out. The spikes are worse today."),   //Anya
         new DialogueLine("Leon", "Then we need to be clear on what you’re dealing with. The documents you took, what exactly do they prove?"),   //Leon
         new DialogueLine("Anya", "Enough"),   //Anya
@@ -1504,8 +1594,10 @@ public static class DialogueLibrary
         new DialogueLine("Anya", "That’s what it looks like, not just random failure. And the worst part is, it doesn’t stop at children. The same framework gets scaled, adjusted, repurposed, for anyone with the right hardware."),   //Anya
         new DialogueLine("Leon", "That’s why I can’t go back, and that’s why I can’t stay here either."),   //Leon
         new DialogueLine("Anya", "So whatever I do next… it has to work."),   //Anya
+    };
 
-        //Mara conversation
+    public static readonly DialogueLine[] Day16_Mara = new DialogueLine[]
+    {
         new DialogueLine("Mara", "He told me... about the implant."),   //Mara
         new DialogueLine("Leon", "...How are you feeling about it?"),   //Leon
         new DialogueLine("Mara", "Concerned, not because of the augmentation itself, but because of who provided it."),   //Mara
@@ -1533,8 +1625,10 @@ public static class DialogueLibrary
         new DialogueLine("Mara", "I don’t know what purpose remains at that point."),   //Mara
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Mara", "It’s a strange thing, being built to endure. When everything meaningful about your existence is temporary."),   //Mara
+    };
 
-        //Edith conversation
+    public static readonly DialogueLine[] Day16_Edith = new DialogueLine[]
+    {
         new DialogueLine("Edith", "You know, sweetheart, I’ve been thinking about what I said yesterday."),   //Edith
         new DialogueLine("Leon", "About the singing?"),   //Leon
         new DialogueLine("Edith", "Mm… about them, really, the machines... and I realised something that I don’t particularly like admitting."),   //Edith
@@ -1556,8 +1650,10 @@ public static class DialogueLibrary
         new DialogueLine("Edith", "So yes, I envy them in some ways but I also pity them. Because if they can’t feel that… then what’s the point of any of it?"),   //Edith
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Edith", "And yet here we are, building a world around them anyway."),   //Edith
+    };
 
-        //Kellen conversation
+    public static readonly DialogueLine[] Day16_Kellen = new DialogueLine[]
+    {
         new DialogueLine("Leon", "You mentioned before… you didn’t really have anyone. What about your family?"),   //Leon
         new DialogueLine("Kellen", "Not much to say there. When things started getting worse, they couldn’t keep up with the treatments, support, everything costs something."),   //Kellen
         new DialogueLine("Leon", "..."),   //Leon
@@ -1568,8 +1664,10 @@ public static class DialogueLibrary
         new DialogueLine("Kellen", "People like to dress it up, make it sound kinder than it is. But at the end of the day, if you can’t sustain something, you let it go. "),   //Kellen
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Kellen", "Listen, lad, I don’t dwell on it, doesn’t change anything. You learn to work with what’s in front of you. Not what you wish was there."),   //Kellen
+    };
 
-        //MX-2 the maintenance robot conversation
+    public static readonly DialogueLine[] Day16_MX2 = new DialogueLine[]
+    {
         new DialogueLine("Leon", "You’re a maintenance unit, right?"),   //Leon
         new DialogueLine("MX-2", "Correct"),   //MX-2
         new DialogueLine("Leon", "Then how do you know words like… “anthropomorphic projection”"),   //Leon
@@ -1584,12 +1682,12 @@ public static class DialogueLibrary
         new DialogueLine("MX-2", "Statement based on existing parameters"),   //MX-2
     };
 
-    //-------------------------------------------------DAY 17--------------------------------------------------------------
-    //This is where Anya's storyline splits into 4 options, until day 20, the last day.
-    public static readonly DialogueLine[] Day17Dialogue = new DialogueLine[] 
+    // -- Day 14: neighbourhood is empty, no NPCs --
+
+    // -- Day 17 --
+
+    public static readonly DialogueLine[] Day17_Anya_Helped = new DialogueLine[]
     {
-        //Anya conversation
-        //Option 1: Player HELPS Anya get the documents.
         new DialogueLine("Leon", "I’ve been thinking about it and I might be able to help you."),   //Leon
         new DialogueLine("Anya", "…What?"),   //Anya
         new DialogueLine("Leon", "It’s not straightforward, and I can’t promise anything yet but I think there’s a way. I just need time a couple of days, maybe less."),   //Leon
@@ -1603,8 +1701,10 @@ public static class DialogueLibrary
         new DialogueLine("Leon", "Just give me a bit of time and I’ll see what I can do."),   //Leon
         new DialogueLine("Anya", "Be careful, Leon. I don’t want to be the reason something happens to you."),   //Anya
         new DialogueLine("Leon", "I will."),   //Leon
+    };
 
-        //Option 2: Player DOESN’T HELP Anya get the documents.
+    public static readonly DialogueLine[] Day17_Anya_Refused = new DialogueLine[]
+    {
         new DialogueLine("Leon", "I’ve been thinking about your situation."),   //Leon
         new DialogueLine("Anya", "That sounds promising or disappointing, go on."),   //Anya
         new DialogueLine("Leon", "I don’t think I can get involved."),   //Leon
@@ -1619,8 +1719,10 @@ public static class DialogueLibrary
         new DialogueLine("Anya", "No, you’re not, you’re just being careful."),   //Anya
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Anya", "Good to know where you stand."),   //Anya
+    };
 
-        //Option 3: Player tells Anya to GO HOME.
+    public static readonly DialogueLine[] Day17_Anya_SentHome = new DialogueLine[]
+    {
         new DialogueLine("Leon", "I’ve been thinking about everything you’ve said."),   //Leon
         new DialogueLine("Anya", "And?"),   //Anya
         new DialogueLine("Leon", "I don’t think this ends the way you want it to."),   //Leon
@@ -1639,8 +1741,10 @@ public static class DialogueLibrary
         new DialogueLine("Anya", "...You’re not wrong."),   //Anya
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Anya", "...just wish you were"),   //Anya
+    };
 
-        //Option 4: Player REPORTS Anya.
+    public static readonly DialogueLine[] Day17_Anya_Reported = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Can I ask you something… about the documents?"),   //Leon
         new DialogueLine("Anya", "You’ve asked a lot already."),   //Anya
         new DialogueLine("Leon", "I just want to understand how far this goes. The people listed in those records are they all tied to the same firmware line?"),   //Leon
@@ -1653,8 +1757,10 @@ public static class DialogueLibrary
         new DialogueLine("Anya", "It is. You’re asking very specific questions."),   //Anya
         new DialogueLine("Leon", "Comes with the job."),   //Leon
         new DialogueLine("Anya", "Mhm... yeah."),   //Anya
+    };
 
-        //Elias conversation
+    public static readonly DialogueLine[] Day17_Elias = new DialogueLine[]
+    {
         new DialogueLine("Elias", "Something weird happened today, at work."),   //Elias
         new DialogueLine("Leon", "What kind of weird?"),   //Leon
         new DialogueLine("Elias", "I don’t know how to explain it properly, it’s like… there’s a gap."),   //Elias
@@ -1670,8 +1776,10 @@ public static class DialogueLibrary
         new DialogueLine("Elias", "No... I just feel… tired, like properly drained. I keep telling myself it’s just the adjustment; new implant, long hours, stress…"),   //Elias
         new DialogueLine("Leon", "But?"),   //Leon
         new DialogueLine("Elias", "But it doesn’t feel like that. It feels like something happened and I wasn’t entirely there for it."),   //Elias
+    };
 
-        //Edith conversation
+    public static readonly DialogueLine[] Day17_Edith = new DialogueLine[]
+    {
         new DialogueLine("Edith", "Can I ask you something a bit… strange, dear?"),   //Edith
         new DialogueLine("Leon", "Yes, go on."),   //Leon
         new DialogueLine("Edith", "Do you think… the more someone is altered, the more they change?"),   //Edith
@@ -1687,8 +1795,10 @@ public static class DialogueLibrary
         new DialogueLine("Edith", "I’d like to believe that. "),   //Edith
         new DialogueLine("Leon", "What?"),   //Leon
         new DialogueLine("Edith", "Because otherwise… you’re not just changing the body, are you?"),   //Edith
- 
-        //Kellen conversation
+    };
+
+    public static readonly DialogueLine[] Day17_Kellen = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Heard something about HC. Factory workers, mandatory implants."),   //Leon
         new DialogueLine("Kellen", "Yeah… heard the same, one of them came in the other day."),   //Kellen
         new DialogueLine("Leon", "Have you seen more? Since then I mean."),   //Leon
@@ -1703,8 +1813,10 @@ public static class DialogueLibrary
         new DialogueLine("Kellen", "They come in thinking they need an upgrade, a fix, something new and that’s when the real stuff gets put in."),   //Kellen
         new DialogueLine("Leon", "That’s… Dangerous."),   //Leon
         new DialogueLine("Kellen", "It’s profitable."),   //Kellen
- 
-        //MX-2 the maintenance robot conversation
+    };
+
+    public static readonly DialogueLine[] Day17_MX2 = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Still working?"),   //Leon
         new DialogueLine("MX-2", "Maintenance cycle ongoing"),   //MX-2
         new DialogueLine("Leon", "Same systems?"),   //Leon
@@ -1716,12 +1828,10 @@ public static class DialogueLibrary
         new DialogueLine("Leon", "Yeah… figured"),   //Leon
     };
 
-    //-------------------------------------------------DAY 18--------------------------------------------------------------
-    //Anya's storyline is split into 4 options, until day 20, the last day.
-    public static readonly DialogueLine[] Day18Dialogue = new DialogueLine[]
+    // -- Day 18 --
+
+    public static readonly DialogueLine[] Day18_Anya_Helped = new DialogueLine[]
     {
-        //Anya conversation
-        //Option 1: Player HELPS Anya get the documents.
         new DialogueLine("Leon", "I’ve got an update. I found a way to get the paperwork, it’s not clean, but it’ll work."),   //Leon
         new DialogueLine("Anya", "…You’re serious."),   //Anya
         new DialogueLine("Leon", "I should have everything ready by tomorrow. And listen, once you have them, you go straight through no delays, no second guessing."),   //Leon
@@ -1732,8 +1842,10 @@ public static class DialogueLibrary
         new DialogueLine("Anya", "No… they don’t."),   //Anya
         new DialogueLine("Leon", "So expose them, all of it."),   //Leon
         new DialogueLine("Anya", "I will."),   //Anya
+    };
 
-        //Option 2: Player DOESN’T HELP Anya get the documents.
+    public static readonly DialogueLine[] Day18_Anya_Refused = new DialogueLine[]
+    {
         new DialogueLine("Leon", "…Hey"),   //Leon
         new DialogueLine("Anya", "...Hey, quiet today."),   //Anya
         new DialogueLine("Leon", "Yeah, you alright?"),   //Leon
@@ -1742,8 +1854,10 @@ public static class DialogueLibrary
         new DialogueLine("Anya", "I can take care of myself."),   //Anya
         new DialogueLine("Leon", "…Right"),   //Leon
         new DialogueLine("Anya", "Yeah"),   //Anya
+    };
 
-        //Option 3: Player tells Anya to GO HOME.
+    public static readonly DialogueLine[] Day18_Anya_SentHome = new DialogueLine[]
+    {
         new DialogueLine("Anya", "I’ve been thinking, and you were right about one thing. I don’t have many options left."),   //Anya
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Anya", "And staying here pretending I do isn’t helping. "),   //Anya
@@ -1756,8 +1870,10 @@ public static class DialogueLibrary
         new DialogueLine("Leon", "If I can get back in, get access again… maybe I can find something bigger."),   //Leon
         new DialogueLine("Anya", "And if they don’t let you?"),   //Anya
         new DialogueLine("Leon", "Then at least I tried something different. This isn’t over, not for me."),   //Leon
+    };
 
-        //Option 4: Player REPORTS Anya.
+    public static readonly DialogueLine[] Day18_Anya_Reported = new DialogueLine[]
+    {
         new DialogueLine("Leon", "…Hey"),   //Leon
         new DialogueLine("Anya", "...Hey, quiet today."),   //Anya
         new DialogueLine("Leon", "Yeah, you alright?"),   //Leon
@@ -1766,8 +1882,10 @@ public static class DialogueLibrary
         new DialogueLine("Anya", "I can take care of myself."),   //Anya
         new DialogueLine("Leon", "…Right"),   //Leon
         new DialogueLine("Anya", "Yeah"),   //Anya
+    };
 
-        //Mara conversation
+    public static readonly DialogueLine[] Day18_Mara = new DialogueLine[]
+    {
         new DialogueLine("Leon", "How’s Elias?"),   //Leon
         new DialogueLine("Mara", "…Not well. He forgets things mid-sentence, loses track of what he’s doing, and when I ask him about it he brushes it off like it’s nothing. "),   //Mara
         new DialogueLine("Leon", "..."),   //Leon
@@ -1786,8 +1904,10 @@ public static class DialogueLibrary
         new DialogueLine("Mara", "Sometimes I wish I were human."),   //Mara
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Mara", "Not all the time, just… enough to know what this is supposed to feel like."),   //Mara
+    };
 
-        //Edith conversation
+    public static readonly DialogueLine[] Day18_Edith = new DialogueLine[]
+    {
         new DialogueLine("Edith", "No, no I don’t want to hear it anymore. I take it back, all of it."),   //Edith
         new DialogueLine("Leon", "What do you mean?"),   //Leon
         new DialogueLine("Edith", "That nonsense I said before, about envying them, about wishing things were easier, I don’t mean a word of it."),   //Edith
@@ -1799,8 +1919,10 @@ public static class DialogueLibrary
         new DialogueLine("Edith", "...I was thinking about him this morning, trying to remember what it used to be like. The way he’d look at me, the way we’d talk, dance… just exist without all of this hanging over us. And now…"),   //Edith
         new DialogueLine("Leon", "Now?"),   //Leon
         new DialogueLine("Edith", "Now it’s different. It’s difficult to look at him sometimes... Because all I can see is what took everything from me. "),   //Edith
+    };
 
-        //Kellen conversation
+    public static readonly DialogueLine[] Day18_Kellen = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Got you something."),   //Leon
         new DialogueLine("Kellen", "That so? Alright, let’s see it then."),   //Kellen
         new DialogueLine("Leon", "Found it while I was out. Thought you might like it."),   //Leon
@@ -1819,8 +1941,10 @@ public static class DialogueLibrary
         new DialogueLine("Kellen", "Yeah. But don’t get smug, lad. I like the sentiment, not the object."),   //Kellen
         new DialogueLine("Leon", "Sure."),   //Leon
         new DialogueLine("Kellen", "... Still… appreciate it"),   //Kellen
+    };
 
-        //MX-2 the maintenance robot conversation
+    public static readonly DialogueLine[] Day18_MX2 = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Busy?"),   //Leon
         new DialogueLine("MX-2", "Maintenance workload increased"),   //MX-2
         new DialogueLine("Leon", "Still catching up?"),   //Leon
@@ -1832,12 +1956,10 @@ public static class DialogueLibrary
         new DialogueLine("Leon", "Yeah… of course not"),   //Leon
     };
 
-    //-------------------------------------------------DAY 19--------------------------------------------------------------
-    //Anya's storyline is split into 4 options, until day 20, the last day.
-    public static readonly DialogueLine[] Day19Dialogue = new DialogueLine[] 
+    // -- Day 19 --
+
+    public static readonly DialogueLine[] Day19_Anya_Helped = new DialogueLine[]
     {
-        //Anya conversation
-        //Option 1: Player HELPS Anya get the documents.
         new DialogueLine("Leon", "I’ve got them."),   //Leon
         new DialogueLine("Anya", "…You actually did it. Let me see."),   //Anya
         new DialogueLine("Leon", "Everything’s there. Identity records, clearance tags, cross-check passes… it should hold."),   //Leon
@@ -1857,8 +1979,10 @@ public static class DialogueLibrary
         new DialogueLine("Leon", "I wanted to."),   //Leon
         new DialogueLine("Anya", "Take care of yourself... And don’t let them get away with it here either."),   //Anya
         new DialogueLine("Leon", "I won’t."),   //Leon
+    };
 
-        //Option 2: Player DOESN’T HELP Anya get the documents.
+    public static readonly DialogueLine[] Day19_Anya_Refused = new DialogueLine[]
+    {
         new DialogueLine("Anya", "... I’m leaving today. Wasn’t really planning to tell you like this but didn’t seem like there was a better way."),   //Anya
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Anya", "It’s strange..."),   //Anya
@@ -1871,8 +1995,10 @@ public static class DialogueLibrary
         new DialogueLine("Leon", "Anya—"),   //Leon
         new DialogueLine("Anya", "Anyway, I should go. Take care of yourself."),   //Anya
         new DialogueLine("Leon", "You too."),   //Leon
+    };
 
-        //Option 3: Player tells Anya to GO HOME.
+    public static readonly DialogueLine[] Day19_Anya_SentHome = new DialogueLine[]
+    {
         new DialogueLine("Leon", "So… today’s the day. You sure about this?"),   //Leon
         new DialogueLine("Anya", "No... Doesn’t mean I’m not doing it. Maybe this is the only way I get close enough to actually do something."),   //Anya
         new DialogueLine("Leon", "It’s risky."),   //Leon
@@ -1881,10 +2007,10 @@ public static class DialogueLibrary
         new DialogueLine("Anya", "For talking to me, even when I didn’t make it easy. Maybe we can still keep in touch somehow."),   //Anya
         new DialogueLine("Leon", "I’d like that."),   //Leon
         new DialogueLine("Anya", "Me too."),   //Anya
+    };
 
-        //Option 4: Player REPORTS Anya. No interaction this day.
-
-        //Elias conversation
+    public static readonly DialogueLine[] Day19_Elias = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Any more… gaps?"),   //Leon
         new DialogueLine("Elias", "Yeah... but worse."),   //Elias
         new DialogueLine("Leon", "How so?"),   //Leon
@@ -1907,8 +2033,10 @@ public static class DialogueLibrary
         new DialogueLine("Elias", "Yeah, get out before it gets worse. I’m only half joking."),   //Elias
         new DialogueLine("Leon", "Only half?"),   //Leon
         new DialogueLine("Elias", "Other half’s serious."),   //Elias
+    };
 
-        //Edith conversation
+    public static readonly DialogueLine[] Day19_Edith = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Can I ask you something?"),   //Leon
         new DialogueLine("Edith", "You always do, dear."),   //Edith
         new DialogueLine("Leon", "The other day… what you said about your husband. He’s augmented, isn’t he."),   //Leon
@@ -1927,8 +2055,10 @@ public static class DialogueLibrary
         new DialogueLine("Edith", "No… not directly, but it’s all part of the same thing, isn’t it. "),   //Edith
         new DialogueLine("Leon", "..."),   //Leon
         new DialogueLine("Edith", "Still, you might be right. Keeping him hidden, it’s not really living, is it? He’s still here, maybe I’ve been holding onto fear more than I should."),   //Edith
+    };
 
-        //Kellen conversation
+    public static readonly DialogueLine[] Day19_Kellen = new DialogueLine[]
+    {
         new DialogueLine("Kellen", "Oi, lad. Got something for you."),   //Kellen
         new DialogueLine("Leon", "That’s new. Let’s see then."),   //Leon
         new DialogueLine("Kellen", "Here."),   //Kellen
@@ -1944,8 +2074,10 @@ public static class DialogueLibrary
         new DialogueLine("Kellen", "Don’t get sentimental on me, just watch it, yeah? And don’t come back telling me it’s overrated."),   //Kellen
         new DialogueLine("Leon", "No promises."),   //Leon
         new DialogueLine("Kellen", "Knew I shouldn’t have given it to you."),   //Kellen
+    };
 
-        //MX-2 the maintenance robot conversation
+    public static readonly DialogueLine[] Day19_MX2 = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Still at it?"),   //Leon
         new DialogueLine("MX-2", "Maintenance tasks ongoing"),   //MX-2
         new DialogueLine("Leon", "Anything different today?"),   //Leon
@@ -1956,37 +2088,28 @@ public static class DialogueLibrary
         new DialogueLine("MX-2", "Acknowledged"),   //MX-2
     };
 
-    //-------------------------------------------------DAY 20 LAST DAY--------------------------------------------------------------
-    public static readonly DialogueLine[] Day20Dialogue = new DialogueLine[]
+    // -- Day 20 --
+
+    public static readonly DialogueLine[] Day20_Anya_Helped = new DialogueLine[]
     {
-        //Anya conversation (message from her, probs not done in the dialogue)
-        //Option 1: Player HELPS Anya get the documents.
         new DialogueLine("Anya", "Made it through. No issues, your documents held up better than expected"),   //Anya
         new DialogueLine("Anya", "Implant’s getting handled tomorrow, finally"),   //Anya
         new DialogueLine("Anya", "..."),   //Anya
         new DialogueLine("Anya", "Visit me sometime"), //Anya
+    };
 
-        //Option 2: Player DOESN’T HELP Anya get the documents. Does not receive any message.
-
-        //Option 3: Player tells Anya to GO HOME.
+    public static readonly DialogueLine[] Day20_Anya_SentHome = new DialogueLine[]
+    {
         new DialogueLine("Anya", "I’m back"),   //Anya
         new DialogueLine("Anya", "Everything feels the same, but not really"),   //Anya
         new DialogueLine("Anya", "..."),   //Anya
         new DialogueLine("Anya", "I can’t say much"),   //Anya
         new DialogueLine("Anya", "Just… wanted you to know I’m alright"),   //Anya
         new DialogueLine("Anya", "You’ll see me again"),   //Anya
+    };
 
-        //Option 4: Player REPORTS Anya. No interaction this day. Does not receive any message.
-
-        //Mara conversation
-        new DialogueLine("Leon", "Heard you’re leaving."),   //Leon
-        new DialogueLine("Mara", "We are. It won’t be easy, starting over rarely is. But we’ll be together and right now that feels like the only thing that matters."),   //Mara
-        new DialogueLine("Leon", "That’s enough."),   //Leon
-        new DialogueLine("Mara", "I think so too. Thank you, Leon, for listening, for being… steady through all of this."),   //Mara
-        new DialogueLine("Leon", "You don’t have to thank me. I hope it works out for you."),   //Leon
-        new DialogueLine("Mara", "So do I."),   //Mara
-
-        //Elias conversation
+    public static readonly DialogueLine[] Day20_Elias = new DialogueLine[]
+    {
         new DialogueLine("Leon", "How are you feeling?"),   //Leon
         new DialogueLine("Elias", "Like I’ve been hit by a truck. But I feel… clearer, if that makes sense. Kellen did what he could. Wasn’t pretty, but it’s out."),   //Elias
         new DialogueLine("Leon", "That’s what matters. Also, heard you’re leaving."),   //Leon
@@ -1995,8 +2118,20 @@ public static class DialogueLibrary
         new DialogueLine("Elias", "I hope so... We’ll keep in touch, yeah?"),   //Elias
         new DialogueLine("Leon", "Yeah, Good luck, Elias. "),   //Leon
         new DialogueLine("Elias", "You too, mate."),   //Elias
+    };
 
-        //Edith conversation
+    public static readonly DialogueLine[] Day20_Mara = new DialogueLine[]
+    {
+        new DialogueLine("Leon", "Heard you’re leaving."),   //Leon
+        new DialogueLine("Mara", "We are. It won’t be easy, starting over rarely is. But we’ll be together and right now that feels like the only thing that matters."),   //Mara
+        new DialogueLine("Leon", "That’s enough."),   //Leon
+        new DialogueLine("Mara", "I think so too. Thank you, Leon, for listening, for being… steady through all of this."),   //Mara
+        new DialogueLine("Leon", "You don’t have to thank me. I hope it works out for you."),   //Leon
+        new DialogueLine("Mara", "So do I."),   //Mara
+    };
+
+    public static readonly DialogueLine[] Day20_Edith = new DialogueLine[]
+    {
         new DialogueLine("Edith", "I took him out today. We went to the park, just for a walk."),   //Edith
         new DialogueLine("Leon", "How was it?"),   //Leon
         new DialogueLine("Edith", "…Lovely. It felt… normal, in a way I hadn’t allowed myself to feel in a long time. And it made me realise something rather uncomfortable."),   //Edith
@@ -2006,8 +2141,10 @@ public static class DialogueLibrary
         new DialogueLine("Edith", "No, it isn’t. I love him, that hasn’t changed, no matter what he is now."),   //Edith
         new DialogueLine("Leon", "And that’s what matters. Maybe I could join you sometime, on your walk."),   //Leon
         new DialogueLine("Edith", "I’d like that, dear."),   //Edith
+    };
 
-        //Kellen conversation
+    public static readonly DialogueLine[] Day20_Kellen = new DialogueLine[]
+    {
         new DialogueLine("Leon", "Heard you helped Elias. How’d it go?"),   //Leon
         new DialogueLine("Kellen", "Messy, but it’s done."),   //Kellen
         new DialogueLine("Leon", "You think it was the right call?"),   //Leon
@@ -2020,8 +2157,10 @@ public static class DialogueLibrary
         new DialogueLine("Kellen", "Soon."),   //Kellen
         new DialogueLine("Leon", "I’ll be there."),   //Leon
         new DialogueLine("Kellen", "Yeah, you will."),   //Kellen
+    };
 
-        //MX-2 the maintenance robot conversation
+    public static readonly DialogueLine[] Day20_MX2 = new DialogueLine[]
+    {
         new DialogueLine("MX-2", "Transfer scheduled"),   //MX-2
         new DialogueLine("Leon", "Transfer?"),   //Leon
         new DialogueLine("MX-2", "Unit reassignment effective tomorrow"),   //MX-2
@@ -2032,4 +2171,5 @@ public static class DialogueLibrary
         new DialogueLine("Leon", "Oh... Didn’t expect that"),   //Leon
         new DialogueLine("MX-2", "Response logged"),   //MX-2
     };
+
 }
