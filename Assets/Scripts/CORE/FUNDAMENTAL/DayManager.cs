@@ -71,6 +71,8 @@ public class DayManager : MonoBehaviour
         currentSubject    = null;
         puzzleSolvedForSubject = null;
         reviewPuzzleActive = false;
+        
+        if (reviewPuzzle != null) reviewPuzzle.ForceClose();
 
         lightSwitch.SetInteractable(false);
         UIManager.Instance.UpdateWarnings(0);
@@ -117,24 +119,34 @@ public class DayManager : MonoBehaviour
     }
 
     public void StartReview()
+{
+    if (currentSubject == null || CurrentDayState != DayState.Working) return;
+    if (reviewPuzzleActive) return;
+
+    bool needsPuzzle = requirePuzzleBeforeReview &&
+                       reviewPuzzle != null &&
+                       puzzleSolvedForSubject != currentSubject;
+
+    if (needsPuzzle)
     {
-        if (currentSubject == null || CurrentDayState != DayState.Working) return;
-        if (reviewPuzzleActive) return;
+        reviewPuzzleActive = true;
 
-        bool needsPuzzle = requirePuzzleBeforeReview &&
-                           reviewPuzzle != null &&
-                           puzzleSolvedForSubject != currentSubject;
-
-        if (needsPuzzle)
+        if (UIManager.Instance != null)
         {
-            reviewPuzzleActive = true;
-            if (PlayerController != null) PlayerController.SetInputEnabled(false);
-            reviewPuzzle.StartPuzzle(OnReviewPuzzleSolved);
-            return;
+            UIManager.Instance.HidePanel();
         }
 
-        BeginReviewForCurrentSubject();
+        if (PlayerController != null)
+        {
+            PlayerController.SetInputEnabled(false);
+        }
+
+        reviewPuzzle.StartPuzzle(OnReviewPuzzleSolved);
+        return;
     }
+
+    BeginReviewForCurrentSubject();
+}
 
     public void ExitReview()
     {

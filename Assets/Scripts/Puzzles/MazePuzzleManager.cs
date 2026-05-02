@@ -11,6 +11,7 @@ public class MazePuzzleManager : MonoBehaviour
     [SerializeField] private GameObject puzzlePanel;
     [SerializeField] private RectTransform gridRoot;
     [SerializeField] private TMP_Text instructionText;
+    [SerializeField] private CanvasGroup puzzleCanvasGroup;
 
     [Header("Maze Settings")]
     [SerializeField, Min(5)] private int mazeWidth = 7;
@@ -28,17 +29,19 @@ public class MazePuzzleManager : MonoBehaviour
     private const int Floor = 0;
 
     private readonly List<Image> cells = new List<Image>();
+
     private int[,] maze;
     private Vector2Int playerPos;
     private Vector2Int exitPos;
+
     private Action onSolved;
     private bool isActive;
     private float nextMoveTime;
 
     private void Awake()
     {
-        if (puzzlePanel != null)
-            puzzlePanel.SetActive(false);
+        EnsureReferences();
+        SetPuzzleVisible(false);
     }
 
     private void Update()
@@ -68,9 +71,16 @@ public class MazePuzzleManager : MonoBehaviour
 
     public void StartPuzzle(Action solvedCallback)
     {
+        EnsureReferences();
+
         if (puzzlePanel == null || gridRoot == null)
         {
-            Debug.LogError("MazePuzzleManager: puzzlePanel or gridRoot is not assigned. Skipping puzzle to avoid blocking review.");
+            Debug.LogError(
+                "MazePuzzleManager: puzzlePanel or gridRoot is not assigned. " +
+                $"puzzlePanel={(puzzlePanel == null ? "NULL" : puzzlePanel.name)}, " +
+                $"gridRoot={(gridRoot == null ? "NULL" : gridRoot.name)}"
+            );
+
             solvedCallback?.Invoke();
             return;
         }
@@ -79,7 +89,12 @@ public class MazePuzzleManager : MonoBehaviour
         isActive = true;
         nextMoveTime = 0f;
 
-        puzzlePanel.SetActive(true);
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.HidePanel();
+        }
+
+        SetPuzzleVisible(true);
 
         mazeWidth = MakeOdd(Mathf.Max(5, mazeWidth));
         mazeHeight = MakeOdd(Mathf.Max(5, mazeHeight));
@@ -89,7 +104,9 @@ public class MazePuzzleManager : MonoBehaviour
         RefreshGrid();
 
         if (instructionText != null)
+        {
             instructionText.text = "Security Check: use WASD / Arrow Keys to reach the green exit.";
+        }
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -100,8 +117,62 @@ public class MazePuzzleManager : MonoBehaviour
         isActive = false;
         onSolved = null;
 
-        if (puzzlePanel != null)
-            puzzlePanel.SetActive(false);
+        SetPuzzleVisible(false);
+    }
+
+    private void CompletePuzzle()
+    {
+        isActive = false;
+
+        SetPuzzleVisible(false);
+
+        Action callback = onSolved;
+        onSolved = null;
+        callback?.Invoke();
+    }
+
+    private void EnsureReferences()
+    {
+        if (puzzlePanel == null) return;
+
+        if (!puzzlePanel.activeSelf)
+        {
+            puzzlePanel.SetActive(true);
+        }
+
+        if (puzzleCanvasGroup == null)
+        {
+            puzzleCanvasGroup = puzzlePanel.GetComponent<CanvasGroup>();
+        }
+
+        if (puzzleCanvasGroup == null)
+        {
+            puzzleCanvasGroup = puzzlePanel.AddComponent<CanvasGroup>();
+        }
+    }
+
+    private void SetPuzzleVisible(bool visible)
+    {
+        if (puzzlePanel == null) return;
+
+        if (!puzzlePanel.activeSelf)
+        {
+            puzzlePanel.SetActive(true);
+        }
+
+        if (puzzleCanvasGroup == null)
+        {
+            puzzleCanvasGroup = puzzlePanel.GetComponent<CanvasGroup>();
+        }
+
+        if (puzzleCanvasGroup == null)
+        {
+            puzzleCanvasGroup = puzzlePanel.AddComponent<CanvasGroup>();
+        }
+
+        puzzleCanvasGroup.alpha = visible ? 1f : 0f;
+        puzzleCanvasGroup.interactable = visible;
+        puzzleCanvasGroup.blocksRaycasts = visible;
     }
 
     private void TryMove(Vector2Int direction)
@@ -115,19 +186,9 @@ public class MazePuzzleManager : MonoBehaviour
         RefreshGrid();
 
         if (playerPos == exitPos)
+        {
             CompletePuzzle();
-    }
-
-    private void CompletePuzzle()
-    {
-        isActive = false;
-
-        if (puzzlePanel != null)
-            puzzlePanel.SetActive(false);
-
-        Action callback = onSolved;
-        onSolved = null;
-        callback?.Invoke();
+        }
     }
 
     private void GenerateMaze()
@@ -137,13 +198,16 @@ public class MazePuzzleManager : MonoBehaviour
         for (int x = 0; x < mazeWidth; x++)
         {
             for (int y = 0; y < mazeHeight; y++)
+            {
                 maze[x, y] = Wall;
+            }
         }
 
         playerPos = new Vector2Int(1, 1);
         exitPos = new Vector2Int(mazeWidth - 2, mazeHeight - 2);
 
         CarveFrom(playerPos);
+
         maze[playerPos.x, playerPos.y] = Floor;
         maze[exitPos.x, exitPos.y] = Floor;
     }
@@ -169,6 +233,7 @@ public class MazePuzzleManager : MonoBehaviour
 
             Vector2Int between = current + direction;
             maze[between.x, between.y] = Floor;
+
             CarveFrom(next);
         }
     }
@@ -177,12 +242,16 @@ public class MazePuzzleManager : MonoBehaviour
     {
         if (pos.x <= 0 || pos.x >= mazeWidth - 1) return false;
         if (pos.y <= 0 || pos.y >= mazeHeight - 1) return false;
+
         return maze[pos.x, pos.y] == Wall;
     }
 
     private bool IsInside(Vector2Int pos)
     {
-        return pos.x >= 0 && pos.x < mazeWidth && pos.y >= 0 && pos.y < mazeHeight;
+        return pos.x >= 0 &&
+               pos.x < mazeWidth &&
+               pos.y >= 0 &&
+               pos.y < mazeHeight;
     }
 
     private void BuildGridIfNeeded()
@@ -191,7 +260,9 @@ public class MazePuzzleManager : MonoBehaviour
 
         GridLayoutGroup layout = gridRoot.GetComponent<GridLayoutGroup>();
         if (layout == null)
+        {
             layout = gridRoot.gameObject.AddComponent<GridLayoutGroup>();
+        }
 
         layout.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
         layout.constraintCount = mazeWidth;
@@ -201,6 +272,7 @@ public class MazePuzzleManager : MonoBehaviour
         float availableWidth = gridRoot.rect.width - cellSpacing * (mazeWidth - 1);
         float availableHeight = gridRoot.rect.height - cellSpacing * (mazeHeight - 1);
         float cellSize = Mathf.Max(8f, Mathf.Min(availableWidth / mazeWidth, availableHeight / mazeHeight));
+
         layout.cellSize = new Vector2(cellSize, cellSize);
 
         while (cells.Count < requiredCount)
@@ -211,7 +283,9 @@ public class MazePuzzleManager : MonoBehaviour
         }
 
         for (int i = 0; i < cells.Count; i++)
+        {
             cells[i].gameObject.SetActive(i < requiredCount);
+        }
     }
 
     private void RefreshGrid()
@@ -229,11 +303,17 @@ public class MazePuzzleManager : MonoBehaviour
                 Vector2Int pos = new Vector2Int(x, y);
 
                 if (pos == playerPos)
+                {
                     image.color = playerColor;
+                }
                 else if (pos == exitPos)
+                {
                     image.color = exitColor;
+                }
                 else
+                {
                     image.color = maze[x, y] == Wall ? wallColor : floorColor;
+                }
             }
         }
     }
@@ -248,6 +328,7 @@ public class MazePuzzleManager : MonoBehaviour
         for (int i = 0; i < list.Count; i++)
         {
             int randomIndex = UnityEngine.Random.Range(i, list.Count);
+
             T temp = list[i];
             list[i] = list[randomIndex];
             list[randomIndex] = temp;
