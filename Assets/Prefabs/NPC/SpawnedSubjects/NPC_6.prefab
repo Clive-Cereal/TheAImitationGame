@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 266d7d8558f989e4aa0b4e511ba554aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -79.291985
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 266d7d8558f989e4aa0b4e511ba554aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.042874336
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 266d7d8558f989e4aa0b4e511ba554aa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 48.319725
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 266d7d8558f989e4aa0b4e511ba554aa, type: 3}
       propertyPath: m_LocalRotation.w
@@ -26,15 +26,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 266d7d8558f989e4aa0b4e511ba554aa, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 266d7d8558f989e4aa0b4e511ba554aa, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 266d7d8558f989e4aa0b4e511ba554aa, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 266d7d8558f989e4aa0b4e511ba554aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -191,6 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractable: 1
-  mode: 1
+  npcId: Elias
+  mode: 0
   npcName: 
   lines: []

@@ -67,23 +67,23 @@ public static class DayPresetLibrary
         A("Elias",  "Elias_Spot",  DialogueLibrary.Day1_Elias),
         A("Edith",  "Edith_Spot",  DialogueLibrary.Day1_Edith),
         A("Kellen", "Kellen_Spot", DialogueLibrary.Day1_Kellen),
-        A("MX-2",   "MX2_Spot",   DialogueLibrary.Day1_MX2)
+        A("MX-2",   "MX2_Spot_B",   DialogueLibrary.Day1_MX2)
     );
 
     static DayPreset Day02() => Preset(
         A("Anya",   "Anya_Spot",   DialogueLibrary.Day2_Anya),
         A("Mara",   "Mara_Spot",   DialogueLibrary.Day2_Mara),
-        A("Edith",  "Edith_Spot",  DialogueLibrary.Day2_Edith),
-        A("Kellen", "Kellen_Spot", DialogueLibrary.Day2_Kellen),
-        A("MX-2",   "MX2_Spot",   DialogueLibrary.Day2_MX2)
+        A("Edith",  "Edith_Spot_B",  DialogueLibrary.Day2_Edith),
+        A("Kellen", "Kellen_Spot_B", DialogueLibrary.Day2_Kellen),
+        A("MX-2",   "MX2_Spot_C",   DialogueLibrary.Day2_MX2)
     );
 
     static DayPreset Day03() => Preset(
-        A("Anya",   "Anya_Spot",   DialogueLibrary.Day3_Anya),
-        A("Elias",  "Elias_Spot",  DialogueLibrary.Day3_Elias),
+        A("Anya",   "Anya_Spot_B",   DialogueLibrary.Day3_Anya),
+        A("Elias",  "Elias_Spot_B",  DialogueLibrary.Day3_Elias),
         A("Edith",  "Edith_Spot",  DialogueLibrary.Day3_Edith),
         A("Kellen", "Kellen_Spot", DialogueLibrary.Day3_Kellen),
-        A("MX-2",   "MX2_Spot",   DialogueLibrary.Day3_MX2)
+        A("MX-2",   "MX2_Spot_B",   DialogueLibrary.Day3_MX2)
     );
 
     static DayPreset Day04() => Preset(
@@ -97,17 +97,17 @@ public static class DayPresetLibrary
     );
 
     static DayPreset Day05() => Preset(
-        A("Anya",   "Anya_Spot",   DialogueLibrary.Day5_Anya),
-        A("Mara",   "Mara_Spot",   DialogueLibrary.Day5_Mara),
-        A("Kellen", "Kellen_Spot", DialogueLibrary.Day5_Kellen),
-        A("MX-2",   "MX2_Spot",   DialogueLibrary.Day5_MX2)
+        A("Anya",   "Anya_Spot_B",   DialogueLibrary.Day5_Anya),
+        A("Mara",   "Mara_Spot_B",   DialogueLibrary.Day5_Mara),
+        A("Kellen", "Kellen_Spot_B", DialogueLibrary.Day5_Kellen),
+        A("MX-2",   "MX2_Spot_C",   DialogueLibrary.Day5_MX2)
         // Edith does not want to speak today
     );
 
     static DayPreset Day06() => Preset(
         // Anya has disappeared
-        A("Elias",  "Elias_Spot",  DialogueLibrary.Day6_Elias),
-        A("Edith",  "Edith_Spot",  DialogueLibrary.Day6_Edith),
+        A("Elias",  "Elias_Spot_B",  DialogueLibrary.Day6_Elias),
+        A("Edith",  "Edith_Spot_B",  DialogueLibrary.Day6_Edith),
         A("Kellen", "Kellen_Spot", DialogueLibrary.Day6_Kellen),
         A("MX-2",   "MX2_Spot",   DialogueLibrary.Day6_MX2)
     );
@@ -116,20 +116,20 @@ public static class DayPresetLibrary
         // Anya has disappeared
         A("Mara",   "Mara_Spot",   DialogueLibrary.Day7_Mara),
         A("Edith",  "Edith_Spot",  DialogueLibrary.Day7_Edith),
-        A("Kellen", "Kellen_Spot", DialogueLibrary.Day7_Kellen),
-        A("MX-2",   "MX2_Spot",   DialogueLibrary.Day7_MX2)
+        A("Kellen", "Kellen_Spot_B", DialogueLibrary.Day7_Kellen),
+        A("MX-2",   "MX2_Spot_B",   DialogueLibrary.Day7_MX2)
     );
 
     static DayPreset Day08() => Preset(
         A("Anya",   "Anya_Spot",   DialogueLibrary.Day8_Anya),
-        A("Mara",   "Mara_Spot",   DialogueLibrary.Day8_Mara),
+        A("Mara",   "Mara_Spot_B",   DialogueLibrary.Day8_Mara),
         A("Edith",  "Edith_Spot",  DialogueLibrary.Day8_Edith),
         A("Kellen", "Kellen_Spot", DialogueLibrary.Day8_Kellen),
-        A("MX-2",   "MX2_Spot",   DialogueLibrary.Day8_MX2)
+        A("MX-2",   "MX2_Spot_C",   DialogueLibrary.Day8_MX2)
     );
 
     static DayPreset Day09() => Preset(
-        A("Anya",   "Anya_Spot",   DialogueLibrary.Day9_Anya),
+        A("Anya",   "Anya_Spot_B",   DialogueLibrary.Day9_Anya),
         A("Elias",  "Elias_Spot",  DialogueLibrary.Day9_Elias),
         A("Edith",  "Edith_Spot",  DialogueLibrary.Day9_Edith),
         A("Kellen", "Kellen_Spot", DialogueLibrary.Day9_Kellen),
@@ -139,31 +139,31 @@ public static class DayPresetLibrary
     static DayPreset Day10() => Preset(
         A("Anya",   "Anya_Spot",   DialogueLibrary.Day10_Anya),
         A("Elias",  "Elias_Spot",  DialogueLibrary.Day10_Elias),
-        A("Edith",  "Edith_Spot",  DialogueLibrary.Day10_Edith),
-        A("Kellen", "Kellen_Spot", DialogueLibrary.Day10_Kellen),
+        A("Edith",  "Edith_Spot_B",  DialogueLibrary.Day10_Edith),
+        A("Kellen", "Kellen_Spot_B", DialogueLibrary.Day10_Kellen),
         A("MX-2",   "MX2_Spot",   DialogueLibrary.Day10_MX2)
     );
 
     static DayPreset Day11() => Preset(
-        A("Anya",   "Anya_Spot",   DialogueLibrary.Day11_Anya),
-        A("Mara",   "Mara_Spot",   DialogueLibrary.Day11_Mara),
-        A("Edith",  "Edith_Spot",  DialogueLibrary.Day11_Edith),
+        A("Anya",   "Anya_Spot_B",   DialogueLibrary.Day11_Anya),
+        A("Mara",   "Mara_Spot_B",   DialogueLibrary.Day11_Mara),
+        A("Edith",  "Edith_Spot_B",  DialogueLibrary.Day11_Edith),
         A("Kellen", "Kellen_Spot", DialogueLibrary.Day11_Kellen),
-        A("MX-2",   "MX2_Spot",   DialogueLibrary.Day11_MX2)
+        A("MX-2",   "MX2_Spot_B",   DialogueLibrary.Day11_MX2)
     );
 
     static DayPreset Day12() => Preset(
         A("Anya",   "Anya_Spot",   DialogueLibrary.Day12_Anya),
-        A("Elias",  "Elias_Spot",  DialogueLibrary.Day12_Elias),
+        A("Elias",  "Elias_Spot_B",  DialogueLibrary.Day12_Elias),
         A("Edith",  "Edith_Spot",  DialogueLibrary.Day12_Edith),
-        A("Kellen", "Kellen_Spot", DialogueLibrary.Day12_Kellen),
-        A("MX-2",   "MX2_Spot",   DialogueLibrary.Day12_MX2)
+        A("Kellen", "Kellen_Spot_B", DialogueLibrary.Day12_Kellen),
+        A("MX-2",   "MX2_Spot_C",   DialogueLibrary.Day12_MX2)
     );
 
     static DayPreset Day13() => Preset(
-        A("Anya",   "Anya_Spot",   DialogueLibrary.Day13_Anya),
+        A("Anya",   "Anya_Spot_B",   DialogueLibrary.Day13_Anya),
         A("Mara",   "Mara_Spot",   DialogueLibrary.Day13_Mara),
-        A("Edith",  "Edith_Spot",  DialogueLibrary.Day13_Edith),
+        A("Edith",  "Edith_Spot_B",  DialogueLibrary.Day13_Edith),
         A("Kellen", "Kellen_Spot", DialogueLibrary.Day13_Kellen),
         A("MX-2",   "MX2_Spot",   DialogueLibrary.Day13_MX2)
     );
@@ -174,16 +174,16 @@ public static class DayPresetLibrary
         A("Anya",   "Anya_Spot",   DialogueLibrary.Day15_Anya),
         A("Elias",  "Elias_Spot",  DialogueLibrary.Day15_Elias),
         A("Edith",  "Edith_Spot",  DialogueLibrary.Day15_Edith),
-        A("Kellen", "Kellen_Spot", DialogueLibrary.Day15_Kellen),
-        A("MX-2",   "MX2_Spot",   DialogueLibrary.Day15_MX2)
+        A("Kellen", "Kellen_Spot_B", DialogueLibrary.Day15_Kellen),
+        A("MX-2",   "MX2_Spot_B",   DialogueLibrary.Day15_MX2)
     );
 
     static DayPreset Day16() => Preset(
         A("Anya",   "Anya_Spot",   DialogueLibrary.Day16_Anya),
-        A("Mara",   "Mara_Spot",   DialogueLibrary.Day16_Mara),
-        A("Edith",  "Edith_Spot",  DialogueLibrary.Day16_Edith),
+        A("Mara",   "Mara_Spot_B",   DialogueLibrary.Day16_Mara),
+        A("Edith",  "Edith_Spot_B",  DialogueLibrary.Day16_Edith),
         A("Kellen", "Kellen_Spot", DialogueLibrary.Day16_Kellen),
-        A("MX-2",   "MX2_Spot",   DialogueLibrary.Day16_MX2)
+        A("MX-2",   "MX2_Spot_C",   DialogueLibrary.Day16_MX2)
     );
 
     static DayPreset Day17(AnyaOutcome outcome)
@@ -198,9 +198,9 @@ public static class DayPresetLibrary
         };
         return Preset(
             A("Anya",   "Anya_Spot",   anyaLines),
-            A("Elias",  "Elias_Spot",  DialogueLibrary.Day17_Elias),
+            A("Elias",  "Elias_Spot_B",  DialogueLibrary.Day17_Elias),
             A("Edith",  "Edith_Spot",  DialogueLibrary.Day17_Edith),
-            A("Kellen", "Kellen_Spot", DialogueLibrary.Day17_Kellen),
+            A("Kellen", "Kellen_Spot_B", DialogueLibrary.Day17_Kellen),
             A("MX-2",   "MX2_Spot",   DialogueLibrary.Day17_MX2)
         );
     }
@@ -216,11 +216,11 @@ public static class DayPresetLibrary
             _                    => DialogueLibrary.Day18_Anya_Helped,
         };
         return Preset(
-            A("Anya",   "Anya_Spot",   anyaLines),
+            A("Anya",   "Anya_Spot_B",   anyaLines),
             A("Mara",   "Mara_Spot",   DialogueLibrary.Day18_Mara),
-            A("Edith",  "Edith_Spot",  DialogueLibrary.Day18_Edith),
+            A("Edith",  "Edith_Spot_B",  DialogueLibrary.Day18_Edith),
             A("Kellen", "Kellen_Spot", DialogueLibrary.Day18_Kellen),
-            A("MX-2",   "MX2_Spot",   DialogueLibrary.Day18_MX2)
+            A("MX-2",   "MX2_Spot_C",   DialogueLibrary.Day18_MX2)
         );
     }
 
@@ -231,8 +231,8 @@ public static class DayPresetLibrary
             return Preset(
                 A("Elias",  "Elias_Spot",  DialogueLibrary.Day19_Elias),
                 A("Edith",  "Edith_Spot",  DialogueLibrary.Day19_Edith),
-                A("Kellen", "Kellen_Spot", DialogueLibrary.Day19_Kellen),
-                A("MX-2",   "MX2_Spot",   DialogueLibrary.Day19_MX2)
+                A("Kellen", "Kellen_Spot_B", DialogueLibrary.Day19_Kellen),
+                A("MX-2",   "MX2_Spot_B",   DialogueLibrary.Day19_MX2)
             );
 
         var anyaLines = outcome switch
@@ -246,8 +246,8 @@ public static class DayPresetLibrary
             A("Anya",   "Anya_Spot",   anyaLines),
             A("Elias",  "Elias_Spot",  DialogueLibrary.Day19_Elias),
             A("Edith",  "Edith_Spot",  DialogueLibrary.Day19_Edith),
-            A("Kellen", "Kellen_Spot", DialogueLibrary.Day19_Kellen),
-            A("MX-2",   "MX2_Spot",   DialogueLibrary.Day19_MX2)
+            A("Kellen", "Kellen_Spot_B", DialogueLibrary.Day19_Kellen),
+            A("MX-2",   "MX2_Spot_B",   DialogueLibrary.Day19_MX2)
         );
     }
 
@@ -262,8 +262,8 @@ public static class DayPresetLibrary
         // Day 20 has both Mara AND Elias (farewell day)
         var npcs = new System.Collections.Generic.List<NpcAssignment>
         {
-            A("Mara",   "Mara_Spot",   DialogueLibrary.Day20_Mara),
-            A("Elias",  "Elias_Spot",  DialogueLibrary.Day20_Elias),
+            A("Mara",   "Mara_Spot_B",   DialogueLibrary.Day20_Mara),
+            A("Elias",  "Elias_Spot_B",  DialogueLibrary.Day20_Elias),
             A("Edith",  "Edith_Spot",  DialogueLibrary.Day20_Edith),
             A("Kellen", "Kellen_Spot", DialogueLibrary.Day20_Kellen),
             A("MX-2",   "MX2_Spot",   DialogueLibrary.Day20_MX2),
