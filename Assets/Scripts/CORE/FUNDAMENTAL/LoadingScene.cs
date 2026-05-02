@@ -24,10 +24,9 @@ public class LoadingScene : MonoBehaviour
             yield return null;
         }
 
-        op.allowSceneActivation = true; //Then the scene is activated here
+        GameManager.currentState = GameManager.targetState; // set before activation; coroutine may be killed once _Loading unloads
+        op.allowSceneActivation = true;
 
         while (!op.isDone) yield return null;
-
-        GameManager.currentState = GameManager.targetState;
     }
 }
