@@ -3,6 +3,11 @@ using UnityEngine;
 public class BedSleep : Interactable
 {
     [SerializeField] private GoToWork goToWorkButton;
+    [SerializeField] private SleepTransitionUI sleepTransitionUI;
+
+    [TextArea]
+    [SerializeField] private string sleepMessage =
+        "After working all day, you were fast asleep in no time.";
 
     private bool hasSlept = false;
 
@@ -13,6 +18,23 @@ public class BedSleep : Interactable
         hasSlept = true;
         isInteractable = false;
 
+        if (sleepTransitionUI != null)
+        {
+            sleepTransitionUI.PlaySleepTransition(
+                sleepMessage,
+                ApplySleepResult,
+                UnlockGoToWork
+            );
+        }
+        else
+        {
+            ApplySleepResult();
+            UnlockGoToWork();
+        }
+    }
+
+    private void ApplySleepResult()
+    {
         GameManager.Days++;
 
         if (GameManager.Instance != null)
@@ -30,6 +52,16 @@ public class BedSleep : Interactable
         if (storyOver && GameManager.Instance != null)
         {
             GameManager.Instance.SceneLoader("05_Ending", GameState.Ending);
+        }
+    }
+
+    private void UnlockGoToWork()
+    {
+        bool storyOver = GameManager.Days > GameManager.MaxDays
+                         && GameManager.currentGameMode != GameMode.Endless;
+
+        if (storyOver && GameManager.Instance != null)
+        {
             return;
         }
 

@@ -4,11 +4,10 @@ using UnityEngine.SceneManagement;
 public class LeaveOffice : Interactable
 {
     [SerializeField] private string targetSceneName = "03_ParkNeighbourhood";
-    [SerializeField] private string blockedMessage = "Better get my job done.";
+    [SerializeField] private string blockedMessage = "Better get my job done";
 
     private void Start()
     {
-        // Keep it interactable so the player can receive feedback.
         isInteractable = true;
     }
 

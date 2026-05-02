@@ -18,6 +18,8 @@ public class DayManager : MonoBehaviour
     [Header("Review Gate")]
     [SerializeField] private bool requirePuzzleBeforeReview = true;
 
+    
+
     public DayState CurrentDayState { get; private set; } = DayState.Idle;
     public bool CanLeaveOffice { get; private set; } = false;
     private int warnings;
@@ -43,11 +45,12 @@ public class DayManager : MonoBehaviour
     {
         PlayerController = FindFirstObjectByType<PlayerController>();
         lightSwitch.SetInteractable(true);
+        CanLeaveOffice = false;
         UIManager.Instance.UpdateDay(GameManager.Days);
         UIManager.Instance.UpdateWarnings(0);
         UIManager.Instance.UpdateTimer(0f);
 
-        CanLeaveOffice = false;
+        
     }
 
     private void Update()
@@ -62,41 +65,43 @@ public class DayManager : MonoBehaviour
     // ── Public API ──────────────────────────────────────────────────────────
     public void StartDay()
     {
-        if (CurrentDayState != DayState.Idle) return;
+    if (CurrentDayState != DayState.Idle) return;
 
-        CurrentDayState   = DayState.Working;
-        warnings          = 0;
-        subjectsProcessed = 0;
-        dayTimer          = 0f;
-        currentSubject    = null;
-        puzzleSolvedForSubject = null;
-        reviewPuzzleActive = false;
-        
-        if (reviewPuzzle != null) reviewPuzzle.ForceClose();
+    CurrentDayState = DayState.Working;
+    CanLeaveOffice = false;
 
-        lightSwitch.SetInteractable(false);
-        UIManager.Instance.UpdateWarnings(0);
-        UIManager.Instance.UpdateDay(GameManager.Days);
+    warnings = 0;
+    subjectsProcessed = 0;
+    dayTimer = 0f;
+    currentSubject = null;
+    puzzleSolvedForSubject = null;
+    reviewPuzzleActive = false;
 
-        OnDayStarted?.Invoke();
-        SpawnNextSubject();
+    if (reviewPuzzle != null)
+        reviewPuzzle.ForceClose();
 
-        CanLeaveOffice = false;
+    lightSwitch.SetInteractable(true);
+
+    UIManager.Instance.UpdateWarnings(0);
+    UIManager.Instance.UpdateDay(GameManager.Days);
+
+    OnDayStarted?.Invoke();
+    SpawnNextSubject();
     }
 
     public void EndDay()
     {
-        if (CurrentDayState != DayState.DayEnded) return;
-        
-        CurrentDayState = DayState.Idle;
+    if (CurrentDayState != DayState.DayEnded) return;
 
-        lightSwitch.SetInteractable(false);
-        UIManager.Instance.UpdateDay(GameManager.Days);
+    CurrentDayState = DayState.Idle;
+    CanLeaveOffice = true;
 
-        OnDayEnded?.Invoke();
-        Debug.Log("Day ended. Interact with the bed to start the next day.");
+    lightSwitch.SetInteractable(true);
 
-        CanLeaveOffice = true;
+    UIManager.Instance.UpdateDay(GameManager.Days);
+
+    OnDayEnded?.Invoke();
+    Debug.Log("Day ended. You can now leave the office.");
     }
 
     public void OnApprove()

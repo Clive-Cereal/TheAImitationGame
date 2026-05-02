@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class LightSwitch : Interactable
 {
-    [SerializeField] private string blockedMessage = "Better get my job done.";
-    [SerializeField] private string leaveOfficeMessage = "I should leave the office now.";
+    [SerializeField] private string blockedMessage = "Better get my job done";
+    [SerializeField] private string afterDayEndedMessage = "I should leave the office now.";
 
     private void Start()
     {
@@ -20,7 +20,7 @@ public class LightSwitch : Interactable
         {
             if (DayManager.Instance.CanLeaveOffice)
             {
-                ShowMessage(leaveOfficeMessage);
+                ShowMessage(afterDayEndedMessage);
                 return;
             }
 
@@ -34,16 +34,11 @@ public class LightSwitch : Interactable
             return;
         }
 
-        if (state == DayState.Working || state == DayState.Reviewing)
-        {
-            ShowMessage(blockedMessage);
-            return;
-        }
+        ShowMessage(blockedMessage);
     }
 
     public void SetInteractable(bool value)
     {
-        // Always keep it interactable so blocked interactions can show feedback.
         isInteractable = true;
     }
 

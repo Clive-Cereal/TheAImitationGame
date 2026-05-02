@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text certDeclText;
     [SerializeField] private TMP_Text certCyberwareText;
 
-[Header("HUD")]
+    [Header("HUD")]
     [SerializeField] private TMP_Text warningText;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private TMP_Text dayText;
@@ -52,6 +52,8 @@ public class UIManager : MonoBehaviour
 
     private const string MainSceneName = "02_Main";
 
+    private PlayerController _playerController;
+
     private void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
@@ -65,12 +67,24 @@ public class UIManager : MonoBehaviour
 
         SceneManager.sceneLoaded += OnSceneLoaded;
         SetMainSceneButtons(SceneManager.GetActiveScene().name == MainSceneName);
-    }
 
+        // Wire up for the initial scene (OnSceneLoaded won't fire for the first scene)
+        _playerController = FindFirstObjectByType<PlayerController>();
+        if (_playerController != null)
+            _playerController.OnPausePressed += PauseGame;
+    }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SetMainSceneButtons(scene.name == MainSceneName);
+
+        // Unsubscribe from the old (destroyed) PlayerController, then find the new one
+        if (_playerController != null)
+            _playerController.OnPausePressed -= PauseGame;
+
+        _playerController = FindFirstObjectByType<PlayerController>();
+        if (_playerController != null)
+            _playerController.OnPausePressed += PauseGame;
     }
 
     private void SetMainSceneButtons(bool enabled)
@@ -79,6 +93,13 @@ public class UIManager : MonoBehaviour
         if (exitReviewButton     != null) exitReviewButton.interactable      = enabled;
         if (approveButton        != null) approveButton.interactable         = enabled;
         if (rejectButton         != null) rejectButton.interactable          = enabled;
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        if (_playerController != null)
+            _playerController.OnPausePressed -= PauseGame;
     }
 
     public void OnApproveClicked()    => DayManager.Instance.OnApprove();
@@ -92,7 +113,6 @@ public class UIManager : MonoBehaviour
         if (certificateSection != null) certificateSection.SetActive(show);
     }
 
-    // THIS MAKES DIALOGUE-------------------------------------------------------------------------
     public void ShowDialogue(string npcName, string npcLine, string playerLine = null)
     {
         npcNameText.text     = npcName;
@@ -115,12 +135,10 @@ public class UIManager : MonoBehaviour
         dialoguePanel.SetActive(false);
     }
 
-    // ── Border subject review ─────────────────────────────────────────────────
     public void ShowSubject(Subject s)
     {
         ShowDialogue(s.displayName, s.purposeDialogue, "What is the purpose of your visit?");
 
-        // ── ID Card ──
         IDCard doc = s.document;
         idCardNameText.text   = s.displayName;
         idCardNumberText.text = doc.idNumber;
@@ -133,7 +151,6 @@ public class UIManager : MonoBehaviour
 
         idCardSection.SetActive(true);
 
-        // ── Certificate (ARC) ──
         Certificate cert = s.certificate;
         if (cert != null)
         {
@@ -229,7 +246,6 @@ public class UIManager : MonoBehaviour
         _                                         => m.ToString()
     };
 
-    // ── HUD ───────────────────────────────────────────────────────────────────
     public void UpdateTimer(float elapsed)
     {
         int mins = Mathf.FloorToInt(elapsed / 60f);
@@ -245,24 +261,6 @@ public class UIManager : MonoBehaviour
     public void UpdateDay(int day)
     {
         dayText.text = $"Day {day}";
-    }
-
-    //── Pause ───────────────────────────────────────────────────────────────────
-
-    private PlayerController _playerController;
-
-    private void Start()
-    {
-        _playerController = FindFirstObjectByType<PlayerController>();
-        if (_playerController != null)
-            _playerController.OnPausePressed += PauseGame;
-    }
-
-    private void OnDestroy()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-        if (_playerController != null)
-            _playerController.OnPausePressed -= PauseGame;
     }
 
     void PauseGame()
