@@ -4,7 +4,9 @@
       "Bash(grep -n \"DAY\\\\|//Anya\\\\b\\\\|//Elias\\\\b\\\\|//Edith\\\\b\\\\|//Kellen\\\\b\\\\|//MX-2\\\\b\\\\|//Mara\\\\b\\\\|disappear\\\\|doesn't want\\\\|no conversation\\\\|Option 1\\\\|Option 2\\\\|//Voice\\\\|Branching\\\\|branch\" \"c:/GitHub/TheAImitationGame_Git/TheAImitationGame/Assets/Scripts/Libraries/DialogueLibrary.cs\")",
       "Bash(dotnet build *)",
       "Bash(git checkout *)",
-      "Bash(findstr \"DialogueLibrary.*error\")"
+      "Bash(findstr \"DialogueLibrary.*error\")",
+      "Read(//c/Users/eunsa/.claude/projects/c--GitHub-TheAImitationGame-Git-TheAImitationGame/memory/**)",
+      "Bash(xargs grep *)"
     ],
     "additionalDirectories": [
       "c:\\GitHub\\TheAImitationGame_Git\\TheAImitationGame\\Assets\\Scripts\\Interactables"

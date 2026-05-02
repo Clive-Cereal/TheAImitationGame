@@ -1,5 +1,6 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 using System.Text;
 
@@ -43,7 +44,13 @@ public class UIManager : MonoBehaviour
     [Header("Pause Menu")]
     [SerializeField] private GameObject pauseMenu;
 
+    [Header("Main Scene Only Buttons")]
+    [SerializeField] private Button toggleDocumentsButton;
+    [SerializeField] private Button exitReviewButton;
+    [SerializeField] private Button approveButton;
+    [SerializeField] private Button rejectButton;
 
+    private const string MainSceneName = "02_Main";
 
     private void Awake()
     {
@@ -56,7 +63,23 @@ public class UIManager : MonoBehaviour
         pauseMenu.SetActive(false);
         if (certificateSection != null) certificateSection.SetActive(false);
 
-}
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SetMainSceneButtons(SceneManager.GetActiveScene().name == MainSceneName);
+    }
+
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        SetMainSceneButtons(scene.name == MainSceneName);
+    }
+
+    private void SetMainSceneButtons(bool enabled)
+    {
+        if (toggleDocumentsButton != null) toggleDocumentsButton.interactable = enabled;
+        if (exitReviewButton     != null) exitReviewButton.interactable      = enabled;
+        if (approveButton        != null) approveButton.interactable         = enabled;
+        if (rejectButton         != null) rejectButton.interactable          = enabled;
+    }
 
     public void OnApproveClicked()    => DayManager.Instance.OnApprove();
     public void OnRejectClicked()     => DayManager.Instance.OnReject();
@@ -64,7 +87,9 @@ public class UIManager : MonoBehaviour
 
     public void ToggleDocuments()
     {
-        idCardSection.SetActive(!idCardSection.activeSelf);
+        bool show = !idCardSection.activeSelf;
+        idCardSection.SetActive(show);
+        if (certificateSection != null) certificateSection.SetActive(show);
     }
 
     // THIS MAKES DIALOGUE-------------------------------------------------------------------------
@@ -97,14 +122,14 @@ public class UIManager : MonoBehaviour
 
         // ── ID Card ──
         IDCard doc = s.document;
-        idCardNameText.text   = $"NAME: {s.displayName}";
-        idCardNumberText.text = $"ID NO: {doc.idNumber}";
-        idCardDOBText.text    = $"DOB: {doc._dateofbirth}";
-        idCardCityText.text   = $"CITY: {NatToCity(doc._nationality)}";
+        idCardNameText.text   = s.displayName;
+        idCardNumberText.text = doc.idNumber;
+        idCardDOBText.text    = doc._dateofbirth;
+        idCardCityText.text   = NatToCity(doc._nationality);
 
         idCardExpiryText.text = doc.isExpired
-            ? $"<color=red>EXPIRES ON: {doc.expiryYear}  [EXPIRED]</color>"
-            : $"EXPIRES ON: {doc.expiryYear}";
+            ? $"<color=red>{doc.expiryYear}  [EXPIRED]</color>"
+            : doc.expiryYear.ToString();
 
         idCardSection.SetActive(true);
 
@@ -112,20 +137,20 @@ public class UIManager : MonoBehaviour
         Certificate cert = s.certificate;
         if (cert != null)
         {
-            certNameText.text = $"NAME: {cert.displayName}";
-            certDOBText.text  = $"DOB: {cert.dateOfBirth}";
-            certIdText.text   = $"ID NO: {cert.idNumber}";
-            certCityText.text   = $"CITY: {NatToCity(cert.city)}";
+            certNameText.text = cert.displayName;
+            certDOBText.text  = cert.dateOfBirth;
+            certIdText.text   = cert.idNumber;
+            certCityText.text   = NatToCity(cert.city);
             certExpiryText.text = doc.isExpired
-                ? $"<color=red>EXPIRES ON: {doc.expiryYear}  [EXPIRED]</color>"
-                : $"EXPIRES ON: {doc.expiryYear}";
+                ? $"<color=red>{doc.expiryYear}  [EXPIRED]</color>"
+                : doc.expiryYear.ToString();
 
             if (certDeclText != null)
             {
                 IDCard card = s.document;
                 if (card != null && card._declaration != null && card._declaration.Count > 0)
                 {
-                    StringBuilder sb = new StringBuilder("Declared: ");
+                    StringBuilder sb = new StringBuilder();
                     foreach (var item in card._declaration)
                     {
                         sb.Append(item);
@@ -139,7 +164,7 @@ public class UIManager : MonoBehaviour
                 }
                 else
                 {
-                    certDeclText.text = "Declared: Nothing";
+                    certDeclText.text = "Nothing";
                 }
             }
 
@@ -169,6 +194,7 @@ public class UIManager : MonoBehaviour
     {
         reviewPanel.SetActive(false);
         dialoguePanel.SetActive(false);
+        if (idCardSection != null) idCardSection.SetActive(false);
         if (certificateSection != null) certificateSection.SetActive(false);
     }
 
@@ -234,6 +260,7 @@ public class UIManager : MonoBehaviour
 
     private void OnDestroy()
     {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
         if (_playerController != null)
             _playerController.OnPausePressed -= PauseGame;
     }
