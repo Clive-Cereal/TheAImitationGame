@@ -4,7 +4,7 @@ using System;
 public class Cyberware
 {
     public string implantID;
-    public int installYear;
+    public string installDate;    // formatted "dd/MM/yyyy"
     public CyberwareType type;
     public CyberwareManufacturer manufacturer;
     public string purpose;

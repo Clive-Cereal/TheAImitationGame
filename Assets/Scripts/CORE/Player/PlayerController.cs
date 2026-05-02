@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMODUnity;
 
 [RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
@@ -19,6 +20,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpHeight = 1.2f;
     [SerializeField] private float gravity = -20f;
     
+    [Header("Audio")]
+    [SerializeField] private EventReference footstepEvent;
+    [SerializeField] private EventReference jumpEvent;
+    [SerializeField] private EventReference landEvent;
+
     [Header("Interaction")]
     [SerializeField] private float interactDistance = 5f;
     [SerializeField] private float interactRadius = 0.35f;
@@ -31,6 +37,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
     private bool inputEnabled = true;
     private bool _altPeeking;
+    private bool _wasGrounded;
+    private float _stepTimer;
 
     private Vector2 moveInput;
     private Vector2 lookInput;
@@ -78,6 +86,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!inputEnabled || !cc.isGrounded) return;
         velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        RuntimeManager.PlayOneShot(jumpEvent, transform.position);
     }
 
     private void OnInteract(InputValue value)
@@ -165,11 +174,30 @@ private void OnDisable()
 
     private void Move()
     {
-        if (cc.isGrounded && velocity.y < 0f) velocity.y = -2f;
+        bool grounded = cc.isGrounded;
+        if (grounded && velocity.y < 0f) velocity.y = -2f;
+
+        if (grounded && !_wasGrounded)
+            RuntimeManager.PlayOneShot(landEvent, transform.position);
+        _wasGrounded = grounded;
 
         Vector3 move = (transform.right * moveInput.x + transform.forward * moveInput.y).normalized;
         float speed  = moveSpeed * (sprinting ? sprintMultiplier : 1f);
         cc.Move(move * speed * Time.deltaTime);
+
+        if (grounded && moveInput != Vector2.zero)
+        {
+            _stepTimer -= Time.deltaTime;
+            if (_stepTimer <= 0f)
+            {
+                RuntimeManager.PlayOneShot(footstepEvent, transform.position);
+                _stepTimer = sprinting ? 0.3f : 0.45f;
+            }
+        }
+        else
+        {
+            _stepTimer = 0f;
+        }
 
         velocity.y += gravity * Time.deltaTime;
         cc.Move(velocity * Time.deltaTime);

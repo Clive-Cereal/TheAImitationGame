@@ -52,7 +52,8 @@ public enum InvalidCause
     DocumentMismatch,
     ExpiredDocument,
     ProhibitedItem,
-    DisapprovedCyberware
+    DisapprovedCyberware,
+    CertificateMismatch     // ID card and ARC carry conflicting identity info
 }
 
 //----------------------------------------From here feel free to edit------------------------------------------

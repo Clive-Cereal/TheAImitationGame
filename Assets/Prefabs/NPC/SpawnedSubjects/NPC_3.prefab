@@ -83,6 +83,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2cd61691387dafb4d94040bba4f85e0f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7836492999881832123}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2cd61691387dafb4d94040bba4f85e0f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8652648581562548654}
   m_SourcePrefab: {fileID: 100100000, guid: 2cd61691387dafb4d94040bba4f85e0f, type: 3}
 --- !u!1 &1082098678829655775 stripped
 GameObject:
@@ -109,6 +112,7 @@ MonoBehaviour:
   bionicPercent: 0
   metalPercent: 0
   document: {fileID: 0}
+  certificate: {fileID: 0}
   displayName: 
   purposeDialogue: 
   subjectType: 0
@@ -128,6 +132,13 @@ MonoBehaviour:
   moveSpeed: 5
   rotationSpeed: 8
   arrivalThreshold: 0.05
+  footstepEvent:
+    Guid:
+      Data1: -199128579
+      Data2: 1290127995
+      Data3: 1622661820
+      Data4: -1803525245
+    Path: event:/FootStep_NPC
 --- !u!114 &-4902217221094034247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isRobot: 0
   _dateofbirth: 0
+  idNumber: 
   _nationality: 0
   isExpired: 0
   expiryYear: 0
@@ -154,7 +166,6 @@ MonoBehaviour:
     name: 
     type: 0
     manufacturer: 0
-  cyberware: []
 --- !u!136 &-8744601095409996700
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -191,6 +202,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractable: 1
+  npcId: 
   mode: 1
   npcName: 
   lines: []
+--- !u!114 &-8652648581562548654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082098678829655775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ffecf0ee1f8bab4083d48768e7da056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: 
+  dateOfBirth: 
+  idNumber: 
+  city: 0
+  cyberware: []

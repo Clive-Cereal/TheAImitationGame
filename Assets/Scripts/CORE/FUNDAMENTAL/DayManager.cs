@@ -220,7 +220,10 @@ public class DayManager : MonoBehaviour
         reviewPuzzleActive = false;
         subjectsProcessed++;
 
-        spawner.SendSubjectAway();
+        if (approvedAsHuman)
+            spawner.SendSubjectAway();
+        else
+            spawner.SendSubjectBack();
         SpawnNextSubject();
     }
 

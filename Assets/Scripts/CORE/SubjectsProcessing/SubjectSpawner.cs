@@ -23,7 +23,7 @@ public class SubjectSpawner : MonoBehaviour
     [SerializeField, Range(0f, 1f)] private float medicationChance = 0.25f;
     [SerializeField, Range(0f, 1f)] private float substanceChance  = 0.10f;
 
-    public const int GameYear = 3157;
+    private const int GameYear = GameManager.GameYear;
 
     private GameObject currentSubjectInstance;
 
@@ -55,21 +55,25 @@ public class SubjectSpawner : MonoBehaviour
             pool[UnityEngine.Random.Range(0, pool.Length)],
             spawnPoint.position, spawnPoint.rotation);
 
-        Subject          subject   = currentSubjectInstance.GetComponent<Subject>();
-        Document         document  = currentSubjectInstance.GetComponent<Document>();
-        SubjectProcessor processor = currentSubjectInstance.GetComponent<SubjectProcessor>();
+        Subject          subject     = currentSubjectInstance.GetComponent<Subject>();
+        IDCard           document    = currentSubjectInstance.GetComponent<IDCard>();
+        Certificate      certificate = currentSubjectInstance.GetComponent<Certificate>();
+        SubjectProcessor processor   = currentSubjectInstance.GetComponent<SubjectProcessor>();
 
-        if (subject == null || document == null || processor == null)
+        if (subject == null || document == null || certificate == null || processor == null)
         {
             Debug.LogError($"SubjectSpawner: prefab '{currentSubjectInstance.name}' is missing " +
-                           $"Subject={subject != null}, Document={document != null}, SubjectProcessor={processor != null}. " +
-                           "Add all three components to the prefab.");
+                           $"Subject={subject != null}, IDCard={document != null}, " +
+                           $"Certificate={certificate != null}, SubjectProcessor={processor != null}. " +
+                           "Add all four components to the prefab (IDCard, Certificate, Subject, SubjectProcessor).");
             Destroy(currentSubjectInstance);
             currentSubjectInstance = null;
             return;
         }
 
-        int   trueDOB = isRobot ? UnityEngine.Random.Range(3110, GameYear) : UnityEngine.Random.Range(3060, 3130);
+        int   dobYear = isRobot ? UnityEngine.Random.Range(2340, GameYear) : UnityEngine.Random.Range(2308, 2353);
+        string trueDOB = GenerateDOBString(dobYear);
+        string idNumber = UnityEngine.Random.Range(10000000, 99999999).ToString();
         float height  = isRobot ? UnityEngine.Random.Range(1.5f, 2.5f)    : UnityEngine.Random.Range(1.55f, 1.95f);
         float weight  = isRobot ? UnityEngine.Random.Range(60f, 200f)     : UnityEngine.Random.Range(50f, 110f);
         Nationality nat = AllNationalities[UnityEngine.Random.Range(0, AllNationalities.Length)];
@@ -91,6 +95,11 @@ public class SubjectSpawner : MonoBehaviour
         MedicationProduct      medDetail = default;
         SpecialSubstanceProduct subDetail = default;
 
+        // Certificate defaults match the ID card — overridden for CertificateMismatch
+        string certName     = displayName;
+        string certDOB      = trueDOB;
+        string certIdNumber = idNumber;
+
         switch (cause)
         {
             case InvalidCause.DocumentMismatch:
@@ -108,6 +117,17 @@ public class SubjectSpawner : MonoBehaviour
 
             case InvalidCause.DisapprovedCyberware:
                 cyberwareList.Add(GenerateCyberware(approved: false));
+                break;
+
+            case InvalidCause.CertificateMismatch:
+                switch (UnityEngine.Random.Range(0, 3))
+                {
+                    case 0: certName     = PickDifferentName(displayName); break;
+                    case 1: certDOB      = GenerateDOBString(isRobot
+                                              ? UnityEngine.Random.Range(2340, GameYear)
+                                              : UnityEngine.Random.Range(2308, 2353)); break;
+                    case 2: certIdNumber = UnityEngine.Random.Range(10000000, 99999999).ToString(); break;
+                }
                 break;
         }
 
@@ -134,7 +154,7 @@ public class SubjectSpawner : MonoBehaviour
         subject.invalidCause    = cause;
         subject.displayName     = displayName;
         subject.purposeDialogue = dialogue;
-        subject.dateofbirth     = trueDOB;
+        subject.dateofbirth     = dobYear;
         subject.nationality     = nat;
         subject.height          = height;
         subject.weight          = weight;
@@ -143,14 +163,21 @@ public class SubjectSpawner : MonoBehaviour
 
         document._isRobot         = docIsRobot;
         document._dateofbirth     = trueDOB;
+        document.idNumber         = idNumber;
         document._nationality     = nat;
         document.isExpired        = docExpired;
         document.expiryYear       = expiryYear;
         document._declaration     = declarations;
         document.medicationDetail = medDetail;
         document.substanceDetail  = subDetail;
-        document.cyberware        = cyberwareList;
         subject.document          = document;
+
+        certificate.displayName = certName;
+        certificate.dateOfBirth = certDOB;
+        certificate.idNumber    = certIdNumber;
+        certificate.city        = nat;
+        certificate.cyberware   = cyberwareList;
+        subject.certificate     = certificate;
 
         Subject captured = subject;
         processor.MoveTo(interactionPoint.position, () => onArrived?.Invoke(captured));
@@ -161,6 +188,14 @@ public class SubjectSpawner : MonoBehaviour
         if (currentSubjectInstance == null) return;
         SubjectProcessor processor = currentSubjectInstance.GetComponent<SubjectProcessor>();
         if (processor != null) processor.LeaveAndDestroy(exitPoint.position);
+        currentSubjectInstance = null;
+    }
+
+    public void SendSubjectBack()
+    {
+        if (currentSubjectInstance == null) return;
+        SubjectProcessor processor = currentSubjectInstance.GetComponent<SubjectProcessor>();
+        if (processor != null) processor.LeaveAndDestroy(spawnPoint.position);
         currentSubjectInstance = null;
     }
 
@@ -265,12 +300,38 @@ public class SubjectSpawner : MonoBehaviour
         return new Cyberware
         {
             implantID    = GenerateImplantID(cwType),
-            installYear  = UnityEngine.Random.Range(GameYear - 30, GameYear),
+            installDate  = GenerateInstallDate(),
             type         = cwType,
             manufacturer = mfr,
             purpose      = purpose,
             isApproved   = approved
         };
+    }
+
+    private string PickDifferentName(string exclude)
+    {
+        if (DialogueLibrary.Names.Length <= 1) return exclude;
+        string result;
+        do { result = DialogueLibrary.Names[UnityEngine.Random.Range(0, DialogueLibrary.Names.Length)]; }
+        while (result == exclude);
+        return result;
+    }
+
+    private static readonly string[] MonthAbbr = { "JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC" };
+
+    private string GenerateDOBString(int year)
+    {
+        int day   = UnityEngine.Random.Range(1, 29);
+        int month = UnityEngine.Random.Range(1, 13);
+        return $"{day:D2} {MonthAbbr[month - 1]} {year}";
+    }
+
+    private string GenerateInstallDate()
+    {
+        int year  = UnityEngine.Random.Range(GameYear - 20, GameYear);
+        int month = UnityEngine.Random.Range(1, 13);
+        int day   = UnityEngine.Random.Range(1, 29);
+        return $"{day:D2}/{month:D2}/{year}";
     }
 
     private string GenerateImplantID(CyberwareType type)

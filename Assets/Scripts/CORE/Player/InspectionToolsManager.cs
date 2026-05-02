@@ -110,16 +110,13 @@ public class InspectionToolsManager : MonoBehaviour
         if (tabletItemsText != null)
         {
             StringBuilder sb = new();
-            if (s.document != null)
-            {
-                if (s.document.cyberware != null)
-                    foreach (var cw in s.document.cyberware)
-                        sb.AppendLine($"• {cw.type}  [{cw.manufacturer}]");
+            if (s.certificate != null && s.certificate.cyberware != null)
+                foreach (var cw in s.certificate.cyberware)
+                    sb.AppendLine($"• {cw.type}  [{cw.manufacturer}]");
 
-                if (s.document._declaration != null)
-                    foreach (var d in s.document._declaration)
-                        sb.AppendLine($"• {d}");
-            }
+            if (s.document != null && s.document._declaration != null)
+                foreach (var d in s.document._declaration)
+                    sb.AppendLine($"• {d}");
             tabletItemsText.text = sb.Length > 0 ? sb.ToString().TrimEnd() : "Nothing detected.";
         }
     }

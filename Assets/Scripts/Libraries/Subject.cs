@@ -10,7 +10,8 @@ public class Subject : MonoBehaviour
     public float bionicPercent;
     public float metalPercent;
 
-    public Document document;
+    public IDCard document;
+    public Certificate certificate;
 
     public string displayName;
     public string purposeDialogue;

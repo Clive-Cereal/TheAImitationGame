@@ -33,7 +33,8 @@ public static class DayProgressionLibrary
         InvalidCause.DocumentMismatch,
         InvalidCause.ExpiredDocument,
         InvalidCause.ProhibitedItem,
-        InvalidCause.DisapprovedCyberware
+        InvalidCause.DisapprovedCyberware,
+        InvalidCause.CertificateMismatch
     };
 
     // Index 0 = Day 1.

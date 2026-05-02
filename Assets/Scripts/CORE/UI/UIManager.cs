@@ -17,14 +17,23 @@ public class UIManager : MonoBehaviour
     [Header("Review Panel Root")]
     [SerializeField] private GameObject reviewPanel;
 
-    [Header("Document Section")]
-    [SerializeField] private GameObject documentSection;
-    [SerializeField] private TMP_Text documentTypeText;
-    [SerializeField] private TMP_Text documentDOBText;
-    [SerializeField] private TMP_Text documentNatText;
-    [SerializeField] private TMP_Text documentDeclText;
-    [SerializeField] private TMP_Text documentExpiryText;
-    [SerializeField] private TMP_Text documentCyberwareText;
+    [Header("ID Card Section")]
+    [SerializeField] private GameObject idCardSection;
+    [SerializeField] private TMP_Text idCardNameText;
+    [SerializeField] private TMP_Text idCardNumberText;
+    [SerializeField] private TMP_Text idCardDOBText;
+    [SerializeField] private TMP_Text idCardCityText;
+    [SerializeField] private TMP_Text idCardExpiryText;
+
+    [Header("Certificate Section (ARC)")]
+    [SerializeField] private GameObject certificateSection;
+    [SerializeField] private TMP_Text certNameText;
+    [SerializeField] private TMP_Text certDOBText;
+    [SerializeField] private TMP_Text certIdText;
+    [SerializeField] private TMP_Text certCityText;
+    [SerializeField] private TMP_Text certExpiryText;
+    [SerializeField] private TMP_Text certDeclText;
+    [SerializeField] private TMP_Text certCyberwareText;
 
 [Header("HUD")]
     [SerializeField] private TMP_Text warningText;
@@ -40,10 +49,12 @@ public class UIManager : MonoBehaviour
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
 
         dialoguePanel.SetActive(false);
         reviewPanel.SetActive(false);
         pauseMenu.SetActive(false);
+        if (certificateSection != null) certificateSection.SetActive(false);
 
 }
 
@@ -53,7 +64,7 @@ public class UIManager : MonoBehaviour
 
     public void ToggleDocuments()
     {
-        documentSection.SetActive(!documentSection.activeSelf);
+        idCardSection.SetActive(!idCardSection.activeSelf);
     }
 
     // THIS MAKES DIALOGUE-------------------------------------------------------------------------
@@ -84,58 +95,73 @@ public class UIManager : MonoBehaviour
     {
         ShowDialogue(s.displayName, s.purposeDialogue, "What is the purpose of your visit?");
 
-        Document doc = s.document;
+        // ── ID Card ──
+        IDCard doc = s.document;
+        idCardNameText.text   = $"NAME: {s.displayName}";
+        idCardNumberText.text = $"ID NO: {doc.idNumber}";
+        idCardDOBText.text    = $"DOB: {doc._dateofbirth}";
+        idCardCityText.text   = $"CITY: {NatToCity(doc._nationality)}";
 
-        documentTypeText.text = doc._isRobot ? "Type: ROBOT" : "Type: HUMAN";
-        documentDOBText.text  = $"Date of Birth: {doc._dateofbirth}";
-        documentNatText.text  = $"Nationality: {doc._nationality}";
+        idCardExpiryText.text = doc.isExpired
+            ? $"<color=red>EXPIRES ON: {doc.expiryYear}  [EXPIRED]</color>"
+            : $"EXPIRES ON: {doc.expiryYear}";
 
-        if (doc._declaration != null && doc._declaration.Count > 0)
+        idCardSection.SetActive(true);
+
+        // ── Certificate (ARC) ──
+        Certificate cert = s.certificate;
+        if (cert != null)
         {
-            StringBuilder sb = new StringBuilder("Declared: ");
-            foreach (var item in doc._declaration)
+            certNameText.text = $"NAME: {cert.displayName}";
+            certDOBText.text  = $"DOB: {cert.dateOfBirth}";
+            certIdText.text   = $"ID NO: {cert.idNumber}";
+            certCityText.text   = $"CITY: {NatToCity(cert.city)}";
+            certExpiryText.text = doc.isExpired
+                ? $"<color=red>EXPIRES ON: {doc.expiryYear}  [EXPIRED]</color>"
+                : $"EXPIRES ON: {doc.expiryYear}";
+
+            if (certDeclText != null)
             {
-                sb.Append(item);
-                if (item == DeclarationItem.Medication)
-                    sb.Append($" ({doc.medicationDetail.name}, {doc.medicationDetail.manufacturer})");
-                else if (item == DeclarationItem.SpecialSubstance)
-                    sb.Append($" ({doc.substanceDetail.name}, {doc.substanceDetail.manufacturer})");
-                sb.Append("  ");
+                IDCard card = s.document;
+                if (card != null && card._declaration != null && card._declaration.Count > 0)
+                {
+                    StringBuilder sb = new StringBuilder("Declared: ");
+                    foreach (var item in card._declaration)
+                    {
+                        sb.Append(item);
+                        if (item == DeclarationItem.Medication)
+                            sb.Append($" ({card.medicationDetail.name}, {card.medicationDetail.manufacturer})");
+                        else if (item == DeclarationItem.SpecialSubstance)
+                            sb.Append($" ({card.substanceDetail.name}, {card.substanceDetail.manufacturer})");
+                        sb.Append("  ");
+                    }
+                    certDeclText.text = sb.ToString().TrimEnd();
+                }
+                else
+                {
+                    certDeclText.text = "Declared: Nothing";
+                }
             }
-            documentDeclText.text = sb.ToString().TrimEnd();
-        }
-        else
-        {
-            documentDeclText.text = "Declared: Nothing";
-        }
 
-        if (doc.isExpired)
-            documentExpiryText.text = $"<color=red>EXPIRED  ({doc.expiryYear})</color>";
-        else
-            documentExpiryText.text = $"Valid until: {doc.expiryYear}";
-
-        if (documentCyberwareText != null)
-        {
-            if (doc.cyberware != null && doc.cyberware.Count > 0)
+            if (cert.cyberware != null && cert.cyberware.Count > 0)
             {
                 StringBuilder cw = new();
-                foreach (var implant in doc.cyberware)
+                cw.AppendLine("IMPLANT ID      DATE        TYPE                    MANUFACTURER              PURPOSE          STATUS");
+                foreach (var implant in cert.cyberware)
                 {
-                    string status = implant.isApproved
-                        ? "APPROVED"
-                        : "<color=red>DISAPPROVED</color>";
-                    cw.AppendLine($"[{implant.implantID}]  {implant.installYear}  |  {implant.type}  |  {implant.manufacturer}");
-                    cw.AppendLine($"  Purpose: {implant.purpose}  |  {status}");
+                    string status = implant.isApproved ? "Approved" : "<color=red>Disapproved</color>";
+                    cw.AppendLine($"{implant.implantID,-15} {implant.installDate,-11} {FormatCyberwareType(implant.type),-23} {FormatManufacturer(implant.manufacturer),-25} {implant.purpose,-16} {status}");
                 }
-                documentCyberwareText.text = cw.ToString().TrimEnd();
+                certCyberwareText.text = cw.ToString().TrimEnd();
             }
             else
             {
-                documentCyberwareText.text = "Cyberware: None";
+                certCyberwareText.text = "No registered augmentations.";
             }
+
+            certificateSection.SetActive(true);
         }
 
-        documentSection.SetActive(true);
         reviewPanel.SetActive(true);
     }
 
@@ -143,7 +169,39 @@ public class UIManager : MonoBehaviour
     {
         reviewPanel.SetActive(false);
         dialoguePanel.SetActive(false);
+        if (certificateSection != null) certificateSection.SetActive(false);
     }
+
+    private static string NatToCity(Nationality n) => n switch
+    {
+        Nationality.Arder => "ARDOR",
+        Nationality.Dime  => "DIME",
+        _                 => n.ToString().ToUpper()
+    };
+
+    private static string FormatCyberwareType(CyberwareType t) => t switch
+    {
+        CyberwareType.NeuralInterface  => "Neural Interface",
+        CyberwareType.OpticalAugment   => "Optical Augment",
+        CyberwareType.LimbReplacement  => "Limb Replacement",
+        CyberwareType.CardiacRegulator => "Cardiac Regulator",
+        CyberwareType.SpinalBrace      => "Spinal Brace",
+        CyberwareType.MemoryExpansion  => "Memory Expansion",
+        CyberwareType.VoiceSynthesizer => "Voice Synthesizer",
+        CyberwareType.NeuralRelay      => "Neural Relay",
+        CyberwareType.ReflexStabilizer => "Reflex Stabilizer",
+        _                              => t.ToString()
+    };
+
+    private static string FormatManufacturer(CyberwareManufacturer m) => m switch
+    {
+        CyberwareManufacturer.SynapetchIndustries => "Synaptech Industries",
+        CyberwareManufacturer.HorcrowCorporation  => "Harcrow Corporation",
+        CyberwareManufacturer.AxiomCorp           => "Axiom Corp",
+        CyberwareManufacturer.NeuroplexSystems    => "Neuroplex Systems",
+        CyberwareManufacturer.BioForge            => "BioForge",
+        _                                         => m.ToString()
+    };
 
     // ── HUD ───────────────────────────────────────────────────────────────────
     public void UpdateTimer(float elapsed)

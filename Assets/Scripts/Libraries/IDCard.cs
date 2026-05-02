@@ -1,11 +1,12 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class Document : MonoBehaviour
+public class IDCard : MonoBehaviour
 {
     // Core identity fields
     public bool _isRobot;
-    public int _dateofbirth;
+    public string _dateofbirth;   // formatted "DD MMM YYYY"
+    public string idNumber;       // 8-digit string e.g. "09246194"
     public Nationality _nationality;
 
     // Expiry
@@ -17,6 +18,5 @@ public class Document : MonoBehaviour
     public MedicationProduct medicationDetail;      // populated when Medication is declared
     public SpecialSubstanceProduct substanceDetail; // populated when SpecialSubstance is declared
 
-    // Cyberware registry
-    public List<Cyberware> cyberware = null;
+    // Cyberware registry lives on Certificate (ARC), not the ID card
 }

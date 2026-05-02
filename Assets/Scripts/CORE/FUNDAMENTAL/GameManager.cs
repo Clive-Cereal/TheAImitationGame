@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
     public static AnyaOutcome CurrentOutcome = AnyaOutcome.None;
     public static string     NotepadContent = "";
 
+    // Game world date: Day 1 = 01 NOV 2378, Day 20 = 20 NOV 2378
+    public const int GameYear       = 2378;
+    public const int GameStartMonth = 11;   // November
+    public const int GameStartDay   = 1;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)

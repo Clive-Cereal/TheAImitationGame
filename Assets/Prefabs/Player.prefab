@@ -82,6 +82,32 @@ MonoBehaviour:
   sprintMultiplier: 1.6
   jumpHeight: 1.2
   gravity: -20
+  footstepEvent:
+    Guid:
+      Data1: -453518077
+      Data2: 1097522578
+      Data3: -532554053
+      Data4: -856878787
+    Path: event:/FootStep_Player
+  jumpEvent:
+    Guid:
+      Data1: -1331214673
+      Data2: 1243001383
+      Data3: 961391244
+      Data4: -1579898099
+    Path: event:/Jump
+  landEvent:
+    Guid:
+      Data1: -998349494
+      Data2: 1322759487
+      Data3: 108043671
+      Data4: 1130696319
+    Path: event:/Land
+  interactDistance: 5
+  interactRadius: 0.35
+  interactMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &7998567061440748693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,13 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb0aa55c5d815a4459cae835535e73ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabletPanel: {fileID: 0}
-  manualPanel: {fileID: 0}
-  notepadPanel: {fileID: 0}
-  tabletSubjectName: {fileID: 0}
-  tabletBionicText: {fileID: 0}
-  tabletMetalText: {fileID: 0}
-  tabletItemsText: {fileID: 0}
 --- !u!136 &3098501965921354052
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -164,8 +183,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3613664560239535017}
   - component: {fileID: 1555668784417022246}
-  - component: {fileID: 7203496544822178189}
   - component: {fileID: 3859753303220211880}
+  - component: {fileID: 1276413364226421516}
+  - component: {fileID: 4278454002861312499}
   m_Layer: 0
   m_Name: MainCam
   m_TagString: Untagged
@@ -221,7 +241,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 70
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -239,14 +259,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &7203496544822178189
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4961388674426191052}
-  m_Enabled: 1
 --- !u!114 &3859753303220211880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,3 +303,31 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1276413364226421516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4961388674426191052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
+--- !u!114 &4278454002861312499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4961388674426191052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}

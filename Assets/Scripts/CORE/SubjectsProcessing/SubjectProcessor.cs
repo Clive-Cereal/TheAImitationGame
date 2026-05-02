@@ -1,11 +1,17 @@
 using UnityEngine;
 using System;
+using FMODUnity;
 
 public class SubjectProcessor : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 8f;
     [SerializeField] private float arrivalThreshold = 0.05f;
+
+    [Header("Audio")]
+    [SerializeField] private EventReference footstepEvent;
+
+    private float _stepTimer;
 
     private static readonly int IsWalking = Animator.StringToHash("isWalking");
 
@@ -18,7 +24,18 @@ public class SubjectProcessor : MonoBehaviour
 
     private void Update()
     {
-        if (!isMoving) return;
+        if (!isMoving)
+        {
+            _stepTimer = 0f;
+            return;
+        }
+
+        _stepTimer -= Time.deltaTime;
+        if (_stepTimer <= 0f)
+        {
+            RuntimeManager.PlayOneShot(footstepEvent, transform.position);
+            _stepTimer = 0.5f;
+        }
 
         Vector3 direction = targetPosition - transform.position;
         float distance = direction.magnitude;
