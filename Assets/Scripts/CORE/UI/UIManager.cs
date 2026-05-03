@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Dialogue Panel")]
     [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] private Image characterPortrait;
     [SerializeField] private TMP_Text npcNameText;
     [SerializeField] private TMP_Text npcDialogueText;
     [SerializeField] private TMP_Text playerNameText;
@@ -113,10 +114,16 @@ public class UIManager : MonoBehaviour
         if (certificateSection != null) certificateSection.SetActive(show);
     }
 
-    public void ShowDialogue(string npcName, string npcLine, string playerLine = null)
+    public void ShowDialogue(string npcName, string npcLine, string playerLine = null, Sprite portrait = null)
     {
         npcNameText.text     = npcName;
         npcDialogueText.text = npcLine;
+
+        if (characterPortrait != null)
+        {
+            characterPortrait.gameObject.SetActive(portrait != null);
+            if (portrait != null) characterPortrait.sprite = portrait;
+        }
 
         bool showPlayer = playerLine != null && playerNameText != null && playerDialogueText != null;
         if (playerNameText != null)     playerNameText.gameObject.SetActive(showPlayer);
@@ -188,13 +195,13 @@ public class UIManager : MonoBehaviour
             if (cert.cyberware != null && cert.cyberware.Count > 0)
             {
                 StringBuilder cw = new();
-                cw.AppendLine("IMPLANT ID      DATE        TYPE                    MANUFACTURER              PURPOSE          STATUS");
+                cw.AppendLine("IMPLANT ID              DATE                  TYPE             MANUFACTURER     PURPOSE          STATUS");
                 foreach (var implant in cert.cyberware)
                 {
                     string status = implant.isApproved ? "Approved" : "<color=red>Disapproved</color>";
                     cw.AppendLine($"{implant.implantID,-15} {implant.installDate,-11} {FormatCyberwareType(implant.type),-23} {FormatManufacturer(implant.manufacturer),-25} {implant.purpose,-16} {status}");
                 }
-                certCyberwareText.text = cw.ToString().TrimEnd();
+                certCyberwareText.text = $"<mspace=0.55em>{cw.ToString().TrimEnd()}</mspace>";
             }
             else
             {

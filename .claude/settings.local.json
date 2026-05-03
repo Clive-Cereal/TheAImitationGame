@@ -8,7 +8,9 @@
       "Read(//c/Users/eunsa/.claude/projects/c--GitHub-TheAImitationGame-Git-TheAImitationGame/memory/**)",
       "Bash(xargs grep *)",
       "Bash(awk '{print $1}')",
-      "Bash(xargs -I{} git show {}:Assets/Scenes/02_Main.unity)"
+      "Bash(xargs -I{} git show {}:Assets/Scenes/02_Main.unity)",
+      "Bash(Get-ChildItem -Path \"c:\\\\GitHub\\\\TheAImitationGame_Git\\\\TheAImitationGame\\\\Assets\\\\Scripts\\\\\" -Recurse -File -Name | head -100)",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\GitHub\\\\TheAImitationGame_Git\\\\TheAImitationGame\\\\Assets\\\\Scripts\\\\\" -Recurse -File | Select-Object FullName | ForEach-Object { $_.FullName.Replace\\(\"c:\\\\GitHub\\\\TheAImitationGame_Git\\\\TheAImitationGame\\\\Assets\\\\Scripts\\\\\", \"\"\\) } | Sort-Object)"
     ],
     "additionalDirectories": [
       "c:\\GitHub\\TheAImitationGame_Git\\TheAImitationGame\\Assets\\Scripts\\Interactables"

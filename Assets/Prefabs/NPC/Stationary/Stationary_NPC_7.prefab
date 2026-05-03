@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8d4fc2559280d3c489766cdaa1a2e843, type: 3}
       propertyPath: m_Name
-      value: NPC_7
+      value: Stationary_NPC_7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8d4fc2559280d3c489766cdaa1a2e843, type: 3}
       propertyPath: m_TagString
@@ -116,6 +116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractable: 1
+  npcId: 
   mode: 0
   npcName: 
+  portrait: {fileID: 21300000, guid: 834b745ea8505b142b9ae6a1809ca60c, type: 3}
   lines: []

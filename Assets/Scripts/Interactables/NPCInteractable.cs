@@ -14,6 +14,8 @@ public class NPCInteractable : Interactable
     [Header("Dialogue Settings")]
     [Tooltip("Fallback speaker name if a line's speaker field is blank. Leave blank to use Subject.displayName or the GameObject name.")]
     [SerializeField] private string npcName;
+    [Tooltip("Portrait shown in the dialogue panel for this NPC. Individual lines can override this.")]
+    [SerializeField] public Sprite portrait;
     [Tooltip("Lines cycled on each interact. Each entry has its own speaker. In SubjectReview mode, review triggers after the last line (or immediately if empty).")]
     [SerializeField] private DialogueLine[] lines;
 
@@ -86,7 +88,9 @@ public class NPCInteractable : Interactable
                        : _subject != null                          ? _subject.displayName
                        : gameObject.name;
 
+        Sprite linePortrait = line.portrait != null ? line.portrait : portrait;
+
         if (_anim != null) _anim.SetBool(IsTalking, true);
-        UIManager.Instance.ShowDialogue(speaker, line.text);
+        UIManager.Instance.ShowDialogue(speaker, line.text, portrait: linePortrait);
     }
 }

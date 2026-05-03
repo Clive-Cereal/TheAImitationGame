@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadMenuScene()
     {
+        Time.timeScale = 1f;
         SceneLoader("01_Menu", GameState.Menu);
     }
 
