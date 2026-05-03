@@ -15,7 +15,11 @@ public class NPCInteractable : Interactable
     [Tooltip("Fallback speaker name if a line's speaker field is blank. Leave blank to use Subject.displayName or the GameObject name.")]
     [SerializeField] private string npcName;
     [Tooltip("Portrait shown in the dialogue panel for this NPC. Individual lines can override this.")]
+    
     [SerializeField] public Sprite portrait;
+
+    [Tooltip("Portrait size used by external UI systems. This script does not apply the size directly.")]
+    [SerializeField] public Vector2 portraitSize = new Vector2(100f, 100f);
     [Tooltip("Lines cycled on each interact. Each entry has its own speaker. In SubjectReview mode, review triggers after the last line (or immediately if empty).")]
     [SerializeField] private DialogueLine[] lines;
 
