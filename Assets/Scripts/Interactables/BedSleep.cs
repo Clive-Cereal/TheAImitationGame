@@ -1,3 +1,5 @@
+using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class BedSleep : Interactable
@@ -34,8 +36,11 @@ public class BedSleep : Interactable
     }
 
     private void ApplySleepResult()
-    {
+    {   
         GameManager.Days++;
+
+
+        
 
         if (GameManager.Instance != null)
         {
