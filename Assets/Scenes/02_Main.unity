@@ -42500,11 +42500,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1647776631058406908, guid: 5c4e0ca598bf7814386310d2efd8fcfc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -284.2
+      value: -320
       objectReference: {fileID: 0}
     - target: {fileID: 2092615959760233913, guid: 5c4e0ca598bf7814386310d2efd8fcfc, type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 2705677848391619249, guid: 5c4e0ca598bf7814386310d2efd8fcfc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4151192428357441070, guid: 5c4e0ca598bf7814386310d2efd8fcfc, type: 3}
       propertyPath: m_SizeDelta.x
