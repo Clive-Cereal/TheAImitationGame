@@ -42459,12 +42459,36 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 754158007373484528, guid: 5c4e0ca598bf7814386310d2efd8fcfc, type: 3}
+      propertyPath: m_text
+      value: IMPLANT ID  DATE   TYPE  MANUFACTURER  PURPOSE    STATUS
+      objectReference: {fileID: 0}
+    - target: {fileID: 754158007373484528, guid: 5c4e0ca598bf7814386310d2efd8fcfc, type: 3}
       propertyPath: m_fontSize
-      value: 27
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 754158007373484528, guid: 5c4e0ca598bf7814386310d2efd8fcfc, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 754158007373484528, guid: 5c4e0ca598bf7814386310d2efd8fcfc, type: 3}
+      propertyPath: m_lineSpacing
+      value: 271.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 754158007373484528, guid: 5c4e0ca598bf7814386310d2efd8fcfc, type: 3}
+      propertyPath: m_wordSpacing
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 754158007373484528, guid: 5c4e0ca598bf7814386310d2efd8fcfc, type: 3}
       propertyPath: m_fontSizeBase
-      value: 27
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 754158007373484528, guid: 5c4e0ca598bf7814386310d2efd8fcfc, type: 3}
+      propertyPath: m_characterSpacing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 754158007373484528, guid: 5c4e0ca598bf7814386310d2efd8fcfc, type: 3}
+      propertyPath: m_paragraphSpacing
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1496982409000655133, guid: 5c4e0ca598bf7814386310d2efd8fcfc, type: 3}
       propertyPath: m_Camera
@@ -42483,16 +42507,24 @@ PrefabInstance:
       value: HUD
       objectReference: {fileID: 0}
     - target: {fileID: 4151192428357441070, guid: 5c4e0ca598bf7814386310d2efd8fcfc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1633
+      objectReference: {fileID: 0}
+    - target: {fileID: 4151192428357441070, guid: 5c4e0ca598bf7814386310d2efd8fcfc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4151192428357441070, guid: 5c4e0ca598bf7814386310d2efd8fcfc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 135
+      value: 182
       objectReference: {fileID: 0}
     - target: {fileID: 4151192428357441070, guid: 5c4e0ca598bf7814386310d2efd8fcfc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -170
+      value: -281.2
       objectReference: {fileID: 0}
     - target: {fileID: 4158159093019734069, guid: 5c4e0ca598bf7814386310d2efd8fcfc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4295793840072449230, guid: 5c4e0ca598bf7814386310d2efd8fcfc, type: 3}
       propertyPath: m_fontSize
