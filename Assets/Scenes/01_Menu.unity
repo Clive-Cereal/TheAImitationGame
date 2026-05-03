@@ -556,14 +556,14 @@ MonoBehaviour:
   m_text: 'A game made by:
 
 
-    Nick
+    Ziyi Hua
 
-    Clive
+    Clive San Eun
 
     Sara Dabrowska
 
-    Ou Yang
-    Chen Hao'
+    Ou
+    Yang Chen Hao'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 41686262cc4eb2b4f890175bc0bd6950, type: 2}
   m_sharedMaterial: {fileID: -9200556475479314586, guid: 41686262cc4eb2b4f890175bc0bd6950, type: 2}
