@@ -22,6 +22,7 @@ public class DayManager : MonoBehaviour
 
     public DayState CurrentDayState { get; private set; } = DayState.Idle;
     public bool CanLeaveOffice { get; private set; } = false;
+    public bool IsGameOver      { get; private set; } = false;
     private int warnings;
     private float dayTimer;
     private int subjectsProcessed;
@@ -257,6 +258,7 @@ public class DayManager : MonoBehaviour
     public void TriggerGameOver()
     {
         CurrentDayState = DayState.Idle;
+        IsGameOver      = true;
         UIManager.Instance.HidePanel();
         if (reviewPuzzle != null) reviewPuzzle.ForceClose();
         spawner.DestroyCurrentSubject();

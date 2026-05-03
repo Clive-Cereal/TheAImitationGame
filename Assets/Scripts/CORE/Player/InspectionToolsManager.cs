@@ -20,7 +20,7 @@ public class InspectionToolsManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this) { Destroy(this); return; }
+        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
 
         tabletPanel  = FindIncludingInactive("Tablet");
@@ -87,9 +87,9 @@ public class InspectionToolsManager : MonoBehaviour
         if (target == null) return;
         bool next = !target.activeSelf;
 
-        tabletPanel.SetActive(false);
-        manualPanel.SetActive(false);
-        notepadPanel.SetActive(false);
+        if (tabletPanel  != null) tabletPanel.SetActive(false);
+        if (manualPanel  != null) manualPanel.SetActive(false);
+        if (notepadPanel != null) notepadPanel.SetActive(false);
         target.SetActive(next);
 
         bool anyOpen    = tabletPanel.activeSelf || manualPanel.activeSelf || notepadPanel.activeSelf;

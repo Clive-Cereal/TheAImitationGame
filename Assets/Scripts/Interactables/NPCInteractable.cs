@@ -63,6 +63,14 @@ public class NPCInteractable : Interactable
         ShowLine();
     }
 
+    public override void OnFocusLost()
+    {
+        if (_lineIndex < 0) return;
+        _lineIndex = -1;
+        if (_anim != null) _anim.SetBool(IsTalking, false);
+        UIManager.Instance?.HideDialogue();
+    }
+
     public void SetLines(DialogueLine[] newLines)
     {
         lines = newLines;

@@ -12,4 +12,6 @@ public abstract class Interactable : MonoBehaviour
     }
 
     protected abstract void Interact();
+
+    public virtual void OnFocusLost() { }
 }

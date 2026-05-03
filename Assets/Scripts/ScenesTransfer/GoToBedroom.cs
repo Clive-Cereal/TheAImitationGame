@@ -12,6 +12,9 @@ public class GoToBedroom : Interactable
 
     protected override void Interact()
     {
-        SceneManager.LoadScene(targetSceneName);
+        if (GameManager.Instance != null)
+            GameManager.Instance.SceneLoader(targetSceneName, GameState.Playing);
+        else
+            SceneManager.LoadScene(targetSceneName);
     }
 }

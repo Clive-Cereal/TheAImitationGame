@@ -10,7 +10,7 @@ public class HouseDoor : Interactable
         if (state != DayState.DayEnded) return;
         string next = GameManager.currentGameMode == GameMode.Endless
             ? "04_Bedroom"
-            : "03_ParkNeighborhood";
+            : "03_ParkNeighbourhood";
         GameManager.Instance.SceneLoader(next, GameState.Playing);
     }
 

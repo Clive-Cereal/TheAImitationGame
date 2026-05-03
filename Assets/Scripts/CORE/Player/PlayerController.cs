@@ -135,6 +135,7 @@ public class PlayerController : MonoBehaviour
     if (previousInteractable != currentInteractable)
     {
         SetInteractableHighlight(previousInteractable, false);
+        previousInteractable?.OnFocusLost();
         SetInteractableHighlight(currentInteractable, true);
     }
 }

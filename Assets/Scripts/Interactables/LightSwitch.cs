@@ -24,6 +24,8 @@ public class LightSwitch : Interactable
                 return;
             }
 
+            if (DayManager.Instance.IsGameOver) return;
+
             DayManager.Instance.StartDay();
             return;
         }
@@ -39,7 +41,7 @@ public class LightSwitch : Interactable
 
     public void SetInteractable(bool value)
     {
-        isInteractable = true;
+        isInteractable = value;
     }
 
     private void ShowMessage(string message)

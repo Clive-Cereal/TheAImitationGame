@@ -6,7 +6,9 @@
       "Bash(git checkout *)",
       "Bash(findstr \"DialogueLibrary.*error\")",
       "Read(//c/Users/eunsa/.claude/projects/c--GitHub-TheAImitationGame-Git-TheAImitationGame/memory/**)",
-      "Bash(xargs grep *)"
+      "Bash(xargs grep *)",
+      "Bash(awk '{print $1}')",
+      "Bash(xargs -I{} git show {}:Assets/Scenes/02_Main.unity)"
     ],
     "additionalDirectories": [
       "c:\\GitHub\\TheAImitationGame_Git\\TheAImitationGame\\Assets\\Scripts\\Interactables"
